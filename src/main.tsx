@@ -1,14 +1,16 @@
-import ReactDOM from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { BrowserRouter as Router } from 'react-router-dom'
-import AntdGlobalCssFix from './components/AntdGlobalCssFix'
-import zhCN from 'antd/lib/locale/zh_CN'
 import 'moment/locale/zh-cn'
-import App from './App'
 import './index.css'
 import 'antd/dist/antd.variable.min.css'
-import moment from 'moment'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
+import zhCN from 'antd/lib/locale/zh_CN'
+import moment from 'moment'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import App from './App'
+import AntdGlobalCssFix from './components/AntdGlobalCssFix'
 import { jsonPost } from './utils'
 moment.locale('zh-cn')
 
@@ -30,7 +32,6 @@ const queryClient = new QueryClient({
         console.log(err)
       }
     }
-
   }
 })
 const root = ReactDOM.createRoot(document.getElementById('root')!)

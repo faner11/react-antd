@@ -1,2 +1,2 @@
-export { jsonPost, api } from './request'
 export { hexToRgb } from './color'
+export { api, jsonPost } from './request'

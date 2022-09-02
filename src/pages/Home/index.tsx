@@ -1,11 +1,13 @@
-import { FC } from 'react'
 import { PageContainer } from '@ant-design/pro-layout'
-import ProTable, { ProColumns } from '@ant-design/pro-table'
-import { getTableData } from '@/utils/table'
-import { homeApi } from '@/services/home/home.api'
+import type { ProColumns } from '@ant-design/pro-table'
+import ProTable from '@ant-design/pro-table'
+import type { FC } from 'react'
 
-const Home:FC = () => {
-  const columns:ProColumns[] = [
+import { homeApi } from '@/services/home/home.api'
+import { getTableData } from '@/utils/table'
+
+const Home: FC = () => {
+  const columns: ProColumns[] = [
     {
       title: 'name',
       dataIndex: 'name',
@@ -61,7 +63,8 @@ const Home:FC = () => {
     <PageContainer fixedHeader>
       <ProTable
         request={getTableData(homeApi.page)}
-        columns={columns} rowKey='id'
+        columns={columns}
+        rowKey="id"
       />
     </PageContainer>
   )

@@ -1,6 +1,7 @@
-import BasicLayout from '@/layouts/BasicLayout'
 import { lazy } from 'react'
-import { RouteObject } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
+
+import BasicLayout from '@/layouts/BasicLayout'
 
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
 const DashboardPage1 = lazy(() => import('@/pages/Dashboard/Page1'))
@@ -16,19 +17,25 @@ const routerConfig: RouteObject[] = [
       {
         index: true,
         element: <Home />
-      }, {
+      },
+      {
         path: '/dashboard',
-        children: [{
-          index: true,
-          element: <Dashboard />
-        }, {
-          path: 'page1',
-          element: <DashboardPage1 />
-        }]
-      }, {
+        children: [
+          {
+            index: true,
+            element: <Dashboard />
+          },
+          {
+            path: 'page1',
+            element: <DashboardPage1 />
+          }
+        ]
+      },
+      {
         path: '*',
         element: <NotFound />
-      }]
+      }
+    ]
   }
 ]
 

@@ -1,7 +1,7 @@
 import { jsonPost } from './request'
 
 export const getTableData = (url: string) => {
-  const fun = async (parmas:any) => {
+  const fun = async (parmas: any) => {
     const res = await jsonPost<any>(url, {
       json: {
         ...parmas,
