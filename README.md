@@ -36,7 +36,7 @@
 - comm 常量放于此
 - components 此项目组件放于此
 - pages 页面组件放在这里
-- services 页面逻辑抽象放
+- services 页面逻辑抽象放 1
 
 ## 最佳实践
 
