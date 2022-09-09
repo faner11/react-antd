@@ -10,7 +10,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
-import AntdGlobalCssFix from './components/AntdGlobalCssFix'
 import { jsonPost } from './utils'
 moment.locale('zh-cn')
 
@@ -45,7 +44,6 @@ root.render(
       <Router>
         <App />
       </Router>
-      <AntdGlobalCssFix />
     </ConfigProvider>
   </QueryClientProvider>
 )
