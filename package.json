@@ -1,24 +1,25 @@
 {
   "name": "vite-tm-v2",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "postinstall": "simple-git-hooks",
-    "lint": "eslint --ext .tsx,.ts,.js,jsx --fix ."
+    "format": "prettier --write --cache .",
+    "lint": "eslint --cache ."
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged --concurrent false",
     "commit-msg": "node scripts/verifyCommit.mjs $1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
     "*": [
       "prettier --write --cache --ignore-unknown"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix"
     ]
   },
   "dependencies": {

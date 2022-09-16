@@ -9,7 +9,7 @@ function App() {
   return (
     <Suspense
       fallback={
-        <div className="text-center pt-11">
+        <div className='text-center pt-11'>
           <Spin />
         </div>
       }>

@@ -1,1 +1,6 @@
-module.exports = 'prettier-config-standard'
+const prettierConfigStandard = require('prettier-config-standard')
+
+module.exports = {
+  ...prettierConfigStandard,
+  jsxSingleQuote: true
+}

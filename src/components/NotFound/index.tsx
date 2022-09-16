@@ -5,12 +5,12 @@ const Greeting = () => {
   const navigate = useNavigate()
   return (
     <Result
-      status="404"
-      title="404"
-      subTitle="页面不存在"
+      status='404'
+      title='404'
+      subTitle='页面不存在'
       extra={
         <Button
-          type="primary"
+          type='primary'
           onClick={() => {
             navigate('/')
           }}>

@@ -64,7 +64,7 @@ const Home: FC = () => {
       <ProTable
         request={getTableData(homeApi.page)}
         columns={columns}
-        rowKey="id"
+        rowKey='id'
       />
     </PageContainer>
   )

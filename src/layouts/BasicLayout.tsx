@@ -20,17 +20,17 @@ export default function BasicLayout() {
 
   return (
     <ProLayout
-      logo="https://indexed.obs.cn-east-3.myhuaweicloud.com/statics/img/suoyin-logo.svg"
-      title=""
+      logo='https://indexed.obs.cn-east-3.myhuaweicloud.com/statics/img/suoyin-logo.svg'
+      title=''
       style={{
         minHeight: '100vh'
       }}
       location={{
         pathname: location.pathname
       }}
-      layout="mix"
-      navTheme="light"
-      headerTheme="light"
+      layout='mix'
+      navTheme='light'
+      headerTheme='light'
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
       menuItemRender={(item: MenuDataItem, defaultDom: ReactNode) => {
         if (!item.path) {
@@ -45,11 +45,11 @@ export default function BasicLayout() {
       }}
       fixSiderbar
       fixedHeader
-      footerRender={() => <DefaultFooter copyright="索引科技" />}>
+      footerRender={() => <DefaultFooter copyright='索引科技' />}>
       <div style={{ minHeight: '60vh' }}>
         <Suspense
           fallback={
-            <div className="text-center pt-11">
+            <div className='text-center pt-11'>
               <Spin />
             </div>
           }>
