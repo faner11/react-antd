@@ -4,7 +4,7 @@ import 'antd/dist/antd.variable.min.css'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
-import zhCN from 'antd/lib/locale/zh_CN'
+import zhCN from 'antd/es/locale/zh_CN'
 import moment from 'moment'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'

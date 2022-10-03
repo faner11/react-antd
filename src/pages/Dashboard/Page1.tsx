@@ -2,6 +2,10 @@ import { PageContainer } from '@ant-design/pro-layout'
 import type { FC } from 'react'
 
 const Page1: FC = () => {
-  return <PageContainer>page 1</PageContainer>
+  return (
+    <PageContainer>
+      <span className='text-success'>hello page 1</span>
+    </PageContainer>
+  )
 }
 export default Page1
