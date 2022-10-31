@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import moment from 'moment'
+import { AuthProvider } from 'react-auth-kit'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -39,11 +40,13 @@ const root = ReactDOM.createRoot(document.getElementById('root')!)
  * @url https://github.com/reactwg/react-18/discussions/19
  */
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <ConfigProvider locale={zhCN}>
-      <Router>
-        <App />
-      </Router>
-    </ConfigProvider>
-  </QueryClientProvider>
+  <AuthProvider authName='_auth' authType='localstorage'>
+    <QueryClientProvider client={queryClient}>
+      <ConfigProvider locale={zhCN}>
+        <Router>
+          <App />
+        </Router>
+      </ConfigProvider>
+    </QueryClientProvider>
+  </AuthProvider>
 )

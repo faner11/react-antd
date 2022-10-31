@@ -1,35 +1,37 @@
 import { lazy } from 'react'
+import { RequireAuth } from 'react-auth-kit'
 import type { RouteObject } from 'react-router-dom'
 
 import BasicLayout from '@/layouts/BasicLayout'
 
-const Dashboard = lazy(() => import('@/pages/Dashboard'))
-const DashboardPage1 = lazy(() => import('@/pages/Dashboard/Page1'))
+import { dashboardRouters } from './pages/Dashboard/routes'
+import Login from './pages/Login'
 
 const Home = lazy(() => import('@/pages/Home'))
 const NotFound = lazy(() => import('@/components/NotFound'))
-
+/**
+ * 路由配置,多个路由配置可以合并为一个数组
+ */
 const routerConfig: RouteObject[] = [
   {
+    path: '/login',
+    element: <Login />
+  },
+  {
     path: '/',
-    element: <BasicLayout />,
+    element: (
+      <RequireAuth loginPath='/login'>
+        <BasicLayout />
+      </RequireAuth>
+    ),
     children: [
       {
         index: true,
         element: <Home />
       },
       {
-        path: '/dashboard',
-        children: [
-          {
-            index: true,
-            element: <Dashboard />
-          },
-          {
-            path: 'page1',
-            element: <DashboardPage1 />
-          }
-        ]
+        path: 'dashboard',
+        children: dashboardRouters
       },
       {
         path: '*',

@@ -37,6 +37,7 @@ specifiers:
   prettier: ^2.7.1
   prettier-config-standard: ^5.0.0
   react: ^18.2.0
+  react-auth-kit: ^2.7.0
   react-dom: ^18.2.0
   react-router-dom: ^6.4.2
   simple-git-hooks: ^2.8.1
@@ -57,6 +58,7 @@ dependencies:
   lodash-es: 4.17.21
   moment: 2.29.4
   react: 18.2.0
+  react-auth-kit: 2.7.0_7n6znr57pe5mj3ofei4orfbria
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
 
@@ -2694,6 +2696,11 @@ packages:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
     dev: true
 
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
+    dev: false
+
   /js-sdsl/4.1.5:
     resolution: {integrity: sha512-08bOAKweV2NUC1wqTtf3qZlnpOX/R2DU9ikpjOHs0H+ibQv3zpncVQg6um4uYtRtrwIX8M4Nh3ytK4HGlYAq7Q==}
     dev: true
@@ -3943,6 +3950,20 @@ packages:
       rc-util: 5.23.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-auth-kit/2.7.0_7n6znr57pe5mj3ofei4orfbria:
+    resolution: {integrity: sha512-RTWL+a6RaEEUukjzuLe8TcBrK3x00X2zFTfkbbq4tvloxD345h/FbGAPkEFFBTETxhVYGhGfVfsx7tGxL3MiKQ==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.x || ^18.x'
+      react-dom: '>=16.8.0 || ^17.x || ^18.x'
+      react-router-dom: ^6.2.0
+    dependencies:
+      js-cookie: 3.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /react-dom/18.2.0_react@18.2.0:
