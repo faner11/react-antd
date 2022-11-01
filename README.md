@@ -46,7 +46,3 @@
 - 面包屑 开箱即用
 - fetch 请求 @/utils 暴露多个请求方式常规业务请求使用`jsonPost`方法
 - react query 的 useQuery 已添加默认请求方法,参数标准为长度至少为 1 的 Array,第一位为 url，第二位为请求参数,其他为监听字段
-
-## TODO LIST
-
-- 鉴权插件化使用
