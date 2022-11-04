@@ -1,5 +1,5 @@
 import type { MenuDataItem } from '@ant-design/pro-layout'
-import ProLayout, { DefaultFooter } from '@ant-design/pro-layout'
+import ProLayout from '@ant-design/pro-layout'
 import { Spin } from 'antd'
 import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
@@ -20,8 +20,8 @@ export default function BasicLayout() {
 
   return (
     <ProLayout
-      logo='https://indexed.obs.cn-east-3.myhuaweicloud.com/statics/img/suoyin-logo.svg'
-      title=''
+      logo='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+      title='React—Antd'
       style={{
         minHeight: '100vh'
       }}
@@ -30,7 +30,7 @@ export default function BasicLayout() {
       }}
       layout='mix'
       navTheme='light'
-      headerTheme='light'
+      theme='light'
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
       menuItemRender={(item: MenuDataItem, defaultDom: ReactNode) => {
         if (!item.path) {
@@ -44,8 +44,7 @@ export default function BasicLayout() {
         }
       }}
       fixSiderbar
-      fixedHeader
-      footerRender={() => <DefaultFooter copyright='索引科技' />}>
+      fixedHeader>
       <div style={{ minHeight: '60vh' }}>
         <Suspense
           fallback={
