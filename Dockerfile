@@ -1,6 +1,6 @@
-FROM harbor.indexed.cn/library/nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 
-LABEL maintainer="yizong"
+LABEL maintainer="faner11"
 
 WORKDIR /public
 
