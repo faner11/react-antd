@@ -1,18 +1,17 @@
-import 'moment/locale/zh-cn'
 import './index.css'
-import 'antd/dist/antd.variable.min.css'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
-import moment from 'moment'
+import dayjs from 'dayjs'
+import dayjsLocal from 'dayjs/locale/zh-cn'
 import { AuthProvider } from 'react-auth-kit'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
 import { jsonPost } from './utils'
-moment.locale('zh-cn')
+dayjs.locale(dayjsLocal)
 
 const queryClient = new QueryClient({
   defaultOptions: {

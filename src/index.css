@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* TODO 兼容tailwind和antd同时使用时 svg不垂直居中问题,antd5 可删除 */
-.ant-image-preview-img {
-  display: unset;
+*,
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: theme('borderColor.DEFAULT');
 }
 
-svg {
-  vertical-align: initial;
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
