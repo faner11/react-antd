@@ -26,10 +26,10 @@
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
 - **eslint** <font style="color:red" >强制使用，禁止关闭</font>
 - [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
-- [lodash-es] ES modules 版本的 lodash
-- [formilyjs](https://formilyjs.org/zh-CN) 表单渲染器
-- [ProTable] (https://procomponents.ant.design/components/table) 基于 antd table 封装的重型 table 组件
-- [ProLayout] (https://procomponents.ant.design/components/layout) 基于 antd layout 封装的重型 layout 组件
+- [lodash-es](https://lodash.com/docs/) ES modules 版本的 lodash
+- [formilyjs](https://formilyjs.org/zh-CN) 表单渲染引擎
+- [ProTable](https://procomponents.ant.design/components/table) 基于 antd table 封装的重型 table 组件
+- [ProLayout](https://procomponents.ant.design/components/layout) 基于 antd layout 封装的重型 layout 组件
 
 ## 目录
 
