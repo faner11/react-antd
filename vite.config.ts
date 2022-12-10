@@ -1,20 +1,10 @@
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import * as path from 'path'
 import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      less: {
-        modifyVars: {
-          '@root-entry-name': 'variable'
-        },
-        javascriptEnabled: true
-      }
-    }
-  },
   resolve: {
     alias: [
       { find: /^~/, replacement: '' },
@@ -23,8 +13,5 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src')
       }
     ]
-  },
-  define: {
-    'process.env': {}
   }
 })
