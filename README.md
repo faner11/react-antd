@@ -22,7 +22,7 @@
 
 ## 其他库
 
-- [antd V4](https://ant.design/index-cn) 已预设相关配置
+- [antd V5](https://ant.design/index-cn) 已预设相关配置
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
 - **eslint** <font style="color:red" >强制使用，禁止关闭</font>
 - [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
@@ -36,7 +36,7 @@
 - comm 常量放于此
 - components 此项目组件放于此
 - pages 页面组件放在这里
-- services 页面逻辑抽象放 1
+- services 页面逻辑抽象放
 
 ## 最佳实践
 
@@ -45,4 +45,4 @@
 - 建议使用 css in js 替换 css,less,提高 css 可维护性
 - 面包屑 开箱即用
 - fetch 请求 @/utils 暴露多个请求方式常规业务请求使用`jsonPost`方法
-- react query 的 useQuery 已添加默认请求方法,参数标准为长度至少为 1 的 Array,第一位为 url，第二位为请求参数,其他为监听字段
+- react query 的 useQuery 已添加默认请求方法,参数标准为长度至少为 1 的 Array,第一位为 url，第二位为请求参数,其他为监听字段不参与传值
