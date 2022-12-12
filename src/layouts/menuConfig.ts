@@ -2,16 +2,11 @@ import { HeartOutlined, SmileOutlined } from '@ant-design/icons'
 import type { MenuDataItem } from '@ant-design/pro-layout'
 import type { ForwardRefExoticComponent } from 'react'
 
-import type { KeyDictionary } from '@/comm/comm.face'
-
-export interface IndexeMenuItem extends MenuDataItem {
-  icon: string
-}
-export const icons: KeyDictionary<ForwardRefExoticComponent<any>> = {
+export const icons: Record<string, ForwardRefExoticComponent<any>> = {
   SmileOutlined,
   HeartOutlined
 }
-const asideMenuConfig: IndexeMenuItem[] = [
+const asideMenuConfig: MenuDataItem[] = [
   {
     name: 'home',
     path: '/',

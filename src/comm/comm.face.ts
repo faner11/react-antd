@@ -10,6 +10,3 @@ export interface PageParams {
   pageNum: number
   pageSize: number
 }
-export interface KeyDictionary<TValue> {
-  [key: string]: TValue
-}

@@ -1,23 +1,25 @@
 import type { MenuDataItem } from '@ant-design/pro-layout'
 import ProLayout from '@ant-design/pro-layout'
 import { Spin } from 'antd'
+import { isEmpty } from 'lodash-es'
 import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
-import type { IndexeMenuItem } from './menuConfig'
 import { asideMenuConfig, icons } from './menuConfig'
 
-const loopMenuItem: any = (menus: IndexeMenuItem[]) =>
+const loopMenuItem: any = (menus: MenuDataItem[]) =>
   menus.map(({ icon, children, ...item }) => ({
     ...item,
-    icon: icons[icon] ? createElement(icons[icon] as any) : undefined,
+    icon:
+      typeof icon === 'string' && !isEmpty(icon)
+        ? createElement(icons[icon])
+        : undefined,
     children: children && loopMenuItem(children)
   }))
 
 export default function BasicLayout() {
   const location = useLocation()
-
   return (
     <ProLayout
       logo='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
