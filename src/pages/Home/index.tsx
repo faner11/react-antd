@@ -1,6 +1,5 @@
-import { PageContainer } from '@ant-design/pro-layout'
-import type { ProColumns } from '@ant-design/pro-table'
-import ProTable from '@ant-design/pro-table'
+import type { ProColumns } from '@ant-design/pro-components'
+import { PageContainer, ProTable } from '@ant-design/pro-components'
 import type { FC } from 'react'
 
 import { homeApi } from '@/services/home/home.api'

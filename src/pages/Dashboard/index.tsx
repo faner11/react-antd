@@ -1,4 +1,4 @@
-import { PageContainer } from '@ant-design/pro-layout'
+import { PageContainer } from '@ant-design/pro-components'
 import { Button, Typography } from 'antd'
 import produce from 'immer'
 import type { FC } from 'react'

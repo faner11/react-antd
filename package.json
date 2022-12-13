@@ -24,9 +24,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
-    "@ant-design/pro-form": "^2.4.6",
-    "@ant-design/pro-layout": "^7.3.9",
-    "@ant-design/pro-table": "^3.2.6",
+    "@ant-design/pro-components": "^2.3.46",
     "@emotion/styled": "^11.10.5",
     "@tanstack/react-query": "^4.19.1",
     "antd": "^5.0.5",

@@ -1,4 +1,4 @@
-import { PageContainer } from '@ant-design/pro-layout'
+import { PageContainer } from '@ant-design/pro-components'
 import type { FC } from 'react'
 
 const Page1: FC = () => {

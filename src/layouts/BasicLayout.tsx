@@ -1,5 +1,5 @@
-import type { MenuDataItem } from '@ant-design/pro-layout'
-import ProLayout from '@ant-design/pro-layout'
+import type { MenuDataItem } from '@ant-design/pro-components'
+import { ProLayout } from '@ant-design/pro-components'
 import { Spin } from 'antd'
 import { isEmpty } from 'lodash-es'
 import type { ReactNode } from 'react'
