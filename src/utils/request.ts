@@ -28,6 +28,8 @@ interface ResBody<T> {
  * @param options
  */
 export async function jsonPost<T>(url: string, options?: Options) {
+  console.log(11111, url)
+
   const res = await api.post(url, options).json<ResBody<T>>()
   if (res.code !== '000000') {
     message.error(res.msg || '请求错误')

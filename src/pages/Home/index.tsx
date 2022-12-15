@@ -3,7 +3,7 @@ import { PageContainer, ProTable } from '@ant-design/pro-components'
 import type { FC } from 'react'
 
 import { homeApi } from '@/services/home/home.api'
-import { getTableData } from '@/utils/table'
+import { getTableData } from '@/utils'
 
 const Home: FC = () => {
   const columns: ProColumns[] = [
