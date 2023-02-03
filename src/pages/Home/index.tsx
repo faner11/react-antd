@@ -1,7 +1,10 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
+import NiceModal from '@ebay/nice-modal-react'
+import { Button } from 'antd'
 import type { FC } from 'react'
 
+import MyAntdModal from '@/components/MyAntdModal'
 import { homeApi } from '@/services/home/home.api'
 import { getTableData } from '@/utils'
 
@@ -59,7 +62,20 @@ const Home: FC = () => {
   ]
 
   return (
-    <PageContainer fixedHeader>
+    <PageContainer
+      fixedHeader
+      extra={
+        <Button
+          type='primary'
+          onClick={() => {
+            NiceModal.show(MyAntdModal, {
+              title: '测试',
+              children: <div>测试</div>
+            })
+          }}>
+          弹窗测试
+        </Button>
+      }>
       <ProTable
         request={getTableData(homeApi.page)}
         columns={columns}

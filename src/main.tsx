@@ -1,5 +1,6 @@
 import './index.css'
 
+import NiceModal from '@ebay/nice-modal-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
@@ -41,11 +42,13 @@ const root = ReactDOM.createRoot(document.getElementById('root')!)
 root.render(
   <AuthProvider authName='_auth' authType='localstorage'>
     <QueryClientProvider client={queryClient}>
-      <ConfigProvider locale={zhCN}>
-        <Router>
-          <App />
-        </Router>
-      </ConfigProvider>
+      <NiceModal.Provider>
+        <ConfigProvider locale={zhCN}>
+          <Router>
+            <App />
+          </Router>
+        </ConfigProvider>
+      </NiceModal.Provider>
     </QueryClientProvider>
   </AuthProvider>
 )

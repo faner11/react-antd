@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/icons': ^4.8.0
   '@ant-design/pro-components': ^2.3.46
+  '@ebay/nice-modal-react': ^1.2.8
   '@emotion/styled': ^11.10.5
   '@tanstack/react-query': ^4.19.1
   '@types/lodash-es': ^4.17.6
@@ -47,6 +48,7 @@ specifiers:
 dependencies:
   '@ant-design/icons': 4.8.0_biqbaboplfbrettd7655fr4n2y
   '@ant-design/pro-components': 2.3.46_bci65rg3apfjrigpkhk4uykpx4
+  '@ebay/nice-modal-react': 1.2.8_biqbaboplfbrettd7655fr4n2y
   '@emotion/styled': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
   '@tanstack/react-query': 4.19.1_biqbaboplfbrettd7655fr4n2y
   antd: 5.0.5_biqbaboplfbrettd7655fr4n2y
@@ -491,6 +493,16 @@ packages:
   /@ctrl/tinycolor/3.5.0:
     resolution: {integrity: sha512-tlJpwF40DEQcfR/QF+wNMVyGMaO9FQp6Z1Wahj4Gk3CJQYHwA2xVG7iKDFdW6zuxZY9XWOpGcfNCTsX4McOsOg==}
     engines: {node: '>=10'}
+    dev: false
+
+  /@ebay/nice-modal-react/1.2.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-5C+9/zWsaYeDMI3HLVIg2clQzVmhepxOGeVdAWOyww2GZJ4Cl3NgzPHyO70SIkG0a4aXvUruyDnPM+jx7DzSJg==}
+    peerDependencies:
+      react: '>16.8.0'
+      react-dom: '>16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@emotion/babel-plugin/11.10.5:
