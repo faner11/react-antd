@@ -1,5 +1,6 @@
 FROM nginxinc/nginx-unprivileged:alpine
 
+EXPOSE 8080
 LABEL maintainer="faner11"
 
 WORKDIR /public
