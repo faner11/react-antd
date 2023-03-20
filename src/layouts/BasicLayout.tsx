@@ -24,9 +24,6 @@ export default function BasicLayout() {
     <ProLayout
       logo='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
       title='React—Antd'
-      style={{
-        minHeight: '100vh'
-      }}
       location={{
         pathname: location.pathname
       }}
@@ -40,11 +37,11 @@ export default function BasicLayout() {
         }
         return <Link to={item.path}>{defaultDom}</Link>
       }}
-      breadcrumbProps={{
-        itemRender: (route) => {
-          return <Link to={route.path}>{route.breadcrumbName}</Link>
-        }
-      }}
+      // breadcrumbProps={{
+      //   itemRender: (route) => {
+      //     return <Link to={route.path}>{route.breadcrumbName}</Link>
+      //   }
+      // }}
       fixSiderbar
       fixedHeader>
       <div style={{ minHeight: '60vh' }}>
