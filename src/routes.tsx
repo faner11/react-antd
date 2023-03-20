@@ -15,7 +15,7 @@ const NotFound = lazy(() => import('@/components/NotFound'))
 const routerConfig: RouteObject[] = [
   {
     path: '/login',
-    element: <Login />
+    element: <Login />,
   },
   {
     path: '/',
@@ -27,18 +27,18 @@ const routerConfig: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: 'dashboard',
-        children: dashboardRouters
+        children: dashboardRouters,
       },
       {
         path: '*',
-        element: <NotFound />
-      }
-    ]
-  }
+        element: <NotFound />,
+      },
+    ],
+  },
 ]
 
 export default routerConfig

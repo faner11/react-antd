@@ -7,7 +7,7 @@ import { useState } from 'react'
 const Dashboard: FC = () => {
   const [value, setValue] = useState({
     name: 'hello',
-    age: 18
+    age: 18,
   })
   return (
     <PageContainer>
@@ -18,7 +18,7 @@ const Dashboard: FC = () => {
           setValue(
             produce((draft) => {
               draft.age = draft.age + 1
-            })
+            }),
           )
         }}>
         {' '}

@@ -11,12 +11,12 @@ export default defineConfig({
       { find: /^~/, replacement: '' },
       {
         find: '@',
-        replacement: path.resolve(__dirname, 'src')
-      }
-    ]
+        replacement: path.resolve(__dirname, 'src'),
+      },
+    ],
   },
   test: {
     globals: true,
-    setupFiles: ['./test/setup.ts']
-  }
+    setupFiles: ['./test/setup.ts'],
+  },
 })

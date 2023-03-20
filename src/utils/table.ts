@@ -6,18 +6,18 @@ export const getTableData = (url: string) => {
       json: {
         ...parmas,
         pageNum: parmas.current,
-        current: undefined
-      }
+        current: undefined,
+      },
     })
     if (res.list != null) {
       return {
         total: res.total,
-        data: res.list
+        data: res.list,
       }
     } else {
       return {
         total: res?.length,
-        data: res
+        data: res,
       }
     }
   }

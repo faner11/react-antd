@@ -13,19 +13,19 @@ const Home: FC = () => {
     {
       title: 'name',
       dataIndex: 'name',
-      copyable: true
+      copyable: true,
     },
     {
       title: 'title',
       dataIndex: 'title',
       copyable: true,
-      ellipsis: true
+      ellipsis: true,
     },
     {
       title: 'status搜索',
       hideInTable: true,
       fieldProps: {
-        showSearch: true
+        showSearch: true,
       },
       debounceTime: 500,
       request: async () => {
@@ -33,9 +33,9 @@ const Home: FC = () => {
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
           { label: '已解决', value: 'closed' },
-          { label: '解决中', value: 'processing' }
+          { label: '解决中', value: 'processing' },
         ]
-      }
+      },
     },
     {
       title: 'status',
@@ -45,20 +45,20 @@ const Home: FC = () => {
         1: { text: '初始化', status: 'Default' },
         2: { text: '已生成', status: 'Success' },
         3: { text: '生成失败', status: 'Error' },
-        4: { text: '其他' }
-      }
+        4: { text: '其他' },
+      },
     },
     {
       title: 'price',
       dataIndex: 'price',
-      valueType: 'money'
+      valueType: 'money',
     },
     {
       title: 'image',
       dataIndex: 'image',
       valueType: 'image',
-      search: false
-    }
+      search: false,
+    },
   ]
 
   return (
@@ -70,17 +70,13 @@ const Home: FC = () => {
           onClick={() => {
             NiceModal.show(MyAntdModal, {
               title: '测试',
-              children: <div>测试</div>
+              children: <div>测试</div>,
             })
           }}>
           弹窗测试
         </Button>
       }>
-      <ProTable
-        request={getTableData(homeApi.page)}
-        columns={columns}
-        rowKey='id'
-      />
+      <ProTable request={getTableData(homeApi.page)} columns={columns} rowKey='id' />
     </PageContainer>
   )
 }

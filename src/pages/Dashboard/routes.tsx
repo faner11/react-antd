@@ -7,10 +7,10 @@ const DashboardPage1 = lazy(() => import('@/pages/Dashboard/Page1'))
 export const dashboardRouters: RouteObject[] = [
   {
     index: true,
-    element: <Dashboard />
+    element: <Dashboard />,
   },
   {
     path: 'page1',
-    element: <DashboardPage1 />
-  }
+    element: <DashboardPage1 />,
+  },
 ]

@@ -12,6 +12,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
 import { jsonPost } from './utils'
+
 dayjs.locale(dayjsLocal)
 
 const queryClient = new QueryClient({
@@ -23,16 +24,16 @@ const queryClient = new QueryClient({
       },
       queryFn: ({ queryKey }) => {
         return jsonPost(queryKey[0] as string, {
-          json: queryKey[1]
+          json: queryKey[1],
         })
-      }
+      },
     },
     mutations: {
       onError: (err) => {
         console.log(err)
-      }
-    }
-  }
+      },
+    },
+  },
 })
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 /**
@@ -50,5 +51,5 @@ root.render(
         </ConfigProvider>
       </NiceModal.Provider>
     </QueryClientProvider>
-  </AuthProvider>
+  </AuthProvider>,
 )

@@ -11,11 +11,8 @@ import { asideMenuConfig, icons } from './menuConfig'
 const loopMenuItem: any = (menus: MenuDataItem[]) =>
   menus.map(({ icon, children, ...item }) => ({
     ...item,
-    icon:
-      typeof icon === 'string' && !isEmpty(icon)
-        ? createElement(icons[icon])
-        : undefined,
-    children: children && loopMenuItem(children)
+    icon: typeof icon === 'string' && !isEmpty(icon) ? createElement(icons[icon]) : undefined,
+    children: children && loopMenuItem(children),
   }))
 
 export default function BasicLayout() {
@@ -25,7 +22,7 @@ export default function BasicLayout() {
       logo='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
       title='React—Antd'
       location={{
-        pathname: location.pathname
+        pathname: location.pathname,
       }}
       layout='mix'
       navTheme='light'

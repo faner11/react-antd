@@ -4,13 +4,13 @@ import type { ForwardRefExoticComponent } from 'react'
 
 export const icons: Record<string, ForwardRefExoticComponent<any>> = {
   SmileOutlined,
-  HeartOutlined
+  HeartOutlined,
 }
 const asideMenuConfig: MenuDataItem[] = [
   {
     name: 'home',
     path: '/',
-    icon: 'SmileOutlined'
+    icon: 'SmileOutlined',
   },
   {
     name: 'Dashboard',
@@ -20,10 +20,10 @@ const asideMenuConfig: MenuDataItem[] = [
       {
         name: 'Dashboard Page1',
         path: '/dashboard/page1',
-        icon: 'SmileOutlined'
-      }
-    ]
-  }
+        icon: 'SmileOutlined',
+      },
+    ],
+  },
 ]
 
 export { asideMenuConfig }

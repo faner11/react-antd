@@ -6,16 +6,16 @@ import ky from 'ky'
  */
 export const api = ky.extend({
   headers: {
-    Authorization: 'xxx'
+    Authorization: 'xxx',
   },
   hooks: {
     beforeError: [
       (error) => {
         message.error(error.message)
         return error
-      }
-    ]
-  }
+      },
+    ],
+  },
 })
 interface ResBody<T> {
   code: string
