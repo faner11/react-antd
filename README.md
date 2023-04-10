@@ -14,7 +14,7 @@
 ## 状态管理
 
 - [react-query](https://react-query.tanstack.com/) 接口状态管理
-- [recoiljs](https://recoiljs.org/) 本地状态管理（暂无使用场景）
+- [jotai](https://jotai.org/) 本地状态管理
 
 ## fetch 网络请求
 
@@ -35,10 +35,13 @@
 
 ## 目录
 
+- components 全局组件放于此
 - comm 常量放于此
-- components 此项目组件放于此
 - pages 页面组件放在这里
-- services 页面逻辑抽象放
+  - Home 首页
+    - components 此功能页面的组件放于此
+    - index.tsx Home 的入口文件
+    - service 页面逻辑抽象放
 
 ## 最佳实践
 
