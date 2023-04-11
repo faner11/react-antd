@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "6.5.0",
+    "useDocker": true,
+    "generators": {
+      "demo1": {
+        "generatorName": "typescript-fetch",
+        "inputSpec": "./docs/swagger.json",
+        "output": "./src/api/",
+        "additionalProperties": {
+          "supportsES6": true
+        }
+      }
+    }
+  }
+}

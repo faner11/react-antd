@@ -4,17 +4,16 @@ import NiceModal from '@ebay/nice-modal-react'
 import { Button } from 'antd'
 import type { FC } from 'react'
 
+import type { PageItem } from '@/api'
+import { HomeApi } from '@/api'
+import { BaseApiConfig } from '@/comm/baseApi.config'
 import MyAntdModal from '@/components/MyAntdModal'
-import { homeApi } from '@/services/home/home.api'
-import { getTableData } from '@/utils'
+import { transformTableData } from '@/utils'
+
+const homeApi = new HomeApi(BaseApiConfig)
 
 const Home: FC = () => {
-  const columns: ProColumns[] = [
-    {
-      title: 'name',
-      dataIndex: 'name',
-      copyable: true,
-    },
+  const columns: ProColumns<PageItem>[] = [
     {
       title: 'title',
       dataIndex: 'title',
@@ -76,7 +75,14 @@ const Home: FC = () => {
           弹窗测试
         </Button>
       }>
-      <ProTable request={getTableData(homeApi.page)} columns={columns} rowKey='id' />
+      <ProTable
+        request={async (params) => {
+          const res = await homeApi.getPage(params)
+          return transformTableData(res)
+        }}
+        columns={columns}
+        rowKey='id'
+      />
     </PageContainer>
   )
 }

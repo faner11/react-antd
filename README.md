@@ -16,9 +16,9 @@
 - [react-query](https://react-query.tanstack.com/) 接口状态管理
 - [jotai](https://jotai.org/) 本地状态管理
 
-## fetch 网络请求
+## fetch 接口&类型定义
 
-- [ky](https://github.com/sindresorhus/ky) 网络请求工具
+- [@openapitools/openapi-generator-cli](https://openapi-generator.tech/) OpenAPI 2.0/3.x 文档生成接口及类型定义，`pnpm run gcapi` 调用 openapitools.json 生成文档,inputSpec 可填远程地址，依赖 docker。
 
 # 表单
 

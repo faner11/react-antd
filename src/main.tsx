@@ -2,7 +2,7 @@ import './index.css'
 
 import NiceModal from '@ebay/nice-modal-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, message } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import dayjs from 'dayjs'
 import dayjsLocal from 'dayjs/locale/zh-cn'
@@ -12,7 +12,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
-import { jsonPost } from './utils'
 
 dayjs.locale(dayjsLocal)
 
@@ -21,17 +20,12 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       onError: (err) => {
-        console.log(err)
-      },
-      queryFn: ({ queryKey }) => {
-        return jsonPost(queryKey[0] as string, {
-          json: queryKey[1],
-        })
+        message.error((err as any).message)
       },
     },
     mutations: {
       onError: (err) => {
-        console.log(err)
+        message.error((err as any).message)
       },
     },
   },
