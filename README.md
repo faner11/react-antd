@@ -55,5 +55,3 @@
 - 子页面容器,Header 设置，参考 home/index.tsx PageContainer
 - 建议使用 css in js 替换 css,less,提高 css 可维护性
 - 面包屑 开箱即用
-- fetch 请求 @/utils 暴露多个请求方式常规业务请求使用`jsonPost`方法
-- react query 的 useQuery 已添加默认请求方法,参数标准为长度至少为 1 的 Array,第一位为 url，第二位为请求参数,其他为监听字段不参与传值
