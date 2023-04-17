@@ -24,6 +24,7 @@ const Dashboard: FC = () => {
       extra={[
         <Button
           key='but1'
+          loading={dataQuery.isLoading}
           onClick={() => {
             setValue(
               produce((draft) => {
