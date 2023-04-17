@@ -6,7 +6,7 @@ const DashboardPage1 = lazy(() => import('@/pages/Dashboard/Page1'))
 
 export const dashboardRouters: RouteObject[] = [
   {
-    index: true,
+    path: 'page',
     element: <Dashboard />,
   },
   {

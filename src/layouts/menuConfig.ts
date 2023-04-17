@@ -18,6 +18,11 @@ const asideMenuConfig: MenuDataItem[] = [
     icon: 'HeartOutlined',
     children: [
       {
+        name: 'Dashboard Page',
+        path: '/dashboard/page',
+        icon: 'SmileOutlined',
+      },
+      {
         name: 'Dashboard Page1',
         path: '/dashboard/page1',
         icon: 'SmileOutlined',

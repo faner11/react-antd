@@ -1,6 +1,6 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { useQuery } from '@tanstack/react-query'
-import { Button, Typography } from 'antd'
+import { Button, Card, Typography } from 'antd'
 import produce from 'immer'
 import type { FC } from 'react'
 import { useState } from 'react'
@@ -9,34 +9,40 @@ import { HomeApi } from '@/api'
 import { BaseApiConfig } from '@/comm/baseApi.config'
 
 const homeApi = new HomeApi(BaseApiConfig)
-const Dashboard: FC = () => {
-  const dataQuery = useQuery(['homeApi.getPage'], () => {
-    return homeApi.getPage({ current: 1 })
-  })
-  console.log(dataQuery)
 
+const Dashboard: FC = () => {
   const [value, setValue] = useState({
     name: 'hello',
-    age: 18,
+    current: 1,
   })
+  const dataQuery = useQuery(['homeApi.getPage', value], () => {
+    return homeApi.getPage(value)
+  })
+
   return (
-    <PageContainer>
-      <h2>Dashboard page</h2>
-      <Button
-        onClick={() => {
-          // 只给某一个属性赋值
-          setValue(
-            produce((draft) => {
-              draft.age = draft.age + 1
-            }),
+    <PageContainer
+      extra={[
+        <Button
+          key='but1'
+          onClick={() => {
+            setValue(
+              produce((draft) => {
+                draft.current = draft.current + 1
+              }),
+            )
+          }}>
+          next page
+        </Button>,
+      ]}>
+      <Card loading={dataQuery.isLoading}>
+        {dataQuery.data?.data?.map((item) => {
+          return (
+            <div key={item.id}>
+              <Typography.Text>{item.title}</Typography.Text>
+            </div>
           )
-        }}>
-        {' '}
-        add age
-      </Button>
-      <div>
-        <Typography.Text>{JSON.stringify(value)}</Typography.Text>
-      </div>
+        })}
+      </Card>
     </PageContainer>
   )
 }
