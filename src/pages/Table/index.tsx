@@ -1,7 +1,7 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
 import NiceModal from '@ebay/nice-modal-react'
-import { Button } from 'antd'
+import { Button, Popconfirm, Typography } from 'antd'
 import type { FC } from 'react'
 
 import type { PageItem } from '@/api'
@@ -12,7 +12,7 @@ import { transformTableData } from '@/utils'
 
 const homeApi = new HomeApi(BaseApiConfig)
 
-const Home: FC = () => {
+const TablePage: FC = () => {
   const columns: ProColumns<PageItem>[] = [
     {
       title: 'title',
@@ -58,6 +58,31 @@ const Home: FC = () => {
       valueType: 'image',
       search: false,
     },
+    {
+      title: 'Action',
+      key: 'action',
+      valueType: 'option',
+      render: (dom, entity, i, action) => {
+        return [
+          <Typography.Link
+            key='link1'
+            onClick={() => {
+              console.log(entity)
+            }}>
+            Edit
+          </Typography.Link>,
+          <Popconfirm
+            key='link2'
+            title='Do you want to delete this row of data?'
+            onConfirm={() => {
+              console.log('delete')
+              action?.reload()
+            }}>
+            <Typography.Link type='danger'>Delete</Typography.Link>
+          </Popconfirm>,
+        ]
+      },
+    },
   ]
 
   return (
@@ -87,4 +112,4 @@ const Home: FC = () => {
   )
 }
 
-export default Home
+export default TablePage

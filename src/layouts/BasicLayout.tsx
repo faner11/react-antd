@@ -1,5 +1,6 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
+import { FormDialog, FormDrawer } from '@formily/antd-v5'
 import { Spin } from 'antd'
 import { isEmpty } from 'lodash-es'
 import type { ReactNode } from 'react'
@@ -45,6 +46,8 @@ export default function BasicLayout() {
           }>
           <Outlet />
         </Suspense>
+        <FormDialog.Portal />
+        <FormDrawer.Portal />
       </div>
     </ProLayout>
   )

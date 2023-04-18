@@ -27,6 +27,17 @@ const asideMenuConfig: MenuDataItem[] = [
       },
     ],
   },
+  {
+    name: 'Form',
+    path: '/form',
+    icon: 'HeartOutlined',
+    children: [
+      {
+        name: 'formily',
+        path: '/form/formily',
+      },
+    ],
+  },
 ]
 
 export { asideMenuConfig }
