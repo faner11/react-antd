@@ -34,11 +34,6 @@ export default function BasicLayout() {
         }
         return <Link to={item.path}>{defaultDom}</Link>
       }}
-      // breadcrumbProps={{
-      //   itemRender: (route) => {
-      //     return <Link to={route.path}>{route.breadcrumbName}</Link>
-      //   }
-      // }}
       fixSiderbar
       fixedHeader>
       <div style={{ minHeight: '60vh' }}>

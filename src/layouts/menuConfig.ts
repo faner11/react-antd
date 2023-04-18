@@ -8,24 +8,22 @@ export const icons: Record<string, ForwardRefExoticComponent<any>> = {
 }
 const asideMenuConfig: MenuDataItem[] = [
   {
-    name: 'home',
+    name: 'Table',
     path: '/',
     icon: 'SmileOutlined',
   },
   {
-    name: 'Dashboard',
-    path: '/dashboard',
+    name: 'State',
+    path: '/state',
     icon: 'HeartOutlined',
     children: [
       {
-        name: 'Dashboard Page',
-        path: '/dashboard/page',
-        icon: 'SmileOutlined',
+        name: 'Jotai',
+        path: '/state/jotai',
       },
       {
-        name: 'Dashboard Page1',
-        path: '/dashboard/page1',
-        icon: 'SmileOutlined',
+        name: 'react-query',
+        path: '/state/react-query',
       },
     ],
   },

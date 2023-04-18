@@ -10,7 +10,7 @@ import { BaseApiConfig } from '@/comm/baseApi.config'
 
 const homeApi = new HomeApi(BaseApiConfig)
 
-const Dashboard: FC = () => {
+const ReactQueryDemo: FC = () => {
   const [value, setValue] = useState({
     name: 'hello',
     current: 1,
@@ -39,7 +39,7 @@ const Dashboard: FC = () => {
         {dataQuery.data?.data?.map((item) => {
           return (
             <div key={item.id}>
-              <Typography.Text>{item.title}</Typography.Text>
+              <Typography.Text type='secondary'>{item.title}</Typography.Text>
             </div>
           )
         })}
@@ -47,4 +47,4 @@ const Dashboard: FC = () => {
     </PageContainer>
   )
 }
-export default Dashboard
+export default ReactQueryDemo

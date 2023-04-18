@@ -35,6 +35,8 @@
     "antd": "^5.4.2",
     "dayjs": "^1.11.7",
     "immer": "^9.0.21",
+    "jotai": "^2.0.4",
+    "jotai-immer": "^0.2.0",
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-auth-kit": "^2.12.2",

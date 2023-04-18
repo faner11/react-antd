@@ -4,10 +4,10 @@ import type { RouteObject } from 'react-router-dom'
 
 import BasicLayout from '@/layouts/BasicLayout'
 
-import { dashboardRouters } from './pages/Dashboard/routes'
 import Login from './pages/Login'
+import { dashboardRouters } from './pages/State/routes'
 
-const Home = lazy(() => import('@/pages/Home'))
+const Table = lazy(() => import('@/pages/Table'))
 const NotFound = lazy(() => import('@/components/NotFound'))
 /**
  * 路由配置,多个路由配置可以合并为一个数组
@@ -27,10 +27,10 @@ const routerConfig: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Table />,
       },
       {
-        path: 'dashboard',
+        path: 'state',
         children: dashboardRouters,
       },
       {
