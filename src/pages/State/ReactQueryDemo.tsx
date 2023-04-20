@@ -1,7 +1,7 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { useQuery } from '@tanstack/react-query'
 import { Button, Card, Typography } from 'antd'
-import produce from 'immer'
+import { produce } from 'immer'
 import type { FC } from 'react'
 import { useState } from 'react'
 

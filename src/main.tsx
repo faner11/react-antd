@@ -2,7 +2,7 @@ import './index.css'
 
 import NiceModal from '@ebay/nice-modal-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ConfigProvider, message } from 'antd'
+import { App as AntdApp, ConfigProvider, message } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import dayjs from 'dayjs'
 import dayjsLocal from 'dayjs/locale/zh-cn'
@@ -38,9 +38,11 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <NiceModal.Provider>
           <ConfigProvider locale={zhCN}>
-            <Router>
-              <App />
-            </Router>
+            <AntdApp>
+              <Router>
+                <App />
+              </Router>
+            </AntdApp>
           </ConfigProvider>
         </NiceModal.Provider>
       </QueryClientProvider>
