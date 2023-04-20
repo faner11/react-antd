@@ -5,10 +5,21 @@ import { Button, Card } from 'antd'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { SchemaField } from '@/components/form'
+import { openDefDialog, SchemaField } from '@/components/form'
 
 import { schema } from './service/schema'
 
+const openDialog = () => {
+  const dialog = openDefDialog({
+    title: 'Dialog Title',
+    schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
+    onConfirm(values, form) {
+      console.log(values, form)
+      return Promise.resolve()
+    },
+  })
+  return dialog
+}
 const FormPage: FC = () => {
   const form = useMemo(() => {
     return createForm({
@@ -16,7 +27,20 @@ const FormPage: FC = () => {
     })
   }, [])
   return (
-    <PageContainer extra={[<Button key='but1'>打开弹窗</Button>]}>
+    <PageContainer
+      extra={[
+        <Button
+          key='but1'
+          onClick={() => {
+            openDialog()
+              .open()
+              .then((res) => {
+                console.log(res)
+              })
+          }}>
+          Open Modal
+        </Button>,
+      ]}>
       <Card>
         <Form
           form={form}
@@ -28,7 +52,7 @@ const FormPage: FC = () => {
           <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
           <FormButtonGroup.FormItem>
             <Submit block size='large'>
-              提交
+              Submit
             </Submit>
           </FormButtonGroup.FormItem>
         </Form>

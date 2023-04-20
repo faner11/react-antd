@@ -93,11 +93,11 @@ const TablePage: FC = () => {
           type='primary'
           onClick={() => {
             NiceModal.show(MyAntdModal, {
-              title: '测试',
-              children: <div>测试</div>,
+              title: 'Command Modal',
+              children: <div>test</div>,
             })
           }}>
-          弹窗测试
+          Command Modal
         </Button>
       }>
       <ProTable

@@ -5,14 +5,14 @@ export const schema: ISchema = {
   properties: {
     username: {
       type: 'string',
-      title: '用户名',
+      title: 'User Name',
       required: true,
       'x-decorator': 'FormItem',
       'x-component': 'Input',
     },
     name: {
       type: 'void',
-      title: '姓名',
+      title: 'name',
       'x-decorator': 'FormItem',
       'x-decorator-props': {
         asterisk: true,
@@ -26,7 +26,7 @@ export const schema: ISchema = {
           'x-decorator': 'FormItem',
           'x-component': 'Input',
           'x-component-props': {
-            placeholder: '姓',
+            placeholder: 'firstName',
           },
         },
         lastName: {
@@ -35,14 +35,14 @@ export const schema: ISchema = {
           'x-decorator': 'FormItem',
           'x-component': 'Input',
           'x-component-props': {
-            placeholder: '名',
+            placeholder: 'lastName',
           },
         },
       },
     },
     email: {
       type: 'string',
-      title: '邮箱',
+      title: 'email',
       required: true,
       'x-decorator': 'FormItem',
       'x-component': 'Input',
@@ -50,18 +50,18 @@ export const schema: ISchema = {
     },
     gender: {
       type: 'string',
-      title: '性别',
+      title: 'gender',
       enum: [
         {
-          label: '男',
+          label: 'male',
           value: 1,
         },
         {
-          label: '女',
+          label: 'female',
           value: 2,
         },
         {
-          label: '第三性别',
+          label: 'third gender',
           value: 3,
         },
       ],
@@ -71,14 +71,14 @@ export const schema: ISchema = {
     birthday: {
       type: 'string',
       required: true,
-      title: '生日',
+      title: 'birthday',
       'x-decorator': 'FormItem',
       'x-component': 'DatePicker',
     },
     contacts: {
       type: 'array',
       required: true,
-      title: '联系人信息',
+      title: 'contact information',
       'x-decorator': 'FormItem',
       'x-component': 'ArrayItems',
       items: {
@@ -156,7 +156,7 @@ export const schema: ISchema = {
       properties: {
         addition: {
           type: 'void',
-          title: '新增联系人',
+          title: 'Add',
           'x-component': 'ArrayItems.Addition',
         },
       },
