@@ -1,7 +1,9 @@
-import { lazy } from 'react'
+import { Spin } from 'antd'
+import { lazy, Suspense } from 'react'
 import { RequireAuth } from 'react-auth-kit'
 import type { RouteObject } from 'react-router-dom'
 
+// import BasicLayout from '@/layouts/BasicLayout'
 import { formRouters } from './pages/Form/routes'
 import { dashboardRouters } from './pages/State/routes'
 
@@ -21,7 +23,14 @@ const routerConfig: RouteObject[] = [
     path: '/',
     element: (
       <RequireAuth loginPath='/login'>
-        <BasicLayout />
+        <Suspense
+          fallback={
+            <div className='text-center pt-11'>
+              <Spin />
+            </div>
+          }>
+          <BasicLayout />
+        </Suspense>
       </RequireAuth>
     ),
     children: [
