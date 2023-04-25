@@ -2,12 +2,11 @@ import { lazy } from 'react'
 import { RequireAuth } from 'react-auth-kit'
 import type { RouteObject } from 'react-router-dom'
 
-import BasicLayout from '@/layouts/BasicLayout'
-
 import { formRouters } from './pages/Form/routes'
-import Login from './pages/Login'
 import { dashboardRouters } from './pages/State/routes'
 
+const BasicLayout = lazy(() => import('@/layouts/BasicLayout'))
+const Login = lazy(() => import('@/pages/Login'))
 const TablePage = lazy(() => import('@/pages/Table'))
 const NotFound = lazy(() => import('@/components/NotFound'))
 /**
