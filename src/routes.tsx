@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react'
 import { RequireAuth } from 'react-auth-kit'
 import type { RouteObject } from 'react-router-dom'
 
-// import BasicLayout from '@/layouts/BasicLayout'
 import { formRouters } from './pages/Form/routes'
 import { dashboardRouters } from './pages/State/routes'
 

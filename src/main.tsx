@@ -9,7 +9,7 @@ import dayjsLocal from 'dayjs/locale/zh-cn'
 import { StrictMode } from 'react'
 import { AuthProvider } from 'react-auth-kit'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 
@@ -35,17 +35,17 @@ const root = ReactDOM.createRoot(document.getElementById('root')!)
 root.render(
   <StrictMode>
     <AuthProvider authName='_auth' authType='localstorage'>
-      <QueryClientProvider client={queryClient}>
-        <NiceModal.Provider>
-          <ConfigProvider locale={zhCN}>
-            <AntdApp>
-              <Router>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <NiceModal.Provider>
+            <ConfigProvider locale={zhCN}>
+              <AntdApp>
                 <App />
-              </Router>
-            </AntdApp>
-          </ConfigProvider>
-        </NiceModal.Provider>
-      </QueryClientProvider>
+              </AntdApp>
+            </ConfigProvider>
+          </NiceModal.Provider>
+        </QueryClientProvider>
+      </BrowserRouter>
     </AuthProvider>
   </StrictMode>,
 )

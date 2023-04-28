@@ -101,6 +101,17 @@ const TablePage: FC = () => {
         </Button>
       }>
       <ProTable
+        toolBarRender={(action) => [
+          <Button
+            key='but1'
+            type='primary'
+            onClick={() => {
+              action?.reload()
+            }}>
+            Button 1
+          </Button>,
+          <Button key='but2'>Button 2</Button>,
+        ]}
         request={async (params) => {
           const res = await homeApi.getPage(params)
           return transformTableData(res)

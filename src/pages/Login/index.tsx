@@ -14,6 +14,10 @@ const Login = () => {
         backgroundImageUrl='https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png'
         logo='https://github.githubassets.com/images/modules/logos_page/Octocat.png'
         title='React-Antd'
+        initialValues={{
+          username: 'admin',
+          password: '123456',
+        }}
         subTitle='测试账号: admin/123456'
         onFinish={(values) => {
           const { username, password } = values

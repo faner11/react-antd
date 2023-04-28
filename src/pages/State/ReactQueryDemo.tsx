@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 import { HomeApi } from '@/api'
 import { BaseApiConfig } from '@/comm/baseApi.config'
+import { takeOffDataFun } from '@/utils'
 
 const homeApi = new HomeApi(BaseApiConfig)
 
@@ -16,9 +17,8 @@ const ReactQueryDemo: FC = () => {
     current: 1,
   })
   const dataQuery = useQuery(['homeApi.getPage', value], () => {
-    return homeApi.getPage(value)
+    return homeApi.getPage(value).then(takeOffDataFun)
   })
-
   return (
     <PageContainer
       extra={[
@@ -36,7 +36,7 @@ const ReactQueryDemo: FC = () => {
         </Button>,
       ]}>
       <Card loading={dataQuery.isLoading}>
-        {dataQuery.data?.data?.map((item) => {
+        {dataQuery.data?.map((item) => {
           return (
             <div key={item.id}>
               <Typography.Text type='secondary'>{item.title}</Typography.Text>
