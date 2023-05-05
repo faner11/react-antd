@@ -38,6 +38,11 @@ const asideMenuConfig: MenuDataItem[] = [
       },
     ],
   },
+  {
+    name: 'ECharts',
+    path: '/echarts',
+    icon: 'HeartOutlined',
+  },
 ]
 
 export { asideMenuConfig }

@@ -39,6 +39,8 @@
 - [@ant-design/pro-components](https://procomponents.ant.design/components) 基于`antd`的重型组件,包含`ProLayout`,`ProTable`等
 - [ahooks](https://ahooks.js.org/zh-CN/) react hook 是工具库
 - [nice-modal-react](@ebay/nice-modal-react) 命令式弹窗库，增加代码可读性
+- [echarts](https://github.com/apache/echarts) 开源的数据可视化库
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
 
 ## 目录
 

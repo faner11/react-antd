@@ -39,6 +39,8 @@ English ｜[简体中文](./README.zh-cn.md)
 - [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.
 - [ahooks](https://ahooks.js.org/zh-CN/) The react hook is a tool library
 - [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
+- [echarts](https://github.com/apache/echarts) An Open Source JavaScript Visualization Library
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react) Echarts 的 React 封装
 
 ## Catalog Structure
 
