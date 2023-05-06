@@ -40,7 +40,7 @@ English ｜[简体中文](./README.zh-cn.md)
 - [ahooks](https://ahooks.js.org/zh-CN/) The react hook is a tool library
 - [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
 - [echarts](https://github.com/apache/echarts) An Open Source JavaScript Visualization Library
-- [echarts-for-react](https://github.com/hustcc/echarts-for-react) Echarts 的 React 封装
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
 
 ## Catalog Structure
 
