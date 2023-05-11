@@ -19,6 +19,7 @@ const TablePage: FC = () => {
       dataIndex: 'title',
       copyable: true,
       ellipsis: true,
+      width: 200,
     },
     {
       title: 'status搜索',
