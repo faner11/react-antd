@@ -37,7 +37,7 @@ export default function BasicLayout() {
       }}
       fixSiderbar
       fixedHeader>
-      <div style={{ minHeight: '60vh' }}>
+      <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
           fallback={
             <div className='text-center pt-11'>
