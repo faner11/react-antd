@@ -1,14 +1,15 @@
 import { PageContainer } from '@ant-design/pro-components'
-import { Button, Col, Row } from 'antd'
-import { useAtom } from 'jotai'
+import { App, Button, Col, Row } from 'antd'
+import { useSetAtom } from 'jotai'
 import type { FC } from 'react'
 
-import { countObjAtom } from './atom'
+import { countObjAtom, defaultStore } from './atom'
 import Demo1 from './components/Demo1'
 import Demo2 from './components/Demo2'
 
 const JotaiDemo: FC = () => {
-  const [, setCountObj] = useAtom(countObjAtom)
+  const setCountObj = useSetAtom(countObjAtom)
+  const { message } = App.useApp()
   return (
     <PageContainer
       extra={[
@@ -20,6 +21,15 @@ const JotaiDemo: FC = () => {
             })
           }}>
           Add
+        </Button>,
+        <Button
+          key='but2'
+          onClick={() => {
+            defaultStore.set(countObjAtom, { count: defaultStore.get(countObjAtom).count + 1 })
+
+            message.info(`${defaultStore.get(countObjAtom).count}`)
+          }}>
+          Store Add
         </Button>,
       ]}>
       <Row>
