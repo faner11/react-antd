@@ -1,2 +1,2 @@
 export { transformTableData } from './table'
-export { takeOffDataFun } from './takeOffDataFun'
+export { sleep, takeOffDataFun } from './takeOffDataFun'
