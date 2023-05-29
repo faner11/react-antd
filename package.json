@@ -82,6 +82,7 @@
     "picocolors": "^1.0.0",
     "prettier": "^2.8.8",
     "prettier-config-standard": "^5.0.0",
+    "rollup-plugin-visualizer": "^5.9.0",
     "simple-git-hooks": "^2.8.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4",
