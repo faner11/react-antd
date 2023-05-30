@@ -40,7 +40,8 @@
 - [ahooks](https://ahooks.js.org/zh-CN/) react hook 是工具库
 - [nice-modal-react](@ebay/nice-modal-react) 命令式弹窗库，增加代码可读性
 - [echarts](https://github.com/apache/echarts) 开源的数据可视化库
-- [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts React 包装库
+- [nanoid](https://github.com/ai/nanoid) 一个微小的（130 字节）、安全的、URL 友好的、唯一的字符串 ID 生成器，用于 JavaScrip
 
 ## 目录
 
@@ -55,7 +56,7 @@
 
 ## 推荐
 
-- table + 查询 form 参考 home/index.tsx demo
+- table + 查询 form 参考 table/index.tsx demo
 - 子页面容器,Header 设置，参考 home/index.tsx PageContainer
 - 建议使用 css in js 替换 css,less,提高 css 可维护性
 - 面包屑 开箱即用

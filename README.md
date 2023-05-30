@@ -41,6 +41,7 @@ English ｜[简体中文](./README.zh-cn.md)
 - [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
 - [echarts](https://github.com/apache/echarts) An Open Source JavaScript Visualization Library
 - [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
+- [nanoid](https://github.com/ai/nanoid) A tiny (130 bytes), secure, URL-friendly, unique string ID generator for JavaScript
 
 ## Catalog Structure
 
@@ -55,7 +56,7 @@ English ｜[简体中文](./README.zh-cn.md)
 
 ## Recommend
 
-- table + query form refer to home/index.tsx demo
+- table + query form refer to table/index.tsx demo
 - Subpage container,Header settings,refer to home/index.tsx PageContainer
 - Suggest using css in js to replace css,less,improve css maintainability
 - breadcrumbs out of the box

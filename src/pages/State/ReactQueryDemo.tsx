@@ -16,9 +16,15 @@ const ReactQueryDemo: FC = () => {
     name: 'hello',
     current: 1,
   })
-  const dataQuery = useQuery(['homeApi.getPage', value], () => {
-    return homeApi.getPage(value).then(takeOffDataFun)
+
+  const dataQuery = useQuery({
+    queryKey: ['HunBo4R11V16LmheHmTGZ', value],
+    queryFn: async () => {
+      const obj = await homeApi.getPage(value)
+      return takeOffDataFun(obj)
+    },
   })
+
   return (
     <PageContainer
       extra={[
