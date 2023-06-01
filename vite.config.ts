@@ -1,33 +1,23 @@
-import react from '@vitejs/plugin-react'
-import * as path from 'path'
+/// <reference types="vitest" />
+import react from '@vitejs/plugin-react-swc'
+// import { visualizer } from 'rollup-plugin-visualizer'
+import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
-import ignoreStylePlugin from 'vite-ignore-style'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    ignoreStylePlugin({
-      libraryName: 'antd'
-    })
-  ],
-  css: {
-    preprocessorOptions: {
-      less: {
-        modifyVars: {
-          '@root-entry-name': 'variable'
-        },
-        javascriptEnabled: true
-      }
-    }
-  },
+  plugins: [react()],
   resolve: {
     alias: [
-      { find: /^~/, replacement: '' },
+      // { find: /^~/, replacement: '' },
       {
         find: '@',
-        replacement: path.resolve(__dirname, 'src')
-      }
-    ]
-  }
+        replacement: fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    ],
+  },
+  test: {
+    globals: true,
+    setupFiles: ['./test/setup.ts'],
+  },
 })

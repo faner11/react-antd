@@ -1,49 +1,51 @@
-import 'moment/locale/zh-cn'
 import './index.css'
-import 'antd/dist/antd.variable.min.css'
 
+import NiceModal from '@ebay/nice-modal-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ConfigProvider } from 'antd'
+import { App as AntdApp, ConfigProvider, message } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
-import moment from 'moment'
+import dayjs from 'dayjs'
+import dayjsLocal from 'dayjs/locale/zh-cn'
+import { StrictMode } from 'react'
+import { AuthProvider } from 'react-auth-kit'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
-import { jsonPost } from './utils'
-moment.locale('zh-cn')
+
+dayjs.locale(dayjsLocal)
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
       onError: (err) => {
-        console.log(err)
+        message.error((err as any).message)
       },
-      queryFn: ({ queryKey }) => {
-        return jsonPost(queryKey[0] as string, {
-          json: queryKey[1]
-        })
-      }
     },
     mutations: {
       onError: (err) => {
-        console.log(err)
-      }
-    }
-  }
+        message.error((err as any).message)
+      },
+    },
+  },
 })
 const root = ReactDOM.createRoot(document.getElementById('root')!)
-/**
- * // TODO 暂时关闭 StrictMode 严格模式，等社区有简单的解决方案再开启
- * @url https://github.com/reactwg/react-18/discussions/19
- */
+
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <ConfigProvider locale={zhCN}>
-      <Router>
-        <App />
-      </Router>
-    </ConfigProvider>
-  </QueryClientProvider>
+  <StrictMode>
+    <AuthProvider authName='_auth' authType='localstorage'>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <NiceModal.Provider>
+            <ConfigProvider locale={zhCN}>
+              <AntdApp>
+                <App />
+              </AntdApp>
+            </ConfigProvider>
+          </NiceModal.Provider>
+        </QueryClientProvider>
+      </BrowserRouter>
+    </AuthProvider>
+  </StrictMode>,
 )

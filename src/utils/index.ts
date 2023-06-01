@@ -1,2 +1,2 @@
-export { hexToRgb } from './color'
-export { api, jsonPost } from './request'
+export { transformTableData } from './table'
+export { sleep, takeOffDataFun } from './takeOffDataFun'

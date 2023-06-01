@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/page": {
+      "get": {
+        "operationId": "getPage",
+        "summary": "获取分页信息",
+        "parameters": [
+          {
+            "name": "current",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pageSize",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/PageItem"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": ["home"]
+      }
+    }
+  },
+  "info": {
+    "title": "Cats example",
+    "description": "The cats API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Page": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "type": "number"
+          },
+          "pageSize": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["current", "pageSize", "total", "data"]
+      },
+      "PageItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "descript": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "status": {
+            "type": "number",
+            "enum": [1, 2, 3, 5]
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "required": ["id", "title", "descript", "image", "status", "price"]
+      }
+    }
+  }
+}

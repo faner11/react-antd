@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -10,15 +10,17 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'standard',
     'standard-jsx',
-    'plugin:prettier/recommended'
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
@@ -26,8 +28,11 @@ module.exports = {
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
+    'import/newline-after-import': ['error', { count: 1 }],
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
-  ignorePatterns: ['dist']
+  ignorePatterns: ['dist'],
 }

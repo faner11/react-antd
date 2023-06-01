@@ -1,52 +1,62 @@
-# 开发须知
+English ｜[简体中文](./README.zh-cn.md)
 
-## 构建
+# Development Notes
 
-- [pnpm](https://pnpm.io/zh/) 包管理工具
-- [vite](https://vitejs.dev/) 构建工具
-- typescript 默认开发语言
+## Basic
 
-## CSS 管理
+- [pnpm](https://pnpm.io/zh/) Package Management Tools
+- [vite](https://vitejs.dev/) Build Tools
+- `typescript` Default development language
 
-- [tailwindcss](https://tailwindcss.com/) 原子化 css 工具库，建议使用`tailwindcss` + `css in js`方案，<font style="color:red" >放弃 less，sass 之类预处理工具</font>。
+## CSS
+
+- [tailwindcss](https://tailwindcss.com/) Atomic css tool library，Recommended use`tailwindcss` + `css in js` programs，<font style="color:red" >Abandon preprocessing tools like less, sass, etc.</font>。
 - [emotion](https://emotion.sh/docs/introduction) css in js
 
-## 状态管理
+## Status Management
 
-- [react-query](https://react-query.tanstack.com/) 接口状态管理
-- [recoiljs](https://recoiljs.org/) 本地状态管理（暂无使用场景）
+- [react-query](https://react-query.tanstack.com/) Interface Status Management
+- [jotai](https://jotai.org/) Local Status Management
 
-## fetch 网络请求
+## fetch Interface & Type Definition
 
-- [ky](https://github.com/sindresorhus/ky) 网络请求工具
+- [@openapitools/openapi-generator-cli](https://openapi-generator.tech/) OpenAPI 2.0/3.x documentation generation interface and type definition, `pnpm run gcapi` calls openapitools.json to generate documentation, inputSpec can be filled with remote addresses, depend on docker。
 
-## 其他库
+# Form
 
-- [antd V4](https://ant.design/index-cn) 已预设相关配置
-- [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
-- **eslint** <font style="color:red" >强制使用，禁止关闭</font>
-- [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
-- [lodash-es] ES modules 版本的 lodash
-- [formilyjs](https://formilyjs.org/zh-CN) 表单渲染器
-- [ProTable] (https://procomponents.ant.design/components/table) 基于 antd table 封装的重型 table 组件
-- [ProLayout] (https://procomponents.ant.design/components/layout) 基于 antd layout 封装的重型 layout 组件
+- [formilyjs](https://formilyjs.org/zh-CN) Form rendering engine, `antd` projects are recommended to use
+- [react-hook-form](https://react-hook-form.com/) React Hooks-based form library, recommended for `mui` projects
+- [react-hook-form-mui](https://github.com/dohomi/react-hook-form-mui) Form component library based on `react-hook-form` and `mui`
+- [yup](https://github.com/jquense/yup) Validation builder for custom form validation
 
-## 目录
+## Other libraries
 
-- comm 常量放于此
-- components 此项目组件放于此
-- pages 页面组件放在这里
-- services 页面逻辑抽象放 1
+- [antd V5](https://ant.design/index-cn)
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start) v6
+- **eslint** <font style="color:red" >Forced use, forbidden to close</font>
+- [classnames](https://github.com/JedWatson/classnames) css class name link combination
+- [lodash-es](https://lodash.com/docs/) ES modules version of lodash
+- [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.
+- [ahooks](https://ahooks.js.org/zh-CN/) The react hook is a tool library
+- [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
+- [echarts](https://github.com/apache/echarts) An Open Source JavaScript Visualization Library
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
+- [nanoid](https://github.com/ai/nanoid) A tiny (130 bytes), secure, URL-friendly, unique string ID generator for JavaScript
 
-## 最佳实践
+## Catalog Structure
 
-- table + 查询 form 参考 home/index.tsx demo
-- 子页面容器,Header 设置，参考 home/index.tsx PageContainer
-- styled-components 建议使用 css in js 替换 css,less,提高 css 可维护性
-- 面包屑 开箱即用
-- fetch 请求 @/utils 暴露多个请求方式常规业务请求使用`jsonPost`方法
-- react query 的 useQuery 已添加默认请求方法,参数标准为长度至少为 1 的 Array,第一位为 url，第二位为请求参数,其他为监听字段
+- components Global components go here
+- comm constants go here
+- pages Page components are placed here
+  - Home Home
+    - assets Resources related to this feature
+    - components Components for this feature page are placed here
+    - index.tsx The entry file for Home
+    - service The page logic abstraction is placed here
 
-## TODO LIST
+## Recommend
 
-- 鉴权插件化使用
+- table + query form refer to table/index.tsx demo
+- Subpage container,Header settings,refer to home/index.tsx PageContainer
+- Suggest using css in js to replace css,less,improve css maintainability
+- breadcrumbs out of the box
