@@ -1,4 +1,4 @@
-export const transformTableData = (data: Array<any> | any) => {
+export const transformTableData = (data: any[] | any) => {
   if (Array.isArray(data)) {
     return {
       data,

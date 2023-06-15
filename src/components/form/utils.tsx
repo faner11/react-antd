@@ -18,7 +18,7 @@ export const openDefDialog = (props: IProps) => {
   }).forConfirm((form, next) => {
     onConfirm(form.values, form)
       .then(() => {
-        message.success('Operation succeeded')
+        void message.success('Operation succeeded')
         next()
       })
       .catch(() => {
@@ -36,7 +36,7 @@ interface IDrawer {
   PortalId?: string
 }
 export const openFormDrawer = (props: IDrawer) => {
-  const { title, formRender, onOk, okText = 'OK', onClose, disabled, PortalId = 'form-drawer' } = props
+  const { title, formRender, onOk, okText = 'OK', onClose, disabled = false, PortalId = 'form-drawer' } = props
   const drawer = FormDrawer(Object.assign({}, title, { maskClosable: true, onClose }), PortalId, (form) => {
     return (
       <>
@@ -46,9 +46,10 @@ export const openFormDrawer = (props: IDrawer) => {
             {!disabled && <Submit onSubmit={onOk}>{okText}</Submit>}
             <Button
               onClick={() => {
-                onClose && onClose()
+                onClose?.()
                 drawer.close()
-              }}>
+              }}
+            >
               cancel
             </Button>
           </FormButtonGroup>

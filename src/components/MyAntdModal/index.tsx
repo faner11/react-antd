@@ -3,7 +3,10 @@ import type { ModalProps } from 'antd'
 import { Modal } from 'antd'
 import { type FC, useState } from 'react'
 
-const MyAntdModal: FC<ModalProps> = (props) => {
+interface MyAntdModalProps extends ModalProps {
+  onOk?: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void> | void
+}
+const MyAntdModal: FC<MyAntdModalProps> = (props) => {
   const modal = useModal()
   const [loading, setLoading] = useState(false)
   return (
@@ -13,15 +16,15 @@ const MyAntdModal: FC<ModalProps> = (props) => {
       okButtonProps={{
         loading,
       }}
-      onOk={async (e) => {
-        if (props?.onOk instanceof Function && props.onOk.constructor.name === 'AsyncFunction') {
+      onOk={(e) => {
+        if (props?.onOk != null && props.onOk.constructor.name === 'AsyncFunction') {
           setLoading(true)
-          await Promise.resolve(props.onOk(e)).finally(() => {
+          props.onOk(e)?.finally(() => {
             setLoading(false)
           })
         }
         modal.resolve('ok')
-        modal.hide()
+        void modal.hide()
       }}
     />
   )

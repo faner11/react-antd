@@ -7,8 +7,8 @@ export function takeOffDataFun<T, K extends keyof T>(obj: T) {
   }
 }
 
-export const sleep = (time: number) => {
-  return new Promise((resolve) => {
+export const sleep = async (time: number) => {
+  return await new Promise((resolve) => {
     setTimeout(() => {
       resolve('')
     }, time)

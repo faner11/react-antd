@@ -13,9 +13,9 @@ const openDialog = () => {
   const dialog = openDefDialog({
     title: 'Dialog Title',
     schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
-    onConfirm(values, form) {
+    async onConfirm(values, form) {
       console.log(values, form)
-      return Promise.resolve()
+      await Promise.resolve()
     },
   })
   return dialog
@@ -32,15 +32,17 @@ const FormPage: FC = () => {
         <Button
           key='but1'
           onClick={() => {
-            openDialog()
+            void openDialog()
               .open()
               .then((res) => {
                 console.log(res)
               })
-          }}>
+          }}
+        >
           Open Modal
         </Button>,
-      ]}>
+      ]}
+    >
       <Card>
         <Form
           form={form}
@@ -48,7 +50,8 @@ const FormPage: FC = () => {
           wrapperCol={16}
           onAutoSubmit={() => {
             console.log('onAutoSubmit')
-          }}>
+          }}
+        >
           <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
           <FormButtonGroup.FormItem>
             <Submit block size='large'>
