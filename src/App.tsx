@@ -1,10 +1,9 @@
-import { useRoutes } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
 import routerConfig from './routes'
 
 function App() {
-  const element = useRoutes(routerConfig)
-  return element
+  return <RouterProvider router={routerConfig} />
 }
 
 export default App

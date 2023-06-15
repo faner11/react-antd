@@ -1,7 +1,7 @@
 import { Spin } from 'antd'
 import { lazy, Suspense } from 'react'
 import { RequireAuth } from 'react-auth-kit'
-import type { RouteObject } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 import { formRouters } from './pages/Form/routes'
 import { dashboardRouters } from './pages/State/routes'
@@ -15,7 +15,7 @@ const NotFound = lazy(async () => await import('@/components/NotFound'))
 /**
  * 路由配置,多个路由配置可以合并为一个数组
  */
-const routerConfig: RouteObject[] = [
+const routerConfig = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
@@ -58,6 +58,6 @@ const routerConfig: RouteObject[] = [
       },
     ],
   },
-]
+])
 
 export default routerConfig
