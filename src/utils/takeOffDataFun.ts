@@ -10,7 +10,7 @@ export function takeOffDataFun<T, K extends keyof T>(obj: T) {
 export const sleep = async (time: number) => {
   return await new Promise((resolve) => {
     setTimeout(() => {
-      resolve('')
+      resolve(true)
     }, time)
   })
 }

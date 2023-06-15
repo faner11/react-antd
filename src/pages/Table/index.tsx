@@ -11,7 +11,7 @@ import MyAntdModal from '@/components/MyAntdModal'
 import { sleep, transformTableData } from '@/utils'
 
 const homeApi = new HomeApi(BaseApiConfig)
-const columns: ProColumns<PageItem>[] = [
+const columns: Array<ProColumns<PageItem>> = [
   {
     title: 'title',
     dataIndex: 'title',
@@ -67,16 +67,17 @@ const columns: ProColumns<PageItem>[] = [
           key='link1'
           onClick={() => {
             console.log(entity)
-          }}>
+          }}
+        >
           Edit
         </Typography.Link>,
         <Popconfirm
           key='link2'
           title='Do you want to delete this row of data?'
           onConfirm={() => {
-            console.log('delete')
-            action?.reload()
-          }}>
+            void action?.reload()
+          }}
+        >
           <Typography.Link type='danger'>Delete</Typography.Link>
         </Popconfirm>,
       ]
@@ -94,25 +95,28 @@ const TablePage: FC = () => {
         <Button
           type='primary'
           onClick={() => {
-            modal.show({
+            void modal.show({
               title: 'Command Modal',
               children: <div>test</div>,
               onOk: async () => {
                 return await sleep(2000)
               },
             })
-          }}>
+          }}
+        >
           Command Modal
         </Button>
-      }>
+      }
+    >
       <ProTable
         toolBarRender={(action) => [
           <Button
             key='but1'
             type='primary'
             onClick={() => {
-              action?.reload()
-            }}>
+              void action?.reload()
+            }}
+          >
             Button 1
           </Button>,
           <Button key='but2'>Button 2</Button>,
