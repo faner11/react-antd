@@ -19,19 +19,21 @@ const JotaiDemo: FC = () => {
             setCountObj((c) => {
               c.count = c.count + 1
             })
-          }}>
+          }}
+        >
           Add
         </Button>,
         <Button
           key='but2'
           onClick={() => {
             defaultStore.set(countObjAtom, { count: defaultStore.get(countObjAtom).count + 1 })
-
-            message.info(`${defaultStore.get(countObjAtom).count}`)
-          }}>
+            void message.info(`${defaultStore.get(countObjAtom).count}`)
+          }}
+        >
           Store Add
         </Button>,
-      ]}>
+      ]}
+    >
       <Row>
         <Col span={12}>
           <Demo1 />

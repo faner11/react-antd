@@ -37,10 +37,12 @@ const ReactQueryDemo: FC = () => {
                 draft.current = draft.current + 1
               }),
             )
-          }}>
+          }}
+        >
           next page
         </Button>,
-      ]}>
+      ]}
+    >
       <Card loading={dataQuery.isLoading}>
         {dataQuery.data?.map((item) => {
           return (

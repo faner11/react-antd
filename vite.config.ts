@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
 import react from '@vitejs/plugin-react-swc'
 // import { visualizer } from 'rollup-plugin-visualizer'

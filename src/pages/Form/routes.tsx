@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
-const FormPage = lazy(() => import('@/pages/Form'))
+const FormPage = lazy(async () => await import('@/pages/Form'))
 
 export const formRouters: RouteObject[] = [
   {

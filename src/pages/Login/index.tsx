@@ -19,7 +19,7 @@ const Login = () => {
           password: '123456',
         }}
         subTitle='测试账号: admin/123456'
-        onFinish={(values) => {
+        onFinish={async (values) => {
           const { username, password } = values
           if (username === 'admin' && password === '123456') {
             const isSign = signIn({
@@ -33,12 +33,13 @@ const Login = () => {
             } else {
               console.error('error')
             }
-            return Promise.resolve(true)
+            return await Promise.resolve(true)
           } else {
-            message.error('账户名密码错误')
-            return Promise.resolve(false)
+            void message.error('账户名密码错误')
+            return await Promise.resolve(false)
           }
-        }}>
+        }}
+      >
         <ProFormText
           name='username'
           fieldProps={{

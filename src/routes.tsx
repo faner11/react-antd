@@ -1,21 +1,21 @@
 import { Spin } from 'antd'
 import { lazy, Suspense } from 'react'
 import { RequireAuth } from 'react-auth-kit'
-import type { RouteObject } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 import { formRouters } from './pages/Form/routes'
 import { dashboardRouters } from './pages/State/routes'
 
-const BasicLayout = lazy(() => import('@/layouts/BasicLayout'))
-const Login = lazy(() => import('@/pages/Login'))
-const TablePage = lazy(() => import('@/pages/Table'))
-const EchartsPage = lazy(() => import('@/pages/Echarts'))
+const BasicLayout = lazy(async () => await import('@/layouts/BasicLayout'))
+const Login = lazy(async () => await import('@/pages/Login'))
+const TablePage = lazy(async () => await import('@/pages/Table'))
+const EchartsPage = lazy(async () => await import('@/pages/Echarts'))
 
-const NotFound = lazy(() => import('@/components/NotFound'))
+const NotFound = lazy(async () => await import('@/components/NotFound'))
 /**
  * 路由配置,多个路由配置可以合并为一个数组
  */
-const routerConfig: RouteObject[] = [
+const routerConfig = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
@@ -29,7 +29,8 @@ const routerConfig: RouteObject[] = [
             <div className='text-center pt-11'>
               <Spin />
             </div>
-          }>
+          }
+        >
           <BasicLayout />
         </Suspense>
       </RequireAuth>
@@ -57,6 +58,6 @@ const routerConfig: RouteObject[] = [
       },
     ],
   },
-]
+])
 
 export default routerConfig

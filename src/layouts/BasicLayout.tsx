@@ -13,7 +13,7 @@ const loopMenuItem: any = (menus: MenuDataItem[]) =>
   menus.map(({ icon, children, ...item }) => ({
     ...item,
     icon: typeof icon === 'string' && !isEmpty(icon) ? createElement(icons[icon]) : undefined,
-    children: children && loopMenuItem(children),
+    children: children != null && loopMenuItem(children),
   }))
 
 export default function BasicLayout() {
@@ -30,20 +30,22 @@ export default function BasicLayout() {
       theme='light'
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
       menuItemRender={(item: MenuDataItem, defaultDom: ReactNode) => {
-        if (!item.path) {
+        if (!isEmpty(item.path)) {
           return defaultDom
         }
-        return <Link to={item.path}>{defaultDom}</Link>
+        return <Link to={item.path!}>{defaultDom}</Link>
       }}
       fixSiderbar
-      fixedHeader>
+      fixedHeader
+    >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
           fallback={
             <div className='text-center pt-11'>
               <Spin />
             </div>
-          }>
+          }
+        >
           <Outlet />
         </Suspense>
         <FormDialog.Portal />
