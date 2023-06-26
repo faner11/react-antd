@@ -15,7 +15,9 @@
     "gcapi": "openapi-generator-cli generate && npm run format",
     "i18n": "i18next-scanner --config scanner.config.cjs",
     "ci:add": "changeset add",
-    "ci:tag": "changeset version && git add . && git commit -m \"release: ${npm_package_version}\" && changeset tag && git push --follow-tags"
+    "ci:_bump": "changeset version",
+    "ci:_tag": "git add . && git commit -m \"release: ${npm_package_version}\" && changeset tag && git push --follow-tags",
+    "ci:release": "npm run ci:_bump && npm run ci:_tag"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged --concurrent false",
