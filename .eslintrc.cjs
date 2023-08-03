@@ -1,3 +1,4 @@
+/** @type {import('@types/eslint').Linter.BaseConfig} */
 module.exports = {
   env: {
     browser: true,
@@ -14,7 +15,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
   },
   plugins: ['react', 'prettier', 'simple-import-sort'],
   rules: {
