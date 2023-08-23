@@ -1,9 +1,8 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { Card } from 'antd'
-import type { EChartsOption } from 'echarts'
-import type { FC } from 'react'
+import { PageContainer } from '@ant-design/pro-components';
+import { Card } from 'antd';
+import type { EChartsOption } from 'echarts';
 
-import EChartsReact from '@/components/Echarts'
+import EChartsReact from '@/components/Echarts';
 
 const data = [
   {
@@ -48,40 +47,44 @@ const data = [
     value3: 111,
     name: 'Sun',
   },
-]
-const dimensions = ['name', 'value1', 'value2', 'value3']
+];
+const dimensions = ['name', 'value1', 'value2', 'value3'];
 const options: EChartsOption = {
   dataset: {
     dimensions,
     source: data,
   },
-  grid: { top: 24, right: 0, bottom: 36, left: 0, containLabel: true },
+  grid: {
+    top: 24,
+    right: 0,
+    bottom: 36,
+    left: 0,
+    containLabel: true,
+  },
   xAxis: {
     type: 'category',
   },
   yAxis: {
     type: 'value',
   },
-  series: Array.from({ length: dimensions.length - 1 }).map(() => {
-    return {
-      type: 'line',
-      smooth: true,
-    }
-  }),
+  series: Array.from({ length: dimensions.length - 1 }).map(() => ({
+    type: 'line',
+    smooth: true,
+  })),
   tooltip: {
     trigger: 'axis',
   },
   legend: {
     bottom: 0,
   },
-}
-const EchartsPage: FC = () => {
+};
+function EchartsPage() {
   return (
     <PageContainer>
       <Card>
         <EChartsReact option={options} />
       </Card>
     </PageContainer>
-  )
+  );
 }
-export default EchartsPage
+export default EchartsPage;

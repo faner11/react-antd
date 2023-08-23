@@ -6,5 +6,10 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true
   },
-  "include": ["vite.config.ts", "**.cjs"]
+  "include": [
+    "vite.config.ts",
+    "**.cjs",
+    "scripts/verifyCommit.mjs",
+    "scanner.config copy.mjs"
+  ]
 }

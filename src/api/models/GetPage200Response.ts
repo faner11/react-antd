@@ -12,9 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { PageItem } from './PageItem'
-import { PageItemFromJSON, PageItemFromJSONTyped, PageItemToJSON } from './PageItem'
+import { exists, mapValues } from '../runtime';
+import type { PageItem } from './PageItem';
+import {
+  PageItemFromJSON,
+  PageItemFromJSONTyped,
+  PageItemToJSON,
+} from './PageItem';
 
 /**
  *
@@ -27,67 +31,72 @@ export interface GetPage200Response {
    * @type {number}
    * @memberof GetPage200Response
    */
-  current: number
+  current: number;
   /**
    *
    * @type {number}
    * @memberof GetPage200Response
    */
-  pageSize: number
+  pageSize: number;
   /**
    *
    * @type {number}
    * @memberof GetPage200Response
    */
-  total: number
+  total: number;
   /**
    *
    * @type {Array<PageItem>}
    * @memberof GetPage200Response
    */
-  data: Array<PageItem>
+  data: Array<PageItem>;
 }
 
 /**
  * Check if a given object implements the GetPage200Response interface.
  */
 export function instanceOfGetPage200Response(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'current' in value
-  isInstance = isInstance && 'pageSize' in value
-  isInstance = isInstance && 'total' in value
-  isInstance = isInstance && 'data' in value
+  let isInstance = true;
+  isInstance = isInstance && 'current' in value;
+  isInstance = isInstance && 'pageSize' in value;
+  isInstance = isInstance && 'total' in value;
+  isInstance = isInstance && 'data' in value;
 
-  return isInstance
+  return isInstance;
 }
 
 export function GetPage200ResponseFromJSON(json: any): GetPage200Response {
-  return GetPage200ResponseFromJSONTyped(json, false)
+  return GetPage200ResponseFromJSONTyped(json, false);
 }
 
-export function GetPage200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPage200Response {
+export function GetPage200ResponseFromJSONTyped(
+  json: any,
+  ignoreDiscriminator: boolean,
+): GetPage200Response {
   if (json === undefined || json === null) {
-    return json
+    return json;
   }
   return {
     current: json['current'],
     pageSize: json['pageSize'],
     total: json['total'],
     data: (json['data'] as Array<any>).map(PageItemFromJSON),
-  }
+  };
 }
 
-export function GetPage200ResponseToJSON(value?: GetPage200Response | null): any {
+export function GetPage200ResponseToJSON(
+  value?: GetPage200Response | null,
+): any {
   if (value === undefined) {
-    return undefined
+    return undefined;
   }
   if (value === null) {
-    return null
+    return null;
   }
   return {
     current: value.current,
     pageSize: value.pageSize,
     total: value.total,
     data: (value.data as Array<any>).map(PageItemToJSON),
-  }
+  };
 }

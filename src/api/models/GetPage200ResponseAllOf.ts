@@ -12,9 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { PageItem } from './PageItem'
-import { PageItemFromJSON, PageItemFromJSONTyped, PageItemToJSON } from './PageItem'
+import { exists, mapValues } from '../runtime';
+import type { PageItem } from './PageItem';
+import {
+  PageItemFromJSON,
+  PageItemFromJSONTyped,
+  PageItemToJSON,
+} from './PageItem';
 
 /**
  *
@@ -27,39 +31,51 @@ export interface GetPage200ResponseAllOf {
    * @type {Array<PageItem>}
    * @memberof GetPage200ResponseAllOf
    */
-  data?: Array<PageItem>
+  data?: Array<PageItem>;
 }
 
 /**
  * Check if a given object implements the GetPage200ResponseAllOf interface.
  */
 export function instanceOfGetPage200ResponseAllOf(value: object): boolean {
-  let isInstance = true
+  let isInstance = true;
 
-  return isInstance
+  return isInstance;
 }
 
-export function GetPage200ResponseAllOfFromJSON(json: any): GetPage200ResponseAllOf {
-  return GetPage200ResponseAllOfFromJSONTyped(json, false)
+export function GetPage200ResponseAllOfFromJSON(
+  json: any,
+): GetPage200ResponseAllOf {
+  return GetPage200ResponseAllOfFromJSONTyped(json, false);
 }
 
-export function GetPage200ResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPage200ResponseAllOf {
+export function GetPage200ResponseAllOfFromJSONTyped(
+  json: any,
+  ignoreDiscriminator: boolean,
+): GetPage200ResponseAllOf {
   if (json === undefined || json === null) {
-    return json
+    return json;
   }
   return {
-    data: !exists(json, 'data') ? undefined : (json['data'] as Array<any>).map(PageItemFromJSON),
-  }
+    data: !exists(json, 'data')
+      ? undefined
+      : (json['data'] as Array<any>).map(PageItemFromJSON),
+  };
 }
 
-export function GetPage200ResponseAllOfToJSON(value?: GetPage200ResponseAllOf | null): any {
+export function GetPage200ResponseAllOfToJSON(
+  value?: GetPage200ResponseAllOf | null,
+): any {
   if (value === undefined) {
-    return undefined
+    return undefined;
   }
   if (value === null) {
-    return null
+    return null;
   }
   return {
-    data: value.data === undefined ? undefined : (value.data as Array<any>).map(PageItemToJSON),
-  }
+    data:
+      value.data === undefined
+        ? undefined
+        : (value.data as Array<any>).map(PageItemToJSON),
+  };
 }

@@ -1,11 +1,11 @@
-import { HeartOutlined, SmileOutlined } from '@ant-design/icons'
-import type { MenuDataItem } from '@ant-design/pro-components'
-import type { ForwardRefExoticComponent } from 'react'
+import { HeartOutlined, SmileOutlined } from '@ant-design/icons';
+import type { MenuDataItem } from '@ant-design/pro-components';
+import type { ForwardRefExoticComponent } from 'react';
 
 export const icons: Record<string, ForwardRefExoticComponent<any>> = {
   SmileOutlined,
   HeartOutlined,
-}
+};
 const asideMenuConfig: MenuDataItem[] = [
   {
     name: 'Table',
@@ -43,6 +43,6 @@ const asideMenuConfig: MenuDataItem[] = [
     path: '/echarts',
     icon: 'HeartOutlined',
   },
-]
+];
 
-export { asideMenuConfig }
+export { asideMenuConfig };

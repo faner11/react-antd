@@ -1,4 +1,4 @@
-import type { ISchema } from '@formily/react'
+import type { ISchema } from '@formily/react';
 
 export const schema: ISchema = {
   type: 'object',
@@ -162,4 +162,5 @@ export const schema: ISchema = {
       },
     },
   },
-}
+};
+export default {};

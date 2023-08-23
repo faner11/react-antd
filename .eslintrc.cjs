@@ -1,30 +1,33 @@
-/** @type {import('@types/eslint').Linter.BaseConfig} */
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
+  root: true,
+  env: { browser: true },
   extends: [
-    'standard-with-typescript',
-    'standard-jsx',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'prettier',
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:react/jsx-runtime",
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    project: ["tsconfig.json", "tsconfig.node.json"],
   },
-  plugins: ['react', 'prettier', 'simple-import-sort'],
+  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react-refresh", "import", 'simple-import-sort'],
+  settings: {
+    "import/resolver": {
+      typescript: {},
+    },
+  },
   rules: {
-    'prettier/prettier': 'error',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/ban-tslint-comment': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
-    'import/newline-after-import': ['error', { count: 1 }],
+    "no-param-reassign": [
+      "error",
+      { props: true, ignorePropertyModificationsForRegex: ["^draft"] },
+    ],
+    "react/require-default-props": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
-}
+};
