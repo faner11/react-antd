@@ -15,7 +15,7 @@ module.exports = {
   },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "import", 'simple-import-sort'],
+  plugins: ["import", 'simple-import-sort'],
   settings: {
     "import/resolver": {
       typescript: {},
