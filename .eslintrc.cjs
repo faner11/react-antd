@@ -5,9 +5,11 @@ module.exports = {
   root: true,
   env: { browser: true },
   extends: [
-    "airbnb",
+    "airbnb-base",
+    "eslint-config-airbnb/rules/react",
     "airbnb/hooks",
     "airbnb-typescript",
+    'plugin:react/recommended',
     "plugin:react/jsx-runtime",
   ],
   parserOptions: {
