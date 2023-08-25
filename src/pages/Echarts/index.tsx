@@ -1,8 +1,8 @@
-import { PageContainer } from '@ant-design/pro-components';
-import { Card } from 'antd';
-import type { EChartsOption } from 'echarts';
+import { PageContainer } from '@ant-design/pro-components'
+import { Card } from 'antd'
+import type { EChartsOption } from 'echarts'
 
-import EChartsReact from '@/components/Echarts';
+import EChartsReact from '@/components/Echarts'
 
 const data = [
   {
@@ -47,8 +47,8 @@ const data = [
     value3: 111,
     name: 'Sun',
   },
-];
-const dimensions = ['name', 'value1', 'value2', 'value3'];
+]
+const dimensions = ['name', 'value1', 'value2', 'value3']
 const options: EChartsOption = {
   dataset: {
     dimensions,
@@ -77,7 +77,7 @@ const options: EChartsOption = {
   legend: {
     bottom: 0,
   },
-};
+}
 function EchartsPage() {
   return (
     <PageContainer>
@@ -85,6 +85,6 @@ function EchartsPage() {
         <EChartsReact option={options} />
       </Card>
     </PageContainer>
-  );
+  )
 }
-export default EchartsPage;
+export default EchartsPage

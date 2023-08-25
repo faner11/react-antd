@@ -3,9 +3,9 @@ export const transformTableData = (data: any[] | any) => {
     return {
       data,
       total: data.length,
-    };
+    }
   }
-  return data;
-};
+  return data
+}
 
-export default {};
+export default {}

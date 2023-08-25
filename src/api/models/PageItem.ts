@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists, mapValues } from '../runtime'
 /**
  *
  * @export
@@ -24,37 +24,37 @@ export interface PageItem {
    * @type {number}
    * @memberof PageItem
    */
-  id: number;
+  id: number
   /**
    *
    * @type {string}
    * @memberof PageItem
    */
-  title: string;
+  title: string
   /**
    *
    * @type {string}
    * @memberof PageItem
    */
-  descript: string;
+  descript: string
   /**
    *
    * @type {string}
    * @memberof PageItem
    */
-  image: string;
+  image: string
   /**
    *
    * @type {number}
    * @memberof PageItem
    */
-  status: PageItemStatusEnum;
+  status: PageItemStatusEnum
   /**
    *
    * @type {number}
    * @memberof PageItem
    */
-  price: number;
+  price: number
 }
 
 /**
@@ -65,35 +65,31 @@ export const PageItemStatusEnum = {
   NUMBER_2: 2,
   NUMBER_3: 3,
   NUMBER_5: 5,
-} as const;
-export type PageItemStatusEnum =
-  (typeof PageItemStatusEnum)[keyof typeof PageItemStatusEnum];
+} as const
+export type PageItemStatusEnum = (typeof PageItemStatusEnum)[keyof typeof PageItemStatusEnum]
 
 /**
  * Check if a given object implements the PageItem interface.
  */
 export function instanceOfPageItem(value: object): boolean {
-  let isInstance = true;
-  isInstance = isInstance && 'id' in value;
-  isInstance = isInstance && 'title' in value;
-  isInstance = isInstance && 'descript' in value;
-  isInstance = isInstance && 'image' in value;
-  isInstance = isInstance && 'status' in value;
-  isInstance = isInstance && 'price' in value;
+  let isInstance = true
+  isInstance = isInstance && 'id' in value
+  isInstance = isInstance && 'title' in value
+  isInstance = isInstance && 'descript' in value
+  isInstance = isInstance && 'image' in value
+  isInstance = isInstance && 'status' in value
+  isInstance = isInstance && 'price' in value
 
-  return isInstance;
+  return isInstance
 }
 
 export function PageItemFromJSON(json: any): PageItem {
-  return PageItemFromJSONTyped(json, false);
+  return PageItemFromJSONTyped(json, false)
 }
 
-export function PageItemFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean,
-): PageItem {
+export function PageItemFromJSONTyped(json: any, ignoreDiscriminator: boolean): PageItem {
   if (json === undefined || json === null) {
-    return json;
+    return json
   }
   return {
     id: json['id'],
@@ -102,15 +98,15 @@ export function PageItemFromJSONTyped(
     image: json['image'],
     status: json['status'],
     price: json['price'],
-  };
+  }
 }
 
 export function PageItemToJSON(value?: PageItem | null): any {
   if (value === undefined) {
-    return undefined;
+    return undefined
   }
   if (value === null) {
-    return null;
+    return null
   }
   return {
     id: value.id,
@@ -119,5 +115,5 @@ export function PageItemToJSON(value?: PageItem | null): any {
     image: value.image,
     status: value.status,
     price: value.price,
-  };
+  }
 }

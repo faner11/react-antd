@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
-const fs = require('fs');
-const chalk = require('chalk');
+const fs = require('fs')
+const chalk = require('chalk')
 
 module.exports = {
   input: [
@@ -22,7 +22,7 @@ module.exports = {
       defaultsKey: 'defaults',
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       fallbackKey(ns, value) {
-        return value;
+        return value
       },
       supportBasicHtmlNodes: true,
       keepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p'], // Which nodes are allowed to be kept in translations during defaultValue generation of <Trans>.
@@ -54,25 +54,18 @@ module.exports = {
     allowDynamicKeys: false,
   },
   transform: function customTransform(file, enc, done) {
-    const { parser } = this;
-    const content = fs.readFileSync(file.path, enc);
-    let count = 0;
+    const { parser } = this
+    const content = fs.readFileSync(file.path, enc)
+    let count = 0
 
-    parser.parseFuncFromString(
-      content,
-      { list: ['i18next._', 'i18next.__'] },
-      (key, options) => {
-        parser.set(
-          key,
-          {
-            ...options,
-            nsSeparator: false,
-            keySeparator: false,
-          },
-        );
-        count += 1;
-      },
-    );
+    parser.parseFuncFromString(content, { list: ['i18next._', 'i18next.__'] }, (key, options) => {
+      parser.set(key, {
+        ...options,
+        nsSeparator: false,
+        keySeparator: false,
+      })
+      count += 1
+    })
 
     if (count > 0) {
       // eslint-disable-next-line no-console
@@ -80,9 +73,9 @@ module.exports = {
         `i18next-scanner: count=${chalk.cyan(count)}, file=${chalk.yellow(
           JSON.stringify(file.relative),
         )}`,
-      );
+      )
     }
 
-    done();
+    done()
   },
-};
+}

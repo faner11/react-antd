@@ -3,9 +3,4 @@ dist/
 temp/
 LICENSE.md
 pnpm-lock.yaml
-**.js
-**.ts
-**.tsx
-**.jsx
-**.cjs
-**.mjs
+

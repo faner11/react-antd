@@ -1,31 +1,29 @@
-import type { MenuDataItem } from '@ant-design/pro-components';
-import { ProLayout } from '@ant-design/pro-components';
-import { FormDialog, FormDrawer } from '@formily/antd-v5';
-import { Spin } from 'antd';
-import { isEmpty } from 'lodash-es';
-import type { ReactNode } from 'react';
-import { createElement, Suspense } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import type { MenuDataItem } from '@ant-design/pro-components'
+import { ProLayout } from '@ant-design/pro-components'
+import { FormDialog, FormDrawer } from '@formily/antd-v5'
+import { Spin } from 'antd'
+import { isEmpty } from 'lodash-es'
+import type { ReactNode } from 'react'
+import { createElement, Suspense } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
-import { asideMenuConfig, icons } from './menuConfig';
+import { asideMenuConfig, icons } from './menuConfig'
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
   if (!isEmpty(item.path)) {
-    return defaultDom;
+    return defaultDom
   }
-  return <Link to={item.path!}>{defaultDom}</Link>;
-};
-const loopMenuItem: any = (menus: MenuDataItem[]) => menus.map(({ icon, children, ...item }) => ({
-  ...item,
-  icon:
-      typeof icon === 'string' && !isEmpty(icon)
-        ? createElement(icons[icon]!)
-        : undefined,
-  children: children != null && loopMenuItem(children),
-}));
+  return <Link to={item.path!}>{defaultDom}</Link>
+}
+const loopMenuItem: any = (menus: MenuDataItem[]) =>
+  menus.map(({ icon, children, ...item }) => ({
+    ...item,
+    icon: typeof icon === 'string' && !isEmpty(icon) ? createElement(icons[icon]!) : undefined,
+    children: children != null && loopMenuItem(children),
+  }))
 
 export default function BasicLayout() {
-  const location = useLocation();
+  const location = useLocation()
   return (
     <ProLayout
       logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -43,11 +41,11 @@ export default function BasicLayout() {
     >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
-          fallback={(
+          fallback={
             <div className="text-center pt-11">
               <Spin />
             </div>
-          )}
+          }
         >
           <Outlet />
         </Suspense>
@@ -55,5 +53,5 @@ export default function BasicLayout() {
         <FormDrawer.Portal />
       </div>
     </ProLayout>
-  );
+  )
 }

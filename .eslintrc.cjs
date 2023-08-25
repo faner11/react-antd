@@ -5,34 +5,38 @@ module.exports = {
   root: true,
   env: { browser: true },
   extends: [
-    "airbnb-base",
-    "eslint-config-airbnb/rules/react",
-    "airbnb/hooks",
-    "airbnb-typescript",
+    'airbnb-base',
+    'eslint-config-airbnb/rules/react',
+    'airbnb/hooks',
+    'airbnb-typescript',
     'plugin:react/recommended',
-    "plugin:react/jsx-runtime",
+    'plugin:react/jsx-runtime',
+    'prettier',
   ],
   parserOptions: {
-    project: ["tsconfig.json", "tsconfig.node.json"],
+    project: ['tsconfig.json', 'tsconfig.node.json'],
   },
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
-  parser: "@typescript-eslint/parser",
-  plugins: ["import", 'simple-import-sort'],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['import', 'simple-import-sort', 'prettier'],
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {},
     },
   },
   rules: {
-    "no-param-reassign": [
-      "error",
-      { props: true, ignorePropertyModificationsForRegex: ["^draft"] },
+    'prettier/prettier': 'error',
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
     ],
-    "react/require-default-props": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    'react/require-default-props': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
-  overrides: [{
-    files: ["*.cjs", "*.mjs"],
-  }]
-};
+  overrides: [
+    {
+      files: ['*.cjs', '*.mjs'],
+    },
+  ],
+}

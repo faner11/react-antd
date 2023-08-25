@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists, mapValues } from '../runtime'
 /**
  *
  * @export
@@ -24,70 +24,67 @@ export interface Page {
    * @type {number}
    * @memberof Page
    */
-  current: number;
+  current: number
   /**
    *
    * @type {number}
    * @memberof Page
    */
-  pageSize: number;
+  pageSize: number
   /**
    *
    * @type {number}
    * @memberof Page
    */
-  total: number;
+  total: number
   /**
    *
    * @type {Array<string>}
    * @memberof Page
    */
-  data: Array<string>;
+  data: Array<string>
 }
 
 /**
  * Check if a given object implements the Page interface.
  */
 export function instanceOfPage(value: object): boolean {
-  let isInstance = true;
-  isInstance = isInstance && 'current' in value;
-  isInstance = isInstance && 'pageSize' in value;
-  isInstance = isInstance && 'total' in value;
-  isInstance = isInstance && 'data' in value;
+  let isInstance = true
+  isInstance = isInstance && 'current' in value
+  isInstance = isInstance && 'pageSize' in value
+  isInstance = isInstance && 'total' in value
+  isInstance = isInstance && 'data' in value
 
-  return isInstance;
+  return isInstance
 }
 
 export function PageFromJSON(json: any): Page {
-  return PageFromJSONTyped(json, false);
+  return PageFromJSONTyped(json, false)
 }
 
-export function PageFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean,
-): Page {
+export function PageFromJSONTyped(json: any, ignoreDiscriminator: boolean): Page {
   if (json === undefined || json === null) {
-    return json;
+    return json
   }
   return {
     current: json['current'],
     pageSize: json['pageSize'],
     total: json['total'],
     data: json['data'],
-  };
+  }
 }
 
 export function PageToJSON(value?: Page | null): any {
   if (value === undefined) {
-    return undefined;
+    return undefined
   }
   if (value === null) {
-    return null;
+    return null
   }
   return {
     current: value.current,
     pageSize: value.pageSize,
     total: value.total,
     data: value.data,
-  };
+  }
 }

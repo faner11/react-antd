@@ -1,28 +1,28 @@
-import { PageContainer } from '@ant-design/pro-components';
-import { Button, Result } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { PageContainer } from '@ant-design/pro-components'
+import { Button, Result } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 function NotFound() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <PageContainer title={false}>
       <Result
         status="404"
         title="404"
         subTitle="Page does not exist."
-        extra={(
+        extra={
           <Button
             type="primary"
             onClick={() => {
-              navigate('/');
+              navigate('/')
             }}
           >
             BACK HOME
           </Button>
-        )}
+        }
       />
     </PageContainer>
-  );
+  )
 }
 
-export default NotFound;
+export default NotFound

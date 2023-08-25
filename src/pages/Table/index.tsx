@@ -1,15 +1,15 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { PageContainer, ProTable } from '@ant-design/pro-components';
-import { useModal } from '@ebay/nice-modal-react';
-import { Button, Popconfirm, Typography } from 'antd';
+import type { ProColumns } from '@ant-design/pro-components'
+import { PageContainer, ProTable } from '@ant-design/pro-components'
+import { useModal } from '@ebay/nice-modal-react'
+import { Button, Popconfirm, Typography } from 'antd'
 
-import type { PageItem } from '@/api';
-import { HomeApi } from '@/api';
-import { BaseApiConfig } from '@/comm/baseApi.config';
-import MyAntdModal from '@/components/MyAntdModal';
-import { sleep, transformTableData } from '@/utils';
+import type { PageItem } from '@/api'
+import { HomeApi } from '@/api'
+import { BaseApiConfig } from '@/comm/baseApi.config'
+import MyAntdModal from '@/components/MyAntdModal'
+import { sleep, transformTableData } from '@/utils'
 
-const homeApi = new HomeApi(BaseApiConfig);
+const homeApi = new HomeApi(BaseApiConfig)
 const columns: Array<ProColumns<PageItem>> = [
   {
     title: 'title',
@@ -64,22 +64,22 @@ const columns: Array<ProColumns<PageItem>> = [
         key="link2"
         title="Do you want to delete this row of data?"
         onConfirm={() => {
-          action?.reload();
+          action?.reload()
         }}
       >
         <Typography.Link type="danger">Delete</Typography.Link>
       </Popconfirm>,
     ],
   },
-];
+]
 
 function TablePage() {
-  const modal = useModal(MyAntdModal);
+  const modal = useModal(MyAntdModal)
 
   return (
     <PageContainer
       fixedHeader
-      extra={(
+      extra={
         <Button
           type="primary"
           onClick={() => {
@@ -87,12 +87,12 @@ function TablePage() {
               title: 'Command Modal',
               children: <div>test</div>,
               onOk: async () => sleep(2000),
-            });
+            })
           }}
         >
           Command Modal
         </Button>
-      )}
+      }
     >
       <ProTable
         toolBarRender={(action) => [
@@ -100,7 +100,7 @@ function TablePage() {
             key="but1"
             type="primary"
             onClick={() => {
-              action?.reload();
+              action?.reload()
             }}
           >
             Button 1
@@ -108,14 +108,14 @@ function TablePage() {
           <Button key="but2">Button 2</Button>,
         ]}
         request={async (params) => {
-          const res = await homeApi.getPage(params);
-          return transformTableData(res);
+          const res = await homeApi.getPage(params)
+          return transformTableData(res)
         }}
         columns={columns}
         rowKey="id"
       />
     </PageContainer>
-  );
+  )
 }
 
-export default TablePage;
+export default TablePage

@@ -1,45 +1,38 @@
-import { PageContainer } from '@ant-design/pro-components';
-import {
-  ArrayItems,
-  Editable,
-  Form,
-  FormButtonGroup,
-  Submit,
-} from '@formily/antd-v5';
-import { createForm } from '@formily/core';
-import { Button, Card, message } from 'antd';
-import { useMemo } from 'react';
+import { PageContainer } from '@ant-design/pro-components'
+import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from '@formily/antd-v5'
+import { createForm } from '@formily/core'
+import { Button, Card, message } from 'antd'
+import { useMemo } from 'react'
 
-import { openDefDialog, SchemaField } from '@/components/form';
+import { openDefDialog, SchemaField } from '@/components/form'
 
-import { schema } from './service/schema';
+import { schema } from './service/schema'
 
 const openDialog = () => {
   const dialog = openDefDialog({
     title: 'Dialog Title',
-    schemaField: (
-      <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
-    ),
+    schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
     async onConfirm() {
-      await Promise.resolve();
+      await Promise.resolve()
     },
-  });
-  return dialog;
-};
+  })
+  return dialog
+}
 function FormPage() {
   const form = useMemo(
-    () => createForm({
-      validateFirst: true,
-    }),
+    () =>
+      createForm({
+        validateFirst: true,
+      }),
     [],
-  );
+  )
   return (
     <PageContainer
       extra={[
         <Button
           key="but1"
           onClick={() => {
-            openDialog().open();
+            openDialog().open()
           }}
         >
           Open Modal
@@ -52,7 +45,7 @@ function FormPage() {
           labelCol={5}
           wrapperCol={16}
           onAutoSubmit={() => {
-            message.info('onAutoSubmit');
+            message.info('onAutoSubmit')
           }}
         >
           <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
@@ -64,7 +57,7 @@ function FormPage() {
         </Form>
       </Card>
     </PageContainer>
-  );
+  )
 }
 
-export default FormPage;
+export default FormPage
