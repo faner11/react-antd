@@ -6,14 +6,18 @@ module.exports = {
   env: { browser: true },
   extends: [
     'airbnb-base',
-    'eslint-config-airbnb/rules/react',
-    'airbnb/hooks',
     'airbnb-typescript',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/jsx-runtime',
     'prettier',
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     project: ['tsconfig.json', 'tsconfig.node.json'],
   },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
@@ -21,7 +25,12 @@ module.exports = {
   plugins: ['import', 'simple-import-sort', 'prettier'],
   settings: {
     'import/resolver': {
-      typescript: {},
+      typescript: {
+        directory: './tsconfig.json',
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
   rules: {
@@ -30,9 +39,12 @@ module.exports = {
       'error',
       { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
     ],
-    'react/require-default-props': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'react/prop-types': 'off',
+    'arrow-body-style': 'off',
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   overrides: [
     {

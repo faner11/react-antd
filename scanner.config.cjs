@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-unresolved */
 const fs = require('fs')
 const chalk = require('chalk')

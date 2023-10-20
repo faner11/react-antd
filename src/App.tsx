@@ -1,8 +1,9 @@
+import type { FC } from 'react'
 import { RouterProvider } from 'react-router-dom'
 
 import routerConfig from './routes'
 
-function App() {
+const App: FC = () => {
   return <RouterProvider router={routerConfig} />
 }
 

@@ -19,12 +19,12 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       onError: (err) => {
-        message.error((err as any).message)
+        message.error((err as Error).message)
       },
     },
     mutations: {
       onError: (err) => {
-        message.error((err as any).message)
+        message.error((err as Error).message)
       },
     },
   },
