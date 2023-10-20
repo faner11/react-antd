@@ -42,10 +42,11 @@ module.exports = {
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'react/prop-types': 'off',
     'arrow-body-style': 'off',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
+    'import/prefer-default-export': 'off',
+    'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
   },
   overrides: [
     {

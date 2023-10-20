@@ -58,7 +58,7 @@ const columns: Array<ProColumns<PageItem>> = [
     title: 'Action',
     key: 'action',
     valueType: 'option',
-    render: (dom, entity, i, action) => [
+    render: (_dom, _entity, _i, action) => [
       <Typography.Link key="link1">Edit</Typography.Link>,
       <Popconfirm
         key="link2"
