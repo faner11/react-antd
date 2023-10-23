@@ -69,8 +69,7 @@ module.exports = {
     })
 
     if (count > 0) {
-      // eslint-disable-next-line no-console
-      console.log(
+      console.info(
         `i18next-scanner: count=${chalk.cyan(count)}, file=${chalk.yellow(
           JSON.stringify(file.relative),
         )}`,
