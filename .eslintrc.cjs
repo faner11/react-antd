@@ -46,6 +46,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
     'import/prefer-default-export': 'off',
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
     'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
   },
   overrides: [
