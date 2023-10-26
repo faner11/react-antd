@@ -27,11 +27,11 @@
 - [formilyjs](https://formilyjs.org/zh-CN) 表单渲染引擎，`antd` 项目建议使用
 - [react-hook-form](https://react-hook-form.com/) 基于 React Hooks 的表单库，`mui` 项目建议使用
 - [react-hook-form-mui](https://github.com/dohomi/react-hook-form-mui) 基于`react-hook-form`和`mui`的表单组件库
-- [yup](https://github.com/jquense/yup) 校验构建器,可用于自定义表单校验
+- [Zod](https://github.com/colinhacks/zod) 使用静态类型推断进行 TypeScript 优先模式验证
 
 ## 其他库
 
-- [antd V5](https://ant.design/index-cn) 已预设相关配置
+- [antd](https://ant.design/index-cn) 已预设相关配置
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
 - **eslint** <font style="color:red" >强制使用，禁止关闭</font>
 - [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
