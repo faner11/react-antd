@@ -6,5 +6,5 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true
   },
-  "include": ["vite.config.ts", "**.cjs", "**.mjs", "scripts/**.mjs"]
+  "include": ["vite.config.ts", "**.cjs", "**.mjs", "scripts/**.mjs", "scripts/**.ts"]
 }

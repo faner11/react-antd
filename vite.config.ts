@@ -9,12 +9,11 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: fileURLToPath(new URL('./src', import.meta.url)),
-      },
-    ],
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@chenshuai2144/sketch-color': './scripts/sketch-color.ts',
+      'lodash.merge': 'lodash-es/merge',
+    },
   },
   test: {
     globals: true,

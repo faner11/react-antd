@@ -10,7 +10,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig, icons } from './menuConfig'
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
-  if (!isEmpty(item.path)) {
+  if (isEmpty(item.path)) {
     return defaultDom
   }
   return <Link to={item.path!}>{defaultDom}</Link>
