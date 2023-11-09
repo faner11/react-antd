@@ -1,8 +1,8 @@
 import { lazy } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
-const JotaiDemo = lazy(async () => await import('@/pages/State/JotaiDemo'))
-const ReactQueryDemo = lazy(async () => await import('@/pages/State/ReactQueryDemo'))
+const JotaiDemo = lazy(async () => import('@/pages/State/JotaiDemo'))
+const ReactQueryDemo = lazy(async () => import('@/pages/State/ReactQueryDemo'))
 
 export const dashboardRouters: RouteObject[] = [
   {
@@ -14,3 +14,4 @@ export const dashboardRouters: RouteObject[] = [
     element: <ReactQueryDemo />,
   },
 ]
+export default {}

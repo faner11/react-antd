@@ -163,3 +163,4 @@ export const schema: ISchema = {
     },
   },
 }
+export default {}

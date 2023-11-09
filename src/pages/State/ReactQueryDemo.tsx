@@ -2,7 +2,6 @@ import { PageContainer } from '@ant-design/pro-components'
 import { useQuery } from '@tanstack/react-query'
 import { Button, Card, Typography } from 'antd'
 import { produce } from 'immer'
-import type { FC } from 'react'
 import { useState } from 'react'
 
 import { HomeApi } from '@/api'
@@ -11,7 +10,7 @@ import { takeOffDataFun } from '@/utils'
 
 const homeApi = new HomeApi(BaseApiConfig)
 
-const ReactQueryDemo: FC = () => {
+function ReactQueryDemo() {
   const [value, setValue] = useState({
     name: 'hello',
     current: 1,
@@ -29,12 +28,12 @@ const ReactQueryDemo: FC = () => {
     <PageContainer
       extra={[
         <Button
-          key='but1'
+          key="but1"
           loading={dataQuery.isLoading}
           onClick={() => {
             setValue(
               produce((draft) => {
-                draft.current = draft.current + 1
+                draft.current += 1
               }),
             )
           }}
@@ -44,13 +43,11 @@ const ReactQueryDemo: FC = () => {
       ]}
     >
       <Card loading={dataQuery.isLoading}>
-        {dataQuery.data?.map((item) => {
-          return (
-            <div key={item.id}>
-              <Typography.Text type='secondary'>{item.title}</Typography.Text>
-            </div>
-          )
-        })}
+        {dataQuery.data?.map((item) => (
+          <div key={item.id}>
+            <Typography.Text type="secondary">{item.title}</Typography.Text>
+          </div>
+        ))}
       </Card>
     </PageContainer>
   )

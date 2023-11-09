@@ -1,8 +1,7 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from '@formily/antd-v5'
 import { createForm } from '@formily/core'
-import { Button, Card } from 'antd'
-import type { FC } from 'react'
+import { Button, Card, message } from 'antd'
 import { useMemo } from 'react'
 
 import { openDefDialog, SchemaField } from '@/components/form'
@@ -13,30 +12,27 @@ const openDialog = () => {
   const dialog = openDefDialog({
     title: 'Dialog Title',
     schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
-    async onConfirm(values, form) {
-      console.log(values, form)
+    async onConfirm() {
       await Promise.resolve()
     },
   })
   return dialog
 }
-const FormPage: FC = () => {
-  const form = useMemo(() => {
-    return createForm({
-      validateFirst: true,
-    })
-  }, [])
+function FormPage() {
+  const form = useMemo(
+    () =>
+      createForm({
+        validateFirst: true,
+      }),
+    [],
+  )
   return (
     <PageContainer
       extra={[
         <Button
-          key='but1'
+          key="but1"
           onClick={() => {
-            void openDialog()
-              .open()
-              .then((res) => {
-                console.log(res)
-              })
+            openDialog().open()
           }}
         >
           Open Modal
@@ -49,12 +45,12 @@ const FormPage: FC = () => {
           labelCol={5}
           wrapperCol={16}
           onAutoSubmit={() => {
-            console.log('onAutoSubmit')
+            message.info('onAutoSubmit')
           }}
         >
           <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
           <FormButtonGroup.FormItem>
-            <Submit block size='large'>
+            <Submit block size="large">
               Submit
             </Submit>
           </FormButtonGroup.FormItem>

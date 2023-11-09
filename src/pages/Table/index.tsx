@@ -2,7 +2,6 @@ import type { ProColumns } from '@ant-design/pro-components'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
 import { useModal } from '@ebay/nice-modal-react'
 import { Button, Popconfirm, Typography } from 'antd'
-import type { FC } from 'react'
 
 import type { PageItem } from '@/api'
 import { HomeApi } from '@/api'
@@ -26,14 +25,12 @@ const columns: Array<ProColumns<PageItem>> = [
       showSearch: true,
     },
     debounceTime: 500,
-    request: async () => {
-      return [
-        { label: '全部', value: 'all' },
-        { label: '未解决', value: 'open' },
-        { label: '已解决', value: 'closed' },
-        { label: '解决中', value: 'processing' },
-      ]
-    },
+    request: async () => [
+      { label: '全部', value: 'all' },
+      { label: '未解决', value: 'open' },
+      { label: '已解决', value: 'closed' },
+      { label: '解决中', value: 'processing' },
+    ],
   },
   {
     title: 'status',
@@ -61,31 +58,22 @@ const columns: Array<ProColumns<PageItem>> = [
     title: 'Action',
     key: 'action',
     valueType: 'option',
-    render: (dom, entity, i, action) => {
-      return [
-        <Typography.Link
-          key='link1'
-          onClick={() => {
-            console.log(entity)
-          }}
-        >
-          Edit
-        </Typography.Link>,
-        <Popconfirm
-          key='link2'
-          title='Do you want to delete this row of data?'
-          onConfirm={() => {
-            void action?.reload()
-          }}
-        >
-          <Typography.Link type='danger'>Delete</Typography.Link>
-        </Popconfirm>,
-      ]
-    },
+    render: (_dom, _entity, _i, action) => [
+      <Typography.Link key="link1">Edit</Typography.Link>,
+      <Popconfirm
+        key="link2"
+        title="Do you want to delete this row of data?"
+        onConfirm={() => {
+          action?.reload()
+        }}
+      >
+        <Typography.Link type="danger">Delete</Typography.Link>
+      </Popconfirm>,
+    ],
   },
 ]
 
-const TablePage: FC = () => {
+function TablePage() {
   const modal = useModal(MyAntdModal)
 
   return (
@@ -93,14 +81,12 @@ const TablePage: FC = () => {
       fixedHeader
       extra={
         <Button
-          type='primary'
+          type="primary"
           onClick={() => {
-            void modal.show({
+            modal.show({
               title: 'Command Modal',
               children: <div>test</div>,
-              onOk: async () => {
-                return await sleep(2000)
-              },
+              onOk: async () => sleep(2000),
             })
           }}
         >
@@ -111,22 +97,22 @@ const TablePage: FC = () => {
       <ProTable
         toolBarRender={(action) => [
           <Button
-            key='but1'
-            type='primary'
+            key="but1"
+            type="primary"
             onClick={() => {
-              void action?.reload()
+              action?.reload()
             }}
           >
             Button 1
           </Button>,
-          <Button key='but2'>Button 2</Button>,
+          <Button key="but2">Button 2</Button>,
         ]}
         request={async (params) => {
           const res = await homeApi.getPage(params)
           return transformTableData(res)
         }}
         columns={columns}
-        rowKey='id'
+        rowKey="id"
       />
     </PageContainer>
   )

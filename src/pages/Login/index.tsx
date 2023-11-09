@@ -4,21 +4,21 @@ import { App } from 'antd'
 import { useSignIn } from 'react-auth-kit'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate()
   const signIn = useSignIn()
   const { message } = App.useApp()
   return (
-    <div className='flex flex-col  w-full h-screen bg-slate-200'>
+    <div className="flex flex-col  w-full h-screen bg-slate-200">
       <LoginFormPage
-        backgroundImageUrl='https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png'
-        logo='https://github.githubassets.com/images/modules/logos_page/Octocat.png'
-        title='React-Antd'
+        backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
+        logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+        title="React-Antd"
         initialValues={{
           username: 'admin',
           password: '123456',
         }}
-        subTitle='测试账号: admin/123456'
+        subTitle="测试账号: admin/123456"
         onFinish={async (values) => {
           const { username, password } = values
           if (username === 'admin' && password === '123456') {
@@ -31,22 +31,21 @@ const Login = () => {
             if (isSign) {
               navigate('/')
             } else {
-              console.error('error')
+              message.error('error')
             }
-            return await Promise.resolve(true)
-          } else {
-            void message.error('账户名密码错误')
-            return await Promise.resolve(false)
+            return Promise.resolve(true)
           }
+          message.error('账户名密码错误')
+          return Promise.resolve(false)
         }}
       >
         <ProFormText
-          name='username'
+          name="username"
           fieldProps={{
             size: 'large',
-            prefix: <UserOutlined className='prefixIcon' />,
+            prefix: <UserOutlined className="prefixIcon" />,
           }}
-          placeholder='请输入用户名'
+          placeholder="请输入用户名"
           rules={[
             {
               required: true,
@@ -55,12 +54,12 @@ const Login = () => {
           ]}
         />
         <ProFormText.Password
-          name='password'
+          name="password"
           fieldProps={{
             size: 'large',
-            prefix: <LockOutlined className='prefixIcon' />,
+            prefix: <LockOutlined className="prefixIcon" />,
           }}
-          placeholder='请输入密码'
+          placeholder="请输入密码"
           rules={[
             {
               required: true,

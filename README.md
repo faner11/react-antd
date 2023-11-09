@@ -27,11 +27,11 @@ English ｜[简体中文](./README.zh-cn.md)
 - [formilyjs](https://formilyjs.org/zh-CN) Form rendering engine, `antd` projects are recommended to use
 - [react-hook-form](https://react-hook-form.com/) React Hooks-based form library, recommended for `mui` projects
 - [react-hook-form-mui](https://github.com/dohomi/react-hook-form-mui) Form component library based on `react-hook-form` and `mui`
-- [yup](https://github.com/jquense/yup) Validation builder for custom form validation
+- [Zod](https://github.com/colinhacks/zod) TypeScript-first schema validation with static type inference
 
 ## Other libraries
 
-- [antd V5](https://ant.design/index-cn)
+- [antd](https://ant.design)
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) v6
 - **eslint** <font style="color:red" >Forced use, forbidden to close</font>
 - [classnames](https://github.com/JedWatson/classnames) css class name link combination

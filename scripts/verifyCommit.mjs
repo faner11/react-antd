@@ -1,5 +1,5 @@
-// Invoked on the commit-msg git hook by simple-git-hooks.
-
+/* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 import { readFileSync } from 'fs'
 import colors from 'picocolors'
 
@@ -14,11 +14,14 @@ const commitRE =
 if (!releaseRE.test(msg) && !commitRE.test(msg)) {
   console.log()
   console.error(
-    `  ${colors.bgRed(colors.white(' ERROR '))} ${colors.red(`invalid commit message format.`)}\n\n` +
-      colors.red(`  Proper commit message format is required for automated changelog generation. Examples:\n\n`) +
-      `    ${colors.green(`feat: add 'comments' option`)}\n` +
-      `    ${colors.green(`fix: handle events on blur (close #28)`)}\n\n` +
-      colors.red(`  See .github/commit-convention.md for more details.\n`),
+    `  ${colors.bgRed(colors.white(' ERROR '))} ${colors.red(
+      'invalid commit message format.',
+    )}\n\n${colors.red(
+      '  Proper commit message format is required for automated changelog generation. Examples:\n\n',
+    )}    ${colors.green("feat: add 'comments' option")}\n` +
+      `    ${colors.green('fix: handle events on blur (close #28)')}\n\n${colors.red(
+        '  See .github/commit-convention.md for more details.\n',
+      )}`,
   )
   process.exit(1)
 }

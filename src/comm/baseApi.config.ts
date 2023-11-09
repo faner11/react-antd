@@ -6,3 +6,5 @@ export const BaseApiConfig = new Configuration({
     myheader: '123456',
   },
 })
+
+export default {}

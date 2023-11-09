@@ -18,13 +18,10 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      onError: (err) => {
-        void message.error((err as any).message)
-      },
     },
     mutations: {
       onError: (err) => {
-        void message.error((err as any).message)
+        message.error(err.message)
       },
     },
   },
@@ -33,7 +30,7 @@ const root = ReactDOM.createRoot(document.getElementById('root')!)
 
 root.render(
   <StrictMode>
-    <AuthProvider authName='_auth' authType='localstorage'>
+    <AuthProvider authName="_auth" authType="localstorage">
       <QueryClientProvider client={queryClient}>
         <NiceModal.Provider>
           <ConfigProvider locale={zhCN}>

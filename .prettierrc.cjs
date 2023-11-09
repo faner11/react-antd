@@ -1,7 +1,19 @@
 module.exports = {
-  jsxSingleQuote: true,
-  trailingComma: 'all',
-  printWidth: 120,
   semi: false,
+  tabWidth: 2,
+  trailingComma: 'all',
   singleQuote: true,
+  useTabs: false,
+  printWidth: 100,
+  endOfLine: 'auto',
+  overrides: [
+    {
+      files: '.editorconfig',
+      options: { parser: 'yaml' },
+    },
+    {
+      files: 'LICENSE',
+      options: { parser: 'markdown' },
+    },
+  ],
 }

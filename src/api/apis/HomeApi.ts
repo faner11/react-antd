@@ -54,7 +54,9 @@ export class HomeApi extends runtime.BaseAPI {
       initOverrides,
     )
 
-    return new runtime.JSONApiResponse(response, (jsonValue) => GetPage200ResponseFromJSON(jsonValue))
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      GetPage200ResponseFromJSON(jsonValue),
+    )
   }
 
   /**

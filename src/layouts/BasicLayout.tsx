@@ -9,10 +9,16 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 
 import { asideMenuConfig, icons } from './menuConfig'
 
+const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
+  if (isEmpty(item.path)) {
+    return defaultDom
+  }
+  return <Link to={item.path!}>{defaultDom}</Link>
+}
 const loopMenuItem: any = (menus: MenuDataItem[]) =>
   menus.map(({ icon, children, ...item }) => ({
     ...item,
-    icon: typeof icon === 'string' && !isEmpty(icon) ? createElement(icons[icon]) : undefined,
+    icon: typeof icon === 'string' && !isEmpty(icon) ? createElement(icons[icon]!) : undefined,
     children: children != null && loopMenuItem(children),
   }))
 
@@ -20,28 +26,23 @@ export default function BasicLayout() {
   const location = useLocation()
   return (
     <ProLayout
-      logo='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
-      title='React—Antd'
+      logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      title="React—Antd"
       location={{
         pathname: location.pathname,
       }}
-      layout='mix'
-      navTheme='light'
-      theme='light'
+      layout="mix"
+      navTheme="light"
+      theme="light"
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
-      menuItemRender={(item: MenuDataItem, defaultDom: ReactNode) => {
-        if (!isEmpty(item.path)) {
-          return defaultDom
-        }
-        return <Link to={item.path!}>{defaultDom}</Link>
-      }}
+      menuItemRender={menuItemRender}
       fixSiderbar
       fixedHeader
     >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
           fallback={
-            <div className='text-center pt-11'>
+            <div className="text-center pt-11">
               <Spin />
             </div>
           }

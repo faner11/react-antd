@@ -1,19 +1,18 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { Button, Result } from 'antd'
-import { type FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const NotFound: FC = () => {
+function NotFound() {
   const navigate = useNavigate()
   return (
     <PageContainer title={false}>
       <Result
-        status='404'
-        title='404'
-        subTitle='Page does not exist.'
+        status="404"
+        title="404"
+        subTitle="Page does not exist."
         extra={
           <Button
-            type='primary'
+            type="primary"
             onClick={() => {
               navigate('/')
             }}

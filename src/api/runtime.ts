@@ -22,7 +22,10 @@ export interface ConfigurationParameters {
   username?: string // parameter for basic security
   password?: string // parameter for basic security
   apiKey?: string | ((name: string) => string) // parameter for apiKey security
-  accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string | Promise<string>) // parameter for oauth2 security
+  accessToken?:
+    | string
+    | Promise<string>
+    | ((name?: string, scopes?: string[]) => string | Promise<string>) // parameter for oauth2 security
   headers?: HTTPHeaders //header params we want to use on every request
   credentials?: RequestCredentials //value for the credentials param we want to use on each request
 }
@@ -89,7 +92,10 @@ export const DefaultConfig = new Configuration()
  * This is the base class for all generated API classes.
  */
 export class BaseAPI {
-  private static readonly jsonRegex = new RegExp('^(:?application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(:?;.*)?$', 'i')
+  private static readonly jsonRegex = new RegExp(
+    '^(:?application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(:?;.*)?$',
+    'i',
+  )
   private middleware: Middleware[]
 
   constructor(protected configuration = DefaultConfig) {
@@ -129,7 +135,10 @@ export class BaseAPI {
     return BaseAPI.jsonRegex.test(mime)
   }
 
-  protected async request(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction): Promise<Response> {
+  protected async request(
+    context: RequestOpts,
+    initOverrides?: RequestInit | InitOverrideFunction,
+  ): Promise<Response> {
     const { url, init } = await this.createFetchParams(context, initOverrides)
     const response = await this.fetchApi(url, init)
     if (response && response.status >= 200 && response.status < 300) {
@@ -138,7 +147,10 @@ export class BaseAPI {
     throw new ResponseError(response, 'Response returned an error code')
   }
 
-  private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
+  private async createFetchParams(
+    context: RequestOpts,
+    initOverrides?: RequestInit | InitOverrideFunction,
+  ) {
     let url = this.configuration.basePath + context.path
     if (context.query !== undefined && Object.keys(context.query).length !== 0) {
       // only add the querystring to the URL if there are query parameters.
@@ -150,7 +162,8 @@ export class BaseAPI {
     const headers = Object.assign({}, this.configuration.headers, context.headers)
     Object.keys(headers).forEach((key) => (headers[key] === undefined ? delete headers[key] : {}))
 
-    const initOverrideFn = typeof initOverrides === 'function' ? initOverrides : async () => initOverrides
+    const initOverrideFn =
+      typeof initOverrides === 'function' ? initOverrides : async () => initOverrides
 
     const initParams = {
       method: context.method,
@@ -170,7 +183,9 @@ export class BaseAPI {
     const init: RequestInit = {
       ...overriddenInit,
       body:
-        isFormData(overriddenInit.body) || overriddenInit.body instanceof URLSearchParams || isBlob(overriddenInit.body)
+        isFormData(overriddenInit.body) ||
+        overriddenInit.body instanceof URLSearchParams ||
+        isBlob(overriddenInit.body)
           ? overriddenInit.body
           : JSON.stringify(overriddenInit.body),
     }
@@ -207,7 +222,10 @@ export class BaseAPI {
       }
       if (response === undefined) {
         if (e instanceof Error) {
-          throw new FetchError(e, 'The request failed and the interceptors did not return an alternative response')
+          throw new FetchError(
+            e,
+            'The request failed and the interceptors did not return an alternative response',
+          )
         } else {
           throw e
         }
@@ -249,21 +267,30 @@ function isFormData(value: any): value is FormData {
 
 export class ResponseError extends Error {
   override name: 'ResponseError' = 'ResponseError'
-  constructor(public response: Response, msg?: string) {
+  constructor(
+    public response: Response,
+    msg?: string,
+  ) {
     super(msg)
   }
 }
 
 export class FetchError extends Error {
   override name: 'FetchError' = 'FetchError'
-  constructor(public cause: Error, msg?: string) {
+  constructor(
+    public cause: Error,
+    msg?: string,
+  ) {
     super(msg)
   }
 }
 
 export class RequiredError extends Error {
   override name: 'RequiredError' = 'RequiredError'
-  constructor(public field: string, msg?: string) {
+  constructor(
+    public field: string,
+    msg?: string,
+  ) {
     super(msg)
   }
 }
@@ -416,7 +443,10 @@ export interface ResponseTransformer<T> {
 }
 
 export class JSONApiResponse<T> {
-  constructor(public raw: Response, private transformer: ResponseTransformer<T> = (jsonValue: any) => jsonValue) {}
+  constructor(
+    public raw: Response,
+    private transformer: ResponseTransformer<T> = (jsonValue: any) => jsonValue,
+  ) {}
 
   async value(): Promise<T> {
     return this.transformer(await this.raw.json())

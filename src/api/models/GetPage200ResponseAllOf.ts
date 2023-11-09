@@ -43,7 +43,10 @@ export function GetPage200ResponseAllOfFromJSON(json: any): GetPage200ResponseAl
   return GetPage200ResponseAllOfFromJSONTyped(json, false)
 }
 
-export function GetPage200ResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPage200ResponseAllOf {
+export function GetPage200ResponseAllOfFromJSONTyped(
+  json: any,
+  ignoreDiscriminator: boolean,
+): GetPage200ResponseAllOf {
   if (json === undefined || json === null) {
     return json
   }

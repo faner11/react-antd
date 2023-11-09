@@ -65,7 +65,10 @@ export function GetPage200ResponseFromJSON(json: any): GetPage200Response {
   return GetPage200ResponseFromJSONTyped(json, false)
 }
 
-export function GetPage200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPage200Response {
+export function GetPage200ResponseFromJSONTyped(
+  json: any,
+  ignoreDiscriminator: boolean,
+): GetPage200Response {
   if (json === undefined || json === null) {
     return json
   }

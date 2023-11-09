@@ -1,29 +1,57 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
+  root: true,
+  env: { browser: true },
   extends: [
-    'standard-with-typescript',
-    'standard-jsx',
+    'airbnb-base',
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'prettier',
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: ['tsconfig.json', 'tsconfig.node.json'],
   },
-  plugins: ['react', 'prettier', 'simple-import-sort'],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['import', 'simple-import-sort', 'prettier'],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        directory: './tsconfig.json',
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     'prettier/prettier': 'error',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/ban-tslint-comment': 'off',
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
+    ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'import/newline-after-import': ['error', { count: 1 }],
+    'arrow-body-style': 'off',
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'import/prefer-default-export': 'off',
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+    'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
   },
+  overrides: [
+    {
+      files: ['*.cjs', '*.mjs'],
+    },
+  ],
 }
