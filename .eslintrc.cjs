@@ -6,6 +6,7 @@ module.exports = {
   env: { browser: true },
   extends: [
     'airbnb-base',
+    'airbnb/rules/react',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
@@ -48,6 +49,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
     'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
+    // 'react/jsx-curly-brace-presence': 'error',
   },
   overrides: [
     {
