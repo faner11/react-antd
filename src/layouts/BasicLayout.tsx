@@ -15,13 +15,16 @@ const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
   }
   return <Link to={item.path}>{defaultDom}</Link>
 }
-const loopMenuItem: any = (menus: MenuDataItem[]) =>
-  menus.map(({ icon, children, ...item }) => ({
-    ...item,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    icon: typeof icon === "string" && icon != null ? createElement(icons[icon]!) : undefined,
-    children: children != null && loopMenuItem(children),
-  }))
+const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] => {
+  return menus.map((item) => {
+    const icon = icons[item.icon as string]
+    return {
+      ...item,
+      icon: icon && (createElement(icon) as ReactNode),
+      children: item.children && loopMenuItem(item.children),
+    }
+  })
+}
 
 export const BasicLayout: FC = () => {
   const location = useLocation()

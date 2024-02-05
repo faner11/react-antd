@@ -29,8 +29,7 @@
         "all": true
       },
       "suspicious": {
-        "all": true,
-        "noExplicitAny": "warn"
+        "all": true
       }
     }
   },

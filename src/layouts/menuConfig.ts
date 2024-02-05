@@ -1,8 +1,8 @@
 import { HeartOutlined, SmileOutlined } from "@ant-design/icons"
 import type { MenuDataItem } from "@ant-design/pro-components"
-import type { ForwardRefExoticComponent } from "react"
+import type { FC } from "react"
 
-export const icons: Record<string, ForwardRefExoticComponent<any>> = {
+export const icons: Record<string, FC> = {
   SmileOutlined,
   HeartOutlined,
 }

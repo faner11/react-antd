@@ -4,7 +4,7 @@ import { Modal } from "antd"
 import { FC, MouseEvent, useState } from "react"
 
 interface MyAntdModalProps extends ModalProps {
-  onOk?: (e: MouseEvent<HTMLButtonElement>) => Promise<any> | any
+  onOk?: (e: MouseEvent<HTMLButtonElement>) => Promise<unknown>
 }
 const MyAntdModalComponent: FC<MyAntdModalProps> = (props) => {
   const modal = useModal()

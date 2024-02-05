@@ -6,30 +6,30 @@ import type { ReactNode } from "react"
 
 interface Props {
   schemaField: ReactNode
-  title: IModalProps | string
-  onConfirm: (values: any, form: Form) => Promise<any>
+  title: IModalProps
+  onConfirm: (values: unknown, form: Form) => Promise<unknown>
   portalId?: string
   formLayoutProps?: IFormLayoutProps
 }
 export const openDefDialog = (props: Props) => {
   const { title, onConfirm, schemaField, portalId = "form-dialog", formLayoutProps = { labelCol: 6 } } = props
-  return FormDialog(title as any, portalId, () => (
-    <FormLayout {...formLayoutProps}>{schemaField}</FormLayout>
-  )).forConfirm((form, next) => {
-    onConfirm(form.values, form)
-      .then(() => {
-        message.success("Operation succeeded")
-        next()
-      })
-      .catch(() => {
-        form.setSubmitting(false)
-      })
-  })
+  return FormDialog(title, portalId, () => <FormLayout {...formLayoutProps}>{schemaField}</FormLayout>).forConfirm(
+    (form, next) => {
+      onConfirm(form.values, form)
+        .then(() => {
+          message.success("Operation succeeded")
+          next()
+        })
+        .catch(() => {
+          form.setSubmitting(false)
+        })
+    },
+  )
 }
 interface FormDrawerProps {
   title: IDrawerProps
   formRender: (form: Form) => ReactNode
-  onOk?: (val: any) => void
+  onOk?: (val: unknown) => void
   okText?: ReactNode
   onClose?: () => void
   disabled?: boolean
@@ -58,18 +58,27 @@ export const openFormDrawer = (props: FormDrawerProps) => {
   return drawer
 }
 
-export const obj2List = (obj: Record<any, any>) =>
+export const obj2List = (obj: Record<string, unknown>) =>
   Object.keys(obj).map((key) => ({
     label: obj[key],
     value: key,
   }))
 
-export const list2Obj = (list?: any[]) => {
+export const list2Obj = (
+  list?: {
+    label: string
+    value: string | number
+    [key: string]: unknown
+  }[],
+) => {
   if (list == null) {
     return {}
   }
-  return list.reduce((draft, item) => {
-    draft[item.value] = item.label
-    return draft
-  }, {})
+  return list.reduce(
+    (draft, item) => {
+      draft[item.value] = item.label
+      return draft
+    },
+    {} as Record<string, string>,
+  )
 }
