@@ -33,7 +33,7 @@
 
 - [antd](https://ant.design/index-cn) 已预设相关配置
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
-- **eslint** <font style="color:red" >强制使用，禁止关闭</font>
+- **biomejs** <font style="color:red" >强制使用，禁止关闭</font>
 - [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
 - [lodash-es](https://lodash.com/docs/) ES modules 版本的 lodash
 - [@ant-design/pro-components](https://procomponents.ant.design/components) 基于`antd`的重型组件,包含`ProLayout`,`ProTable`等

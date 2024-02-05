@@ -1,12 +1,13 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { App, Button, Col, Row } from 'antd'
-import { useSetAtom } from 'jotai'
+import { PageContainer } from "@ant-design/pro-components"
+import { App, Button, Col, Row } from "antd"
+import { useSetAtom } from "jotai"
 
-import { countObjAtom, defaultStore } from './atom'
-import Demo1 from './components/Demo1'
-import Demo2 from './components/Demo2'
+import { FC } from "react"
+import { countObjAtom, defaultStore } from "./atom"
+import { Demo1 } from "./components/Demo1"
+import { Demo2 } from "./components/Demo2"
 
-function JotaiDemo() {
+export const Component: FC = () => {
   const setCountObj = useSetAtom(countObjAtom)
   const { message } = App.useApp()
   return (
@@ -38,7 +39,7 @@ function JotaiDemo() {
       <Row>
         <Col span={12}>
           <Demo1 />
-        </Col>{' '}
+        </Col>{" "}
         <Col span={12}>
           <Demo2 />
         </Col>
@@ -46,4 +47,3 @@ function JotaiDemo() {
     </PageContainer>
   )
 }
-export default JotaiDemo

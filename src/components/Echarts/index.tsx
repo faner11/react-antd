@@ -1,4 +1,6 @@
-import { BarChart, LineChart, PieChart } from 'echarts/charts'
+import ReactEchartsCore from "echarts-for-react/esm/core"
+import type { EChartsReactProps } from "echarts-for-react/esm/types"
+import { BarChart, LineChart, PieChart } from "echarts/charts"
 import {
   DatasetComponent,
   GridComponent,
@@ -6,13 +8,12 @@ import {
   TitleComponent,
   TooltipComponent,
   TransformComponent,
-} from 'echarts/components'
-import * as echarts from 'echarts/core'
-import { CanvasRenderer } from 'echarts/renderers'
-import ReactEChartsCore from 'echarts-for-react/esm/core'
-import type { EChartsReactProps } from 'echarts-for-react/esm/types'
+} from "echarts/components"
+import * as echarts from "echarts/core"
+import { CanvasRenderer } from "echarts/renderers"
 
-import indexedChartTheme from './EChartsTheme.json'
+import { FC } from "react"
+import indexedChartTheme from "./EChartsTheme.json"
 
 echarts.use([
   BarChart,
@@ -26,9 +27,7 @@ echarts.use([
   CanvasRenderer,
   LegendComponent,
 ])
-echarts.registerTheme('MyTheme', indexedChartTheme)
-function EChartsReact(props: EChartsReactProps) {
-  return <ReactEChartsCore echarts={echarts} theme="MyTheme" {...props} />
+echarts.registerTheme("MyTheme", indexedChartTheme)
+export const EchartsReact: FC<EChartsReactProps> = (props) => {
+  return <ReactEchartsCore echarts={echarts} theme="MyTheme" {...props} />
 }
-
-export default EChartsReact

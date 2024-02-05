@@ -1,12 +1,8 @@
-import { lazy } from 'react'
-import type { RouteObject } from 'react-router-dom'
-
-const FormPage = lazy(async () => import('@/pages/Form'))
+import type { RouteObject } from "react-router-dom"
 
 export const formRouters: RouteObject[] = [
   {
-    path: 'formily',
-    element: <FormPage />,
+    path: "formily",
+    lazy: () => import("@/pages/Form"),
   },
 ]
-export default {}

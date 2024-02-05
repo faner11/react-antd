@@ -1,5 +1,5 @@
-import { getDefaultStore } from 'jotai'
-import { atomWithImmer } from 'jotai-immer'
+import { getDefaultStore } from "jotai"
+import { atomWithImmer } from "jotai-immer"
 
 export const countObjAtom = atomWithImmer({
   count: 0,

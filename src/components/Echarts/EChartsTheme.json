@@ -6,17 +6,7 @@
   "textColorShow": false,
   "textColor": "#333",
   "markTextColor": "#eee",
-  "color": [
-    "#4096ff",
-    "#61ddaa",
-    "#f6bd16",
-    "#7262fd",
-    "#78d3f8",
-    "#9661bc",
-    "#f6903d",
-    "#008685",
-    "#f08bb4"
-  ],
+  "color": ["#4096ff", "#61ddaa", "#f6bd16", "#7262fd", "#78d3f8", "#9661bc", "#f6903d", "#008685", "#f08bb4"],
   "borderColor": "#ccc",
   "borderWidth": 0,
   "visualMapColor": ["#bf444c", "#d88273", "#f6efa6"],

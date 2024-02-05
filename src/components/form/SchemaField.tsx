@@ -10,11 +10,11 @@ import {
   Radio,
   Select,
   Space,
-} from '@formily/antd-v5'
-import { createSchemaField } from '@formily/react'
-import { Typography } from 'antd'
+} from "@formily/antd-v5"
+import { createSchemaField } from "@formily/react"
+import { Typography } from "antd"
 
-const SchemaField = createSchemaField({
+export const SchemaField = createSchemaField({
   components: {
     FormItem,
     Input,
@@ -30,4 +30,3 @@ const SchemaField = createSchemaField({
     FormGrid,
   },
 })
-export default SchemaField

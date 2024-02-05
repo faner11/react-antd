@@ -1,8 +1,9 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { Button, Result } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { PageContainer } from "@ant-design/pro-components"
+import { Button, Result } from "antd"
+import { FC } from "react"
+import { useNavigate } from "react-router-dom"
 
-function NotFound() {
+export const Component: FC = () => {
   const navigate = useNavigate()
   return (
     <PageContainer title={false}>
@@ -14,7 +15,7 @@ function NotFound() {
           <Button
             type="primary"
             onClick={() => {
-              navigate('/')
+              navigate("/")
             }}
           >
             BACK HOME
@@ -24,5 +25,3 @@ function NotFound() {
     </PageContainer>
   )
 }
-
-export default NotFound

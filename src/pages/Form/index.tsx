@@ -1,16 +1,16 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from '@formily/antd-v5'
-import { createForm } from '@formily/core'
-import { Button, Card, message } from 'antd'
-import { useMemo } from 'react'
+import { PageContainer } from "@ant-design/pro-components"
+import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from "@formily/antd-v5"
+import { createForm } from "@formily/core"
+import { Button, Card, message } from "antd"
+import { FC, useMemo } from "react"
 
-import { openDefDialog, SchemaField } from '@/components/form'
+import { SchemaField, openDefDialog } from "@/components/form"
 
-import { schema } from './service/schema'
+import { schema } from "./service/schema"
 
 const openDialog = () => {
   const dialog = openDefDialog({
-    title: 'Dialog Title',
+    title: "Dialog Title",
     schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
     async onConfirm() {
       await Promise.resolve()
@@ -18,7 +18,7 @@ const openDialog = () => {
   })
   return dialog
 }
-function FormPage() {
+export const Component: FC = () => {
   const form = useMemo(
     () =>
       createForm({
@@ -45,12 +45,12 @@ function FormPage() {
           labelCol={5}
           wrapperCol={16}
           onAutoSubmit={() => {
-            message.info('onAutoSubmit')
+            message.info("onAutoSubmit")
           }}
         >
           <SchemaField schema={schema} components={{ ArrayItems, Editable }} />
           <FormButtonGroup.FormItem>
-            <Submit block size="large">
+            <Submit block={true} size="large">
               Submit
             </Submit>
           </FormButtonGroup.FormItem>
@@ -59,5 +59,3 @@ function FormPage() {
     </PageContainer>
   )
 }
-
-export default FormPage

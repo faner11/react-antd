@@ -1,23 +1,23 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { useQuery } from '@tanstack/react-query'
-import { Button, Card, Typography } from 'antd'
-import { produce } from 'immer'
-import { useState } from 'react'
+import { PageContainer } from "@ant-design/pro-components"
+import { useQuery } from "@tanstack/react-query"
+import { Button, Card, Typography } from "antd"
+import { produce } from "immer"
+import { FC, useState } from "react"
 
-import { HomeApi } from '@/api'
-import { BaseApiConfig } from '@/comm/baseApi.config'
-import { takeOffDataFun } from '@/utils'
+import { HomeApi } from "@/api"
+import { BaseApiConfig } from "@/comm/baseApi.config"
+import { takeOffDataFun } from "@/utils"
 
 const homeApi = new HomeApi(BaseApiConfig)
 
-function ReactQueryDemo() {
+export const Component: FC = () => {
   const [value, setValue] = useState({
-    name: 'hello',
+    name: "hello",
     current: 1,
   })
 
   const dataQuery = useQuery({
-    queryKey: ['HunBo4R11V16LmheHmTGZ', value],
+    queryKey: ["HunBo4R11V16LmheHmTGZ", value],
     queryFn: async () => {
       const obj = await homeApi.getPage(value)
       return takeOffDataFun(obj)
@@ -52,4 +52,3 @@ function ReactQueryDemo() {
     </PageContainer>
   )
 }
-export default ReactQueryDemo

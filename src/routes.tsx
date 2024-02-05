@@ -1,27 +1,25 @@
-import { Spin } from 'antd'
-import { lazy, Suspense } from 'react'
-import { RequireAuth } from 'react-auth-kit'
-import { createBrowserRouter } from 'react-router-dom'
+import { Spin } from "antd"
+import { Suspense, lazy } from "react"
+import { RequireAuth } from "react-auth-kit"
+import { createBrowserRouter } from "react-router-dom"
 
-import { formRouters } from './pages/Form/routes'
-import { dashboardRouters } from './pages/State/routes'
+import { formRouters } from "./pages/Form/routes"
+import { dashboardRouters } from "./pages/State/routes"
 
-const BasicLayout = lazy(async () => import('@/layouts/BasicLayout'))
-const Login = lazy(async () => import('@/pages/Login'))
-const TablePage = lazy(async () => import('@/pages/Table'))
-const EchartsPage = lazy(async () => import('@/pages/Echarts'))
+const BasicLayout = lazy(async () =>
+  import("@/layouts/BasicLayout").then((module) => ({ default: module.BasicLayout })),
+)
 
-const NotFound = lazy(async () => import('@/components/NotFound'))
 /**
  * 路由配置,多个路由配置可以合并为一个数组
  */
-const routerConfig = createBrowserRouter([
+export const routerConfig = createBrowserRouter([
   {
-    path: '/login',
-    element: <Login />,
+    path: "/login",
+    lazy: () => import("@/pages/Login"),
   },
   {
-    path: '/',
+    path: "/",
     element: (
       <RequireAuth loginPath="/login">
         <Suspense
@@ -38,26 +36,24 @@ const routerConfig = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <TablePage />,
+        lazy: () => import("@/pages/Table"),
       },
       {
-        path: 'state',
+        path: "state",
         children: dashboardRouters,
       },
       {
-        path: 'form',
+        path: "form",
         children: formRouters,
       },
       {
-        path: 'echarts',
-        element: <EchartsPage />,
+        path: "echarts",
+        lazy: () => import("@/pages/Echarts"),
       },
       {
-        path: '*',
-        element: <NotFound />,
+        path: "*",
+        lazy: () => import("@/components/NotFound"),
       },
     ],
   },
 ])
-
-export default routerConfig

@@ -1,42 +1,43 @@
-import { PageContainer } from '@ant-design/pro-components'
-import { Card } from 'antd'
-import type { EChartsOption } from 'echarts'
+import { PageContainer } from "@ant-design/pro-components"
+import { Card } from "antd"
+import type { EChartsOption } from "echarts"
 
-import EChartsReact from '@/components/Echarts'
+import { EchartsReact } from "@/components/Echarts"
+import { FC } from "react"
 
 const data = [
   {
     value1: 1200,
     value2: 300,
     value3: 482,
-    name: 'Mon',
+    name: "Mon",
   },
   {
-    name: 'Tue',
+    name: "Tue",
     value1: 300,
     value2: 500,
     value3: 882,
   },
   {
-    name: 'Wed',
+    name: "Wed",
     value1: 4000,
     value2: 100,
     value3: 982,
   },
   {
-    name: 'Thu',
+    name: "Thu",
     value1: 230,
     value2: 820,
     value3: 662,
   },
   {
-    name: 'Fri',
+    name: "Fri",
     value1: 666,
     value2: 777,
     value3: 888,
   },
   {
-    name: 'Sat',
+    name: "Sat",
     value1: 222,
     value2: 333,
     value3: 444,
@@ -45,10 +46,10 @@ const data = [
     value1: 888,
     value2: 666,
     value3: 111,
-    name: 'Sun',
+    name: "Sun",
   },
 ]
-const dimensions = ['name', 'value1', 'value2', 'value3']
+const dimensions = ["name", "value1", "value2", "value3"]
 const options: EChartsOption = {
   dataset: {
     dimensions,
@@ -62,29 +63,28 @@ const options: EChartsOption = {
     containLabel: true,
   },
   xAxis: {
-    type: 'category',
+    type: "category",
   },
   yAxis: {
-    type: 'value',
+    type: "value",
   },
   series: Array.from({ length: dimensions.length - 1 }).map(() => ({
-    type: 'line',
+    type: "line",
     smooth: true,
   })),
   tooltip: {
-    trigger: 'axis',
+    trigger: "axis",
   },
   legend: {
     bottom: 0,
   },
 }
-function EchartsPage() {
+export const Component: FC = () => {
   return (
     <PageContainer>
       <Card>
-        <EChartsReact option={options} />
+        <EchartsReact option={options} />
       </Card>
     </PageContainer>
   )
 }
-export default EchartsPage

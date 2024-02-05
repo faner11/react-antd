@@ -1,31 +1,24 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import type { IDrawerProps, IFormLayoutProps, IModalProps } from '@formily/antd-v5'
-import { FormButtonGroup, FormDialog, FormDrawer, FormLayout, Submit } from '@formily/antd-v5'
-import type { Form } from '@formily/core'
-import { Button, message } from 'antd'
-import type { ReactNode } from 'react'
+import type { IDrawerProps, IFormLayoutProps, IModalProps } from "@formily/antd-v5"
+import { FormButtonGroup, FormDialog, FormDrawer, FormLayout, Submit } from "@formily/antd-v5"
+import type { Form } from "@formily/core"
+import { Button, message } from "antd"
+import type { ReactNode } from "react"
 
-interface IProps {
+interface Props {
   schemaField: ReactNode
   title: IModalProps | string
   onConfirm: (values: any, form: Form) => Promise<any>
-  PortalId?: string
+  portalId?: string
   formLayoutProps?: IFormLayoutProps
 }
-export const openDefDialog = (props: IProps) => {
-  const {
-    title,
-    onConfirm,
-    schemaField,
-    PortalId = 'form-dialog',
-    formLayoutProps = { labelCol: 6 },
-  } = props
-  return FormDialog(title as any, PortalId, () => (
+export const openDefDialog = (props: Props) => {
+  const { title, onConfirm, schemaField, portalId = "form-dialog", formLayoutProps = { labelCol: 6 } } = props
+  return FormDialog(title as any, portalId, () => (
     <FormLayout {...formLayoutProps}>{schemaField}</FormLayout>
   )).forConfirm((form, next) => {
     onConfirm(form.values, form)
       .then(() => {
-        message.success('Operation succeeded')
+        message.success("Operation succeeded")
         next()
       })
       .catch(() => {
@@ -33,26 +26,18 @@ export const openDefDialog = (props: IProps) => {
       })
   })
 }
-interface IDrawer {
+interface FormDrawerProps {
   title: IDrawerProps
   formRender: (form: Form) => ReactNode
   onOk?: (val: any) => void
   okText?: ReactNode
   onClose?: () => void
   disabled?: boolean
-  PortalId?: string
+  portalId?: string
 }
-export const openFormDrawer = (props: IDrawer) => {
-  const {
-    title,
-    formRender,
-    onOk,
-    okText = 'OK',
-    onClose,
-    disabled = false,
-    PortalId = 'form-drawer',
-  } = props
-  const drawer = FormDrawer({ ...title, maskClosable: true, onClose }, PortalId, (form) => (
+export const openFormDrawer = (props: FormDrawerProps) => {
+  const { title, formRender, onOk, okText = "OK", onClose, disabled = false, portalId = "form-drawer" } = props
+  const drawer = FormDrawer({ ...title, maskClosable: true, onClose }, portalId, (form) => (
     <>
       {formRender(form)}
       <FormDrawer.Footer>
@@ -80,7 +65,9 @@ export const obj2List = (obj: Record<any, any>) =>
   }))
 
 export const list2Obj = (list?: any[]) => {
-  if (list == null) return {}
+  if (list == null) {
+    return {}
+  }
   return list.reduce((draft, item) => {
     draft[item.value] = item.label
     return draft

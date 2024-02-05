@@ -7,5 +7,3 @@ export const transformTableData = (data: any[] | any) => {
   }
   return data
 }
-
-export default {}

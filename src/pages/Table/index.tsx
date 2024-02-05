@@ -1,63 +1,64 @@
-import type { ProColumns } from '@ant-design/pro-components'
-import { PageContainer, ProTable } from '@ant-design/pro-components'
-import { useModal } from '@ebay/nice-modal-react'
-import { Button, Popconfirm, Typography } from 'antd'
+import type { ProColumns } from "@ant-design/pro-components"
+import { PageContainer, ProTable } from "@ant-design/pro-components"
+import { useModal } from "@ebay/nice-modal-react"
+import { Button, Popconfirm, Typography } from "antd"
 
-import type { PageItem } from '@/api'
-import { HomeApi } from '@/api'
-import { BaseApiConfig } from '@/comm/baseApi.config'
-import MyAntdModal from '@/components/MyAntdModal'
-import { sleep, transformTableData } from '@/utils'
+import type { PageItem } from "@/api"
+import { HomeApi } from "@/api"
+import { BaseApiConfig } from "@/comm/baseApi.config"
+import { MyAntdModal } from "@/components/MyAntdModal"
+import { sleep, transformTableData } from "@/utils"
+import { FC } from "react"
 
 const homeApi = new HomeApi(BaseApiConfig)
-const columns: Array<ProColumns<PageItem>> = [
+const columns: ProColumns<PageItem>[] = [
   {
-    title: 'title',
-    dataIndex: 'title',
+    title: "title",
+    dataIndex: "title",
     copyable: true,
     ellipsis: true,
     width: 200,
   },
   {
-    title: 'status搜索',
+    title: "status搜索",
     hideInTable: true,
     fieldProps: {
       showSearch: true,
     },
     debounceTime: 500,
     request: async () => [
-      { label: '全部', value: 'all' },
-      { label: '未解决', value: 'open' },
-      { label: '已解决', value: 'closed' },
-      { label: '解决中', value: 'processing' },
+      { label: "全部", value: "all" },
+      { label: "未解决", value: "open" },
+      { label: "已解决", value: "closed" },
+      { label: "解决中", value: "processing" },
     ],
   },
   {
-    title: 'status',
-    dataIndex: 'status',
+    title: "status",
+    dataIndex: "status",
     search: false,
     valueEnum: {
-      1: { text: '初始化', status: 'Default' },
-      2: { text: '已生成', status: 'Success' },
-      3: { text: '生成失败', status: 'Error' },
-      4: { text: '其他' },
+      1: { text: "初始化", status: "Default" },
+      2: { text: "已生成", status: "Success" },
+      3: { text: "生成失败", status: "Error" },
+      4: { text: "其他" },
     },
   },
   {
-    title: 'price',
-    dataIndex: 'price',
-    valueType: 'money',
+    title: "price",
+    dataIndex: "price",
+    valueType: "money",
   },
   {
-    title: 'image',
-    dataIndex: 'image',
-    valueType: 'image',
+    title: "image",
+    dataIndex: "image",
+    valueType: "image",
     search: false,
   },
   {
-    title: 'Action',
-    key: 'action',
-    valueType: 'option',
+    title: "Action",
+    key: "action",
+    valueType: "option",
     render: (_dom, _entity, _i, action) => [
       <Typography.Link key="link1">Edit</Typography.Link>,
       <Popconfirm
@@ -73,18 +74,18 @@ const columns: Array<ProColumns<PageItem>> = [
   },
 ]
 
-function TablePage() {
+export const Component: FC = () => {
   const modal = useModal(MyAntdModal)
 
   return (
     <PageContainer
-      fixedHeader
+      fixedHeader={true}
       extra={
         <Button
           type="primary"
           onClick={() => {
             modal.show({
-              title: 'Command Modal',
+              title: "Command Modal",
               children: <div>test</div>,
               onOk: async () => sleep(2000),
             })
@@ -117,5 +118,3 @@ function TablePage() {
     </PageContainer>
   )
 }
-
-export default TablePage

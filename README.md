@@ -33,7 +33,7 @@ English ｜[简体中文](./README.zh-cn.md)
 
 - [antd](https://ant.design)
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) v6
-- **eslint** <font style="color:red" >Forced use, forbidden to close</font>
+- **biomejs** <font style="color:red" >Forced use, forbidden to close</font>
 - [classnames](https://github.com/JedWatson/classnames) css class name link combination
 - [lodash-es](https://lodash.com/docs/) ES modules version of lodash
 - [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.

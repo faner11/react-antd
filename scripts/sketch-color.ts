@@ -1,2 +1,2 @@
 export const SketchPicker = () => {}
-export interface SketchPickerProps {}
+export type SketchPickerProps = any
