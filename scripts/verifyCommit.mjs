@@ -1,4 +1,5 @@
-import { readFileSync } from "fs"
+// biome-ignore lint/nursery/noNodejsModules: <explanation>
+import { readFileSync } from "node:fs"
 import colors from "picocolors"
 
 // get $1 from commit-msg script

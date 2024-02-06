@@ -1,4 +1,5 @@
-const fs = require("fs")
+// biome-ignore lint/nursery/noNodejsModules: <explanation>
+const fs = require("node:fs")
 const chalk = require("chalk")
 
 module.exports = {

@@ -30,6 +30,10 @@
       },
       "suspicious": {
         "all": true
+      },
+      "nursery": {
+        "all": true,
+        "useImportRestrictions": "off"
       }
     }
   },

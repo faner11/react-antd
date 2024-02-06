@@ -20,7 +20,7 @@ export const Component: FC = () => {
           password: "123456",
         }}
         subTitle="测试账号: admin/123456"
-        onFinish={async (values) => {
+        onFinish={(values) => {
           const { username, password } = values
           if (username === "admin" && password === "123456") {
             const isSign = signIn({

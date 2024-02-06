@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
-import { URL, fileURLToPath } from "url"
+// biome-ignore lint/nursery/noNodejsModules: <explanation>
+import { URL, fileURLToPath } from "node:url"
 import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
 
