@@ -8,7 +8,7 @@ import { HomeApi } from "@/api"
 import { BaseApiConfig } from "@/comm/baseApi.config"
 import { MyAntdModal } from "@/components/MyAntdModal"
 import { sleep, transformTableData } from "@/utils"
-import { FC } from "react"
+import type { FC } from "react"
 
 const homeApi = new HomeApi(BaseApiConfig)
 const columns: ProColumns<PageItem>[] = [

@@ -1,6 +1,6 @@
 import { PageContainer } from "@ant-design/pro-components"
 import { Button, Result } from "antd"
-import { FC } from "react"
+import type { FC } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const Component: FC = () => {

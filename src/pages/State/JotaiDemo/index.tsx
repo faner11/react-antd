@@ -2,7 +2,7 @@ import { PageContainer } from "@ant-design/pro-components"
 import { App, Button, Col, Row } from "antd"
 import { useSetAtom } from "jotai"
 
-import { FC } from "react"
+import type { FC } from "react"
 import { countObjAtom, defaultStore } from "./atom"
 import { Demo1 } from "./components/Demo1"
 import { Demo2 } from "./components/Demo2"

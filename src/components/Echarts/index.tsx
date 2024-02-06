@@ -12,7 +12,7 @@ import {
 import * as echarts from "echarts/core"
 import { CanvasRenderer } from "echarts/renderers"
 
-import { FC } from "react"
+import type { FC } from "react"
 import indexedChartTheme from "./EChartsTheme.json"
 
 echarts.use([

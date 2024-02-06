@@ -3,7 +3,7 @@ import { Card } from "antd"
 import type { EChartsOption } from "echarts"
 
 import { EchartsReact } from "@/components/Echarts"
-import { FC } from "react"
+import type { FC } from "react"
 
 const data = [
   {

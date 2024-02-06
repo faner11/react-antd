@@ -1,4 +1,5 @@
-export const transformTableData = (data: unknown[] | unknown) => {
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export const transformTableData = (data: any[] | any) => {
   if (Array.isArray(data)) {
     return {
       data,

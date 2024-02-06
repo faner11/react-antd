@@ -33,7 +33,7 @@ root.render(
     <AuthProvider authName="_auth" authType="localstorage">
       <QueryClientProvider client={queryClient}>
         <NiceModal.Provider>
-          <ConfigProvider locale={zhCn}>
+          <ConfigProvider locale={zhCn} theme={{ cssVar: true, hashed: false }}>
             <AntdApp>
               <App />
             </AntdApp>

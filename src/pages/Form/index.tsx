@@ -1,16 +1,16 @@
+import { SchemaField, openDefDialog } from "@/components/form"
 import { PageContainer } from "@ant-design/pro-components"
 import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from "@formily/antd-v5"
 import { createForm } from "@formily/core"
 import { Button, Card, message } from "antd"
-import { FC, useMemo } from "react"
-
-import { SchemaField, openDefDialog } from "@/components/form"
+import { useMemo } from "react"
+import type { FC } from "react"
 
 import { schema } from "./service/schema"
 
 const openDialog = () => {
   const dialog = openDefDialog({
-    title: "Dialog Title",
+    title: { title: "Dialog Title" },
     schemaField: <SchemaField schema={schema} components={{ ArrayItems, Editable }} />,
     async onConfirm() {
       await Promise.resolve()

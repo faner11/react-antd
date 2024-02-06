@@ -25,7 +25,7 @@
     "commit-msg": "node scripts/verifyCommit.mjs $1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["biome lint ."],
+    "*.{js,jsx,ts,tsx}": ["biome lint .", "bash -c tsc"],
     "*": ["biome format ."]
   },
   "dependencies": {

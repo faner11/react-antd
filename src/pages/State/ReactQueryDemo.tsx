@@ -1,12 +1,12 @@
+import { HomeApi } from "@/api"
+import { BaseApiConfig } from "@/comm/baseApi.config"
+import { takeOffDataFun } from "@/utils"
 import { PageContainer } from "@ant-design/pro-components"
 import { useQuery } from "@tanstack/react-query"
 import { Button, Card, Typography } from "antd"
 import { produce } from "immer"
-import { FC, useState } from "react"
-
-import { HomeApi } from "@/api"
-import { BaseApiConfig } from "@/comm/baseApi.config"
-import { takeOffDataFun } from "@/utils"
+import { useState } from "react"
+import type { FC } from "react"
 
 const homeApi = new HomeApi(BaseApiConfig)
 

@@ -1,7 +1,7 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons"
 import { LoginFormPage, ProFormText } from "@ant-design/pro-components"
 import { App } from "antd"
-import { FC } from "react"
+import type { FC } from "react"
 import { useSignIn } from "react-auth-kit"
 import { useNavigate } from "react-router-dom"
 

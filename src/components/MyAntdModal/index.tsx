@@ -1,8 +1,8 @@
 import NiceModal, { antdModalV5, useModal } from "@ebay/nice-modal-react"
 import type { ModalProps } from "antd"
 import { Modal } from "antd"
-import { FC, MouseEvent, useState } from "react"
-
+import type { FC, MouseEvent } from "react"
+import { useState } from "react"
 interface MyAntdModalProps extends ModalProps {
   onOk?: (e: MouseEvent<HTMLButtonElement>) => Promise<unknown>
 }
