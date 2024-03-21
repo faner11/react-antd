@@ -6,7 +6,7 @@ import { Button, Card, message } from "antd"
 import { useMemo } from "react"
 import type { FC } from "react"
 
-import { schema } from "./service/schema"
+import { schema } from "./service"
 
 const openDialog = () => {
   const dialog = openDefDialog({
@@ -31,6 +31,7 @@ export const Component: FC = () => {
       extra={[
         <Button
           key="but1"
+          className="p-9"
           onClick={() => {
             openDialog().open()
           }}

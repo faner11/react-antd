@@ -1,6 +1,6 @@
+import RequireAuth from "@auth-kit/react-router/RequireAuth"
 import { Spin } from "antd"
 import { Suspense, lazy } from "react"
-import { RequireAuth } from "react-auth-kit"
 import { createBrowserRouter } from "react-router-dom"
 
 import { formRouters } from "./pages/Form/routes"
@@ -21,7 +21,7 @@ export const routerConfig = createBrowserRouter([
   {
     path: "/",
     element: (
-      <RequireAuth loginPath="/login">
+      <RequireAuth fallbackPath="/login">
         <Suspense
           fallback={
             <div className="text-center pt-11">

@@ -3,15 +3,15 @@ import { PageContainer, ProTable } from "@ant-design/pro-components"
 import { useModal } from "@ebay/nice-modal-react"
 import { Button, Popconfirm, Typography } from "antd"
 
-import type { PageItem } from "@/api"
-import { HomeApi } from "@/api"
+import type { Todo } from "@/api"
+import { TodosApi } from "@/api"
 import { BaseApiConfig } from "@/comm/baseApi.config"
 import { MyAntdModal } from "@/components/MyAntdModal"
 import { sleep, transformTableData } from "@/utils"
 import type { FC } from "react"
 
-const homeApi = new HomeApi(BaseApiConfig)
-const columns: ProColumns<PageItem>[] = [
+const homeApi = new TodosApi(BaseApiConfig)
+const columns: ProColumns<Todo>[] = [
   {
     title: "title",
     dataIndex: "title",
@@ -108,8 +108,8 @@ export const Component: FC = () => {
           </Button>,
           <Button key="but2">Button 2</Button>,
         ]}
-        request={async (params) => {
-          const res = await homeApi.getPage(params)
+        request={async () => {
+          const res = await homeApi.getTodos()
           return transformTableData(res)
         }}
         columns={columns}

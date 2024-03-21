@@ -7,6 +7,6 @@ export const dashboardRouters: RouteObject[] = [
   },
   {
     path: "react-query",
-    lazy: () => import("@/pages/State/ReactQueryDemo"),
+    lazy: () => import("@/pages/State/react-query-demo"),
   },
 ]

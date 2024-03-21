@@ -2,7 +2,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons"
 import { LoginFormPage, ProFormText } from "@ant-design/pro-components"
 import { App } from "antd"
 import type { FC } from "react"
-import { useSignIn } from "react-auth-kit"
+import useSignIn from "react-auth-kit/hooks/useSignIn"
 import { useNavigate } from "react-router-dom"
 
 export const Component: FC = () => {
@@ -24,10 +24,15 @@ export const Component: FC = () => {
           const { username, password } = values
           if (username === "admin" && password === "123456") {
             const isSign = signIn({
-              token: "35v3443bn368367n306306wbn407qn420b436b4",
-              tokenType: "Bearer",
-              expiresIn: 2880,
-              authState: { name: "React User", uid: 123456 },
+              auth: {
+                token:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjk5OTk5OTk5OTk5fQ.Z4_FVGQ5lIcouP3m4YLMr6pGMF17IJFfo2yOTiN58DY",
+                type: "Bearer",
+                // expiresIn: 2880,
+                // authState: { name: "React User", uid: 123456 },
+              },
+              refresh: "",
+              userState: { name: "React User", uid: 123456 },
             })
             if (isSign) {
               navigate("/")
