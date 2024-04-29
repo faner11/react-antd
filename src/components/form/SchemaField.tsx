@@ -10,9 +10,9 @@ import {
   Radio,
   Select,
   Space,
-} from "@formily/antd-v5"
-import { createSchemaField } from "@formily/react"
-import { Typography } from "antd"
+} from '@formily/antd-v5'
+import { createSchemaField } from '@formily/react'
+import { Typography } from 'antd'
 
 export const SchemaField = createSchemaField({
   components: {

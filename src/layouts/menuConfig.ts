@@ -1,6 +1,6 @@
-import { HeartOutlined, SmileOutlined } from "@ant-design/icons"
-import type { MenuDataItem } from "@ant-design/pro-components"
-import type { FC } from "react"
+import { HeartOutlined, SmileOutlined } from '@ant-design/icons'
+import type { MenuDataItem } from '@ant-design/pro-components'
+import type { FC } from 'react'
 
 export const icons: Record<string, FC> = {
   SmileOutlined,
@@ -8,40 +8,40 @@ export const icons: Record<string, FC> = {
 }
 const asideMenuConfig: MenuDataItem[] = [
   {
-    name: "Table",
-    path: "/",
-    icon: "SmileOutlined",
+    name: 'Table',
+    path: '/',
+    icon: 'SmileOutlined',
   },
   {
-    name: "State",
-    path: "/state",
-    icon: "HeartOutlined",
+    name: 'State',
+    path: '/state',
+    icon: 'HeartOutlined',
     children: [
       {
-        name: "Jotai",
-        path: "/state/jotai",
+        name: 'Jotai',
+        path: '/state/jotai',
       },
       {
-        name: "react-query",
-        path: "/state/react-query",
+        name: 'react-query',
+        path: '/state/react-query',
       },
     ],
   },
   {
-    name: "Form",
-    path: "/form",
-    icon: "HeartOutlined",
+    name: 'Form',
+    path: '/form',
+    icon: 'HeartOutlined',
     children: [
       {
-        name: "formily",
-        path: "/form/formily",
+        name: 'formily',
+        path: '/form/formily',
       },
     ],
   },
   {
-    name: "ECharts",
-    path: "/echarts",
-    icon: "HeartOutlined",
+    name: 'ECharts',
+    path: '/echarts',
+    icon: 'HeartOutlined',
   },
 ]
 

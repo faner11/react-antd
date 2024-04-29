@@ -1,8 +1,8 @@
-import NiceModal, { antdModalV5, useModal } from "@ebay/nice-modal-react"
-import type { ModalProps } from "antd"
-import { Modal } from "antd"
-import type { FC, MouseEvent } from "react"
-import { useState } from "react"
+import NiceModal, { antdModalV5, useModal } from '@ebay/nice-modal-react'
+import type { ModalProps } from 'antd'
+import { Modal } from 'antd'
+import type { FC, MouseEvent } from 'react'
+import { useState } from 'react'
 interface MyAntdModalProps extends ModalProps {
   onOk?: (e: MouseEvent<HTMLButtonElement>) => Promise<unknown>
 }
@@ -18,14 +18,14 @@ const MyAntdModalComponent: FC<MyAntdModalProps> = (props) => {
         loading,
       }}
       onOk={(e) => {
-        if (props?.onOk != null && onOk?.constructor.name === "AsyncFunction") {
+        if (props.onOk != null && onOk?.constructor.name === 'AsyncFunction') {
           setLoading(true)
-          onOk?.(e)?.finally(() => {
+          void onOk(e).finally(() => {
             setLoading(false)
           })
         }
-        modal.resolve("ok")
-        modal.hide()
+        modal.resolve('ok')
+        void modal.hide()
       }}
     />
   )

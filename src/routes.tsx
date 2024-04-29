@@ -1,13 +1,14 @@
-import RequireAuth from "@auth-kit/react-router/RequireAuth"
-import { Spin } from "antd"
-import { Suspense, lazy } from "react"
-import { createBrowserRouter } from "react-router-dom"
+import RequireAuth from '@auth-kit/react-router/RequireAuth'
+import { Spin } from 'antd'
+import { lazy, Suspense } from 'react'
+import { createBrowserRouter } from 'react-router-dom'
 
-import { formRouters } from "./pages/Form/routes"
-import { dashboardRouters } from "./pages/State/routes"
+import { formRouters } from './pages/Form/routes'
+import { dashboardRouters } from './pages/State/routes'
 
+// eslint-disable-next-line react-refresh/only-export-components
 const BasicLayout = lazy(async () =>
-  import("@/layouts/BasicLayout").then((module) => ({ default: module.BasicLayout })),
+  import('@/layouts/BasicLayout').then((module) => ({ default: module.BasicLayout })),
 )
 
 /**
@@ -15,11 +16,11 @@ const BasicLayout = lazy(async () =>
  */
 export const routerConfig = createBrowserRouter([
   {
-    path: "/login",
-    lazy: () => import("@/pages/Login"),
+    path: '/login',
+    lazy: () => import('@/pages/Login'),
   },
   {
-    path: "/",
+    path: '/',
     element: (
       <RequireAuth fallbackPath="/login">
         <Suspense
@@ -36,23 +37,23 @@ export const routerConfig = createBrowserRouter([
     children: [
       {
         index: true,
-        lazy: () => import("@/pages/Table"),
+        lazy: () => import('@/pages/Table'),
       },
       {
-        path: "state",
+        path: 'state',
         children: dashboardRouters,
       },
       {
-        path: "form",
+        path: 'form',
         children: formRouters,
       },
       {
-        path: "echarts",
-        lazy: () => import("@/pages/Echarts"),
+        path: 'echarts',
+        lazy: () => import('@/pages/Echarts'),
       },
       {
-        path: "*",
-        lazy: () => import("@/components/NotFound"),
+        path: '*',
+        lazy: () => import('@/components/NotFound'),
       },
     ],
   },

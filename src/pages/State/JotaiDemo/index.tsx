@@ -1,11 +1,11 @@
-import { PageContainer } from "@ant-design/pro-components"
-import { App, Button, Col, Row } from "antd"
-import { useSetAtom } from "jotai"
+import { PageContainer } from '@ant-design/pro-components'
+import { App, Button, Col, Row } from 'antd'
+import { useSetAtom } from 'jotai'
+import type { FC } from 'react'
 
-import type { FC } from "react"
-import { countObjAtom, defaultStore } from "./atom"
-import { Demo1 } from "./components/Demo1"
-import { Demo2 } from "./components/Demo2"
+import { countObjAtom, defaultStore } from './atom'
+import { Demo1 } from './components/Demo1'
+import { Demo2 } from './components/Demo2'
 
 export const Component: FC = () => {
   const setCountObj = useSetAtom(countObjAtom)
@@ -29,7 +29,8 @@ export const Component: FC = () => {
             defaultStore.set(countObjAtom, {
               count: defaultStore.get(countObjAtom).count + 1,
             })
-            message.info(`${defaultStore.get(countObjAtom).count}`)
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            void message.info(`${defaultStore.get(countObjAtom).count}`)
           }}
         >
           Store Add
@@ -39,7 +40,7 @@ export const Component: FC = () => {
       <Row>
         <Col span={12}>
           <Demo1 />
-        </Col>{" "}
+        </Col>{' '}
         <Col span={12}>
           <Demo2 />
         </Col>

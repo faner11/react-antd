@@ -1,7 +1,7 @@
-import { PageContainer } from "@ant-design/pro-components"
-import { Button, Result } from "antd"
-import type { FC } from "react"
-import { useNavigate } from "react-router-dom"
+import { PageContainer } from '@ant-design/pro-components'
+import { Button, Result } from 'antd'
+import type { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Component: FC = () => {
   const navigate = useNavigate()
@@ -15,7 +15,7 @@ export const Component: FC = () => {
           <Button
             type="primary"
             onClick={() => {
-              navigate("/")
+              navigate('/')
             }}
           >
             BACK HOME

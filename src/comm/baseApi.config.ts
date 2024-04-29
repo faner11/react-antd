@@ -1,8 +1,8 @@
-import { Configuration } from "@/api"
+import { Configuration } from '@/api'
 
 export const BaseApiConfig = new Configuration({
-  basePath: "https://jsonplaceholder.typicode.com",
+  basePath: 'https://jsonplaceholder.typicode.com',
   headers: {
-    myheader: "123456",
+    myheader: '123456',
   },
 })
