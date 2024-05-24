@@ -21,6 +21,7 @@ export const Component: FC = () => {
       const list = await todoApi.getTodos()
       return list
     },
+    initialData: [],
   })
 
   return (
@@ -28,7 +29,7 @@ export const Component: FC = () => {
       extra={[
         <Button
           key="but1"
-          loading={dataQuery.isLoading}
+          loading={dataQuery.isFetching}
           onClick={() => {
             setValue(
               produce((draft) => {
@@ -41,8 +42,8 @@ export const Component: FC = () => {
         </Button>,
       ]}
     >
-      <Card loading={dataQuery.isLoading}>
-        {dataQuery.data?.map((item) => (
+      <Card loading={dataQuery.isFetching}>
+        {dataQuery.data.map((item) => (
           <div key={item.id}>
             <Typography.Text type="secondary">{item.title}</Typography.Text>
           </div>
