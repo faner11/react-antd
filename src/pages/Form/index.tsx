@@ -32,7 +32,6 @@ export const Component: FC = () => {
       extra={[
         <Button
           key="but1"
-          className="p-9"
           onClick={() => {
             void openDialog().open()
           }}
