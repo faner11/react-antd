@@ -46,7 +46,7 @@ export const BasicLayout: FC = () => {
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
           fallback={
-            <div className="text-center pt-11">
+            <div className="pt-11 text-center">
               <Spin />
             </div>
           }

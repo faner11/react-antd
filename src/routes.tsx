@@ -25,7 +25,7 @@ export const routerConfig = createBrowserRouter([
       <RequireAuth fallbackPath="/login">
         <Suspense
           fallback={
-            <div className="text-center pt-11">
+            <div className="pt-11 text-center">
               <Spin />
             </div>
           }

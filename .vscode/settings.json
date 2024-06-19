@@ -32,6 +32,4 @@
   "[css]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "cSpell.words": ["Continuar", "gcapi", "klavi"],
-  "eslint.experimental.useFlatConfig": true
 }

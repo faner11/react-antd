@@ -10,7 +10,7 @@ export const Component: FC = () => {
   const signIn = useSignIn()
   const { message } = App.useApp()
   return (
-    <div className="flex flex-col  w-full h-screen bg-slate-200">
+    <div className="flex h-screen w-full flex-col bg-slate-200">
       <LoginFormPage
         backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"

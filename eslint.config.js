@@ -1,11 +1,11 @@
 import eslint from '@eslint/js'
 import biome from 'eslint-config-sync-biome'
+import importPluginX from 'eslint-plugin-import-x'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
@@ -22,16 +22,17 @@ export default tseslint.config(
   },
   {
     plugins: {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       'simple-import-sort': simpleImportSort,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       'react-refresh': reactRefresh,
+      'import-x': importPluginX,
     },
     rules: {
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'react-refresh/only-export-components': ['warn', { allowExportNames: ['loader', 'action'] }],
       'object-shorthand': 'warn',
+      'import-x/consistent-type-specifier-style': 'error',
     },
   },
   {
