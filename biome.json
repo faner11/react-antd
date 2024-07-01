@@ -7,6 +7,17 @@
     "ignore": ["dist", ".vscode/**", "./src/api/"],
     "enabled": true,
     "rules": {
+      "suspicious": {
+        "noConsoleLog": "error"
+      },
+      "style": {
+        "useFragmentSyntax": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedVariables": "error"
+      },
       "nursery": {
         "all": true,
         "useImportRestrictions": "off",
