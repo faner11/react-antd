@@ -35,7 +35,7 @@
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) 目前版本 V6
 - **biomejs** <font style="color:red" >强制使用，禁止关闭</font>
 - [classnames](https://github.com/JedWatson/classnames) css 类名连接组合
-- [lodash-es](https://lodash.com/docs/) ES modules 版本的 lodash
+- [es-toolkit](https://es-toolkit.slash.page/) 先进的 JavaScript 实用程序库
 - [@ant-design/pro-components](https://procomponents.ant.design/components) 基于`antd`的重型组件,包含`ProLayout`,`ProTable`等
 - [ahooks](https://ahooks.js.org/zh-CN/) react hook 是工具库
 - [nice-modal-react](@ebay/nice-modal-react) 命令式弹窗库，增加代码可读性

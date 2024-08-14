@@ -2,7 +2,6 @@ import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
 import { FormDialog, FormDrawer } from '@formily/antd-v5'
 import { Spin } from 'antd'
-import { isEmpty } from 'lodash-es'
 import type { FC, ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
@@ -10,7 +9,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig, icons } from './menuConfig'
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
-  if (item.path == null || isEmpty(item.path)) {
+  if (item.path == null || item.path === '') {
     return defaultDom
   }
   return <Link to={item.path}>{defaultDom}</Link>

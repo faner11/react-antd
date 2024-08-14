@@ -35,7 +35,7 @@ English ｜[简体中文](./README.zh-cn.md)
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start) v6
 - **biomejs** <font style="color:red" >Forced use, forbidden to close</font>
 - [classnames](https://github.com/JedWatson/classnames) css class name link combination
-- [lodash-es](https://lodash.com/docs/) ES modules version of lodash
+- [es-toolkit](https://es-toolkit.slash.page/) State-of-the-art JavaScript utility library
 - [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.
 - [ahooks](https://ahooks.js.org/zh-CN/) The react hook is a tool library
 - [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
