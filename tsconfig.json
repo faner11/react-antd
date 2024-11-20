@@ -3,7 +3,7 @@
   "exclude": ["dist", "build", "node_modules", "src/routeTree.gen.ts"],
   "include": ["."],
   "compilerOptions": {
-    "skipLibCheck": true,
+    "noImplicitOverride": false,
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"]

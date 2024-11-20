@@ -42,7 +42,7 @@ export interface UserCompany {
 /**
  * Check if a given object implements the UserCompany interface.
  */
-export function instanceOfUserCompany(value: object): boolean {
+export function instanceOfUserCompany(value: object): value is UserCompany {
     return true;
 }
 
@@ -62,10 +62,15 @@ export function UserCompanyFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function UserCompanyToJSON(value?: UserCompany | null): any {
+export function UserCompanyToJSON(json: any): UserCompany {
+    return UserCompanyToJSONTyped(json, false);
+}
+
+export function UserCompanyToJSONTyped(value?: UserCompany | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

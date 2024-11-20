@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/AlbumsApi.ts
 apis/CommentsApi.ts
 apis/PhotosApi.ts

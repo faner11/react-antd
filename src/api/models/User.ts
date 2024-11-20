@@ -13,18 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { UserAddress } from './UserAddress';
-import {
-    UserAddressFromJSON,
-    UserAddressFromJSONTyped,
-    UserAddressToJSON,
-} from './UserAddress';
 import type { UserCompany } from './UserCompany';
 import {
     UserCompanyFromJSON,
     UserCompanyFromJSONTyped,
     UserCompanyToJSON,
+    UserCompanyToJSONTyped,
 } from './UserCompany';
+import type { UserAddress } from './UserAddress';
+import {
+    UserAddressFromJSON,
+    UserAddressFromJSONTyped,
+    UserAddressToJSON,
+    UserAddressToJSONTyped,
+} from './UserAddress';
 
 /**
  * 
@@ -85,7 +87,7 @@ export interface User {
 /**
  * Check if a given object implements the User interface.
  */
-export function instanceOfUser(value: object): boolean {
+export function instanceOfUser(value: object): value is User {
     return true;
 }
 
@@ -110,10 +112,15 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
     };
 }
 
-export function UserToJSON(value?: User | null): any {
+export function UserToJSON(json: any): User {
+    return UserToJSONTyped(json, false);
+}
+
+export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

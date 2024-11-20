@@ -42,7 +42,7 @@ export interface Album {
 /**
  * Check if a given object implements the Album interface.
  */
-export function instanceOfAlbum(value: object): boolean {
+export function instanceOfAlbum(value: object): value is Album {
     return true;
 }
 
@@ -62,10 +62,15 @@ export function AlbumFromJSONTyped(json: any, ignoreDiscriminator: boolean): Alb
     };
 }
 
-export function AlbumToJSON(value?: Album | null): any {
+export function AlbumToJSON(json: any): Album {
+    return AlbumToJSONTyped(json, false);
+}
+
+export function AlbumToJSONTyped(value?: Album | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

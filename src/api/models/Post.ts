@@ -48,7 +48,7 @@ export interface Post {
 /**
  * Check if a given object implements the Post interface.
  */
-export function instanceOfPost(value: object): boolean {
+export function instanceOfPost(value: object): value is Post {
     return true;
 }
 
@@ -69,10 +69,15 @@ export function PostFromJSONTyped(json: any, ignoreDiscriminator: boolean): Post
     };
 }
 
-export function PostToJSON(value?: Post | null): any {
+export function PostToJSON(json: any): Post {
+    return PostToJSONTyped(json, false);
+}
+
+export function PostToJSONTyped(value?: Post | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

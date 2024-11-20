@@ -36,7 +36,7 @@ export interface UserAddressGeo {
 /**
  * Check if a given object implements the UserAddressGeo interface.
  */
-export function instanceOfUserAddressGeo(value: object): boolean {
+export function instanceOfUserAddressGeo(value: object): value is UserAddressGeo {
     return true;
 }
 
@@ -55,10 +55,15 @@ export function UserAddressGeoFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function UserAddressGeoToJSON(value?: UserAddressGeo | null): any {
+export function UserAddressGeoToJSON(json: any): UserAddressGeo {
+    return UserAddressGeoToJSONTyped(json, false);
+}
+
+export function UserAddressGeoToJSONTyped(value?: UserAddressGeo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'lat': value['lat'],

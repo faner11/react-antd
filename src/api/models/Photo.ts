@@ -54,7 +54,7 @@ export interface Photo {
 /**
  * Check if a given object implements the Photo interface.
  */
-export function instanceOfPhoto(value: object): boolean {
+export function instanceOfPhoto(value: object): value is Photo {
     return true;
 }
 
@@ -76,10 +76,15 @@ export function PhotoFromJSONTyped(json: any, ignoreDiscriminator: boolean): Pho
     };
 }
 
-export function PhotoToJSON(value?: Photo | null): any {
+export function PhotoToJSON(json: any): Photo {
+    return PhotoToJSONTyped(json, false);
+}
+
+export function PhotoToJSONTyped(value?: Photo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

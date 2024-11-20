@@ -48,7 +48,7 @@ export interface Todo {
 /**
  * Check if a given object implements the Todo interface.
  */
-export function instanceOfTodo(value: object): boolean {
+export function instanceOfTodo(value: object): value is Todo {
     return true;
 }
 
@@ -69,10 +69,15 @@ export function TodoFromJSONTyped(json: any, ignoreDiscriminator: boolean): Todo
     };
 }
 
-export function TodoToJSON(value?: Todo | null): any {
+export function TodoToJSON(json: any): Todo {
+    return TodoToJSONTyped(json, false);
+}
+
+export function TodoToJSONTyped(value?: Todo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

@@ -54,7 +54,7 @@ export interface Comment {
 /**
  * Check if a given object implements the Comment interface.
  */
-export function instanceOfComment(value: object): boolean {
+export function instanceOfComment(value: object): value is Comment {
     return true;
 }
 
@@ -76,10 +76,15 @@ export function CommentFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
     };
 }
 
-export function CommentToJSON(value?: Comment | null): any {
+export function CommentToJSON(json: any): Comment {
+    return CommentToJSONTyped(json, false);
+}
+
+export function CommentToJSONTyped(value?: Comment | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],
