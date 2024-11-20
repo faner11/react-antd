@@ -1,14 +1,17 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { ArrayItems, Editable, Form, FormButtonGroup, Submit } from '@formily/antd-v5'
 import { createForm } from '@formily/core'
+import { createLazyFileRoute } from '@tanstack/react-router'
 import { Button, Card, message } from 'antd'
-import type { FC } from 'react'
 import { useMemo } from 'react'
 
 import { openDefDialog, SchemaField } from '@/components/form'
 
-import { schema } from './service'
+import { schema } from './__private/service'
 
+export const Route = createLazyFileRoute('/_layout/form/formily')({
+  component: RouteComponent,
+})
 const openDialog = () => {
   const dialog = openDefDialog({
     title: { title: 'Dialog Title' },
@@ -19,7 +22,7 @@ const openDialog = () => {
   })
   return dialog
 }
-export const Component: FC = () => {
+function RouteComponent() {
   const form = useMemo(
     () =>
       createForm({

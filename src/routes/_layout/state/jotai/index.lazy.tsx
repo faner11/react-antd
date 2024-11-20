@@ -1,13 +1,17 @@
 import { PageContainer } from '@ant-design/pro-components'
+import { createLazyFileRoute } from '@tanstack/react-router'
 import { App, Button, Col, Row } from 'antd'
 import { useSetAtom } from 'jotai'
-import type { FC } from 'react'
 
-import { countObjAtom, defaultStore } from './atom'
-import { Demo1 } from './components/Demo1'
-import { Demo2 } from './components/Demo2'
+import { countObjAtom, defaultStore } from './__private/atom'
+import { Demo1 } from './__private/Demo1'
+import { Demo2 } from './__private/Demo2'
 
-export const Component: FC = () => {
+export const Route = createLazyFileRoute('/_layout/state/jotai/')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
   const setCountObj = useSetAtom(countObjAtom)
   const { message } = App.useApp()
   return (
@@ -40,7 +44,7 @@ export const Component: FC = () => {
       <Row>
         <Col span={12}>
           <Demo1 />
-        </Col>{' '}
+        </Col>
         <Col span={12}>
           <Demo2 />
         </Col>

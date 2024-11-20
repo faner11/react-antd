@@ -1,15 +1,19 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { useQuery } from '@tanstack/react-query'
+import { createLazyFileRoute } from '@tanstack/react-router'
 import { Button, Card, Typography } from 'antd'
 import { produce } from 'immer'
-import type { FC } from 'react'
 import { useState } from 'react'
 
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/baseApi.config'
 
+export const Route = createLazyFileRoute('/_layout/state/react-query')({
+  component: RouteComponent,
+})
 const todoApi = new TodosApi(BaseApiConfig)
-export const Component: FC = () => {
+
+function RouteComponent() {
   const [value, setValue] = useState({
     name: 'hello',
     current: 1,

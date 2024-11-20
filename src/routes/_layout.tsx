@@ -1,12 +1,27 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
 import { FormDialog, FormDrawer } from '@formily/antd-v5'
+import { createFileRoute, Link, Outlet, redirect, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
 
-import { asideMenuConfig, icons } from './menuConfig'
+import { asideMenuConfig, icons } from '@/comm/menuConfig'
+
+export const Route = createFileRoute('/_layout')({
+  component: LayoutComponent,
+  beforeLoad() {
+    const login = localStorage.getItem('login')
+    if (login == null) {
+      throw redirect({
+        to: '/login',
+        search: {
+          redirect: location.href,
+        },
+      })
+    }
+  },
+})
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
   if (item.path == null || item.path === '') {
@@ -24,8 +39,7 @@ const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] => {
     }
   })
 }
-
-export const BasicLayout: FC = () => {
+function LayoutComponent() {
   const location = useLocation()
   return (
     <ProLayout

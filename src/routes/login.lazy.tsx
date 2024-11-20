@@ -1,13 +1,14 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { LoginFormPage, ProFormText } from '@ant-design/pro-components'
+import { createLazyFileRoute } from '@tanstack/react-router'
 import { App } from 'antd'
-import type { FC } from 'react'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
-import { useNavigate } from 'react-router-dom'
 
-export const Component: FC = () => {
-  const navigate = useNavigate()
-  const signIn = useSignIn()
+export const Route = createLazyFileRoute('/login')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  const search = Route.useSearch()
   const { message } = App.useApp()
   return (
     <div className="flex h-screen w-full flex-col bg-slate-200">
@@ -23,22 +24,8 @@ export const Component: FC = () => {
         onFinish={(values) => {
           const { username, password } = values
           if (username === 'admin' && password === '123456') {
-            const isSign = signIn({
-              auth: {
-                token:
-                  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjk5OTk5OTk5OTk5fQ.Z4_FVGQ5lIcouP3m4YLMr6pGMF17IJFfo2yOTiN58DY',
-                type: 'Bearer',
-                // expiresIn: 2880,
-                // authState: { name: "React User", uid: 123456 },
-              },
-              refresh: '',
-              userState: { name: 'React User', uid: 123456 },
-            })
-            if (isSign) {
-              navigate('/')
-            } else {
-              void message.error('error')
-            }
+            localStorage.setItem('login', 'true')
+            location.href = search.redirect ?? '/'
             return Promise.resolve(true)
           }
           void message.error('账户名密码错误')

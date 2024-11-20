@@ -9,7 +9,7 @@ export const icons: Record<string, FC> = {
 const asideMenuConfig: MenuDataItem[] = [
   {
     name: 'Table',
-    path: '/',
+    path: '/table',
     icon: 'SmileOutlined',
   },
   {
