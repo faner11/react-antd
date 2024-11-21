@@ -14,7 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LoginImport } from './routes/login'
-import { Route as LayoutImport } from './routes/_layout'
+import { Route as LayoutRouteImport } from './routes/_layout/route'
 import { Route as LayoutSplatImport } from './routes/_layout/$'
 
 // Create Virtual Routes
@@ -37,27 +37,27 @@ const LoginRoute = LoginImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 
-const LayoutRoute = LayoutImport.update({
+const LayoutRouteRoute = LayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).lazy(() => import('./routes/_layout/route.lazy').then((d) => d.Route))
 
 const LayoutIndexLazyRoute = LayoutIndexLazyImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any).lazy(() => import('./routes/_layout/index.lazy').then((d) => d.Route))
 
 const LayoutSplatRoute = LayoutSplatImport.update({
   id: '/$',
   path: '/$',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any)
 
 const LayoutTableIndexLazyRoute = LayoutTableIndexLazyImport.update({
   id: '/table/',
   path: '/table/',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any).lazy(() =>
   import('./routes/_layout/table/index.lazy').then((d) => d.Route),
 )
@@ -65,7 +65,7 @@ const LayoutTableIndexLazyRoute = LayoutTableIndexLazyImport.update({
 const LayoutStateReactQueryLazyRoute = LayoutStateReactQueryLazyImport.update({
   id: '/state/react-query',
   path: '/state/react-query',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any).lazy(() =>
   import('./routes/_layout/state/react-query.lazy').then((d) => d.Route),
 )
@@ -73,7 +73,7 @@ const LayoutStateReactQueryLazyRoute = LayoutStateReactQueryLazyImport.update({
 const LayoutFormFormilyLazyRoute = LayoutFormFormilyLazyImport.update({
   id: '/form/formily',
   path: '/form/formily',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any).lazy(() =>
   import('./routes/_layout/form/formily.lazy').then((d) => d.Route),
 )
@@ -81,7 +81,7 @@ const LayoutFormFormilyLazyRoute = LayoutFormFormilyLazyImport.update({
 const LayoutStateJotaiIndexLazyRoute = LayoutStateJotaiIndexLazyImport.update({
   id: '/state/jotai/',
   path: '/state/jotai/',
-  getParentRoute: () => LayoutRoute,
+  getParentRoute: () => LayoutRouteRoute,
 } as any).lazy(() =>
   import('./routes/_layout/state/jotai/index.lazy').then((d) => d.Route),
 )
@@ -94,7 +94,7 @@ declare module '@tanstack/react-router' {
       id: '/_layout'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof LayoutImport
+      preLoaderRoute: typeof LayoutRouteImport
       parentRoute: typeof rootRoute
     }
     '/login': {
@@ -109,49 +109,49 @@ declare module '@tanstack/react-router' {
       path: '/$'
       fullPath: '/$'
       preLoaderRoute: typeof LayoutSplatImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
     '/_layout/': {
       id: '/_layout/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof LayoutIndexLazyImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
     '/_layout/form/formily': {
       id: '/_layout/form/formily'
       path: '/form/formily'
       fullPath: '/form/formily'
       preLoaderRoute: typeof LayoutFormFormilyLazyImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
     '/_layout/state/react-query': {
       id: '/_layout/state/react-query'
       path: '/state/react-query'
       fullPath: '/state/react-query'
       preLoaderRoute: typeof LayoutStateReactQueryLazyImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
     '/_layout/table/': {
       id: '/_layout/table/'
       path: '/table'
       fullPath: '/table'
       preLoaderRoute: typeof LayoutTableIndexLazyImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
     '/_layout/state/jotai/': {
       id: '/_layout/state/jotai/'
       path: '/state/jotai'
       fullPath: '/state/jotai'
       preLoaderRoute: typeof LayoutStateJotaiIndexLazyImport
-      parentRoute: typeof LayoutImport
+      parentRoute: typeof LayoutRouteImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface LayoutRouteChildren {
+interface LayoutRouteRouteChildren {
   LayoutSplatRoute: typeof LayoutSplatRoute
   LayoutIndexLazyRoute: typeof LayoutIndexLazyRoute
   LayoutFormFormilyLazyRoute: typeof LayoutFormFormilyLazyRoute
@@ -160,7 +160,7 @@ interface LayoutRouteChildren {
   LayoutStateJotaiIndexLazyRoute: typeof LayoutStateJotaiIndexLazyRoute
 }
 
-const LayoutRouteChildren: LayoutRouteChildren = {
+const LayoutRouteRouteChildren: LayoutRouteRouteChildren = {
   LayoutSplatRoute: LayoutSplatRoute,
   LayoutIndexLazyRoute: LayoutIndexLazyRoute,
   LayoutFormFormilyLazyRoute: LayoutFormFormilyLazyRoute,
@@ -169,11 +169,12 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutStateJotaiIndexLazyRoute: LayoutStateJotaiIndexLazyRoute,
 }
 
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren)
+const LayoutRouteRouteWithChildren = LayoutRouteRoute._addFileChildren(
+  LayoutRouteRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
-  '': typeof LayoutRouteWithChildren
+  '': typeof LayoutRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/$': typeof LayoutSplatRoute
   '/': typeof LayoutIndexLazyRoute
@@ -195,7 +196,7 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_layout': typeof LayoutRouteWithChildren
+  '/_layout': typeof LayoutRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/_layout/$': typeof LayoutSplatRoute
   '/_layout/': typeof LayoutIndexLazyRoute
@@ -239,12 +240,12 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  LayoutRoute: typeof LayoutRouteWithChildren
+  LayoutRouteRoute: typeof LayoutRouteRouteWithChildren
   LoginRoute: typeof LoginRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LayoutRoute: LayoutRouteWithChildren,
+  LayoutRouteRoute: LayoutRouteRouteWithChildren,
   LoginRoute: LoginRoute,
 }
 
@@ -263,7 +264,7 @@ export const routeTree = rootRoute
       ]
     },
     "/_layout": {
-      "filePath": "_layout.tsx",
+      "filePath": "_layout/route.tsx",
       "children": [
         "/_layout/$",
         "/_layout/",

@@ -1,26 +1,15 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
 import { FormDialog, FormDrawer } from '@formily/antd-v5'
-import { createFileRoute, Link, Outlet, redirect, useLocation } from '@tanstack/react-router'
+import { createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
 import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
 
 import { asideMenuConfig, icons } from '@/comm/menuConfig'
 
-export const Route = createFileRoute('/_layout')({
+export const Route = createLazyFileRoute('/_layout')({
   component: LayoutComponent,
-  beforeLoad() {
-    const login = localStorage.getItem('login')
-    if (login == null) {
-      throw redirect({
-        to: '/login',
-        search: {
-          redirect: location.href,
-        },
-      })
-    }
-  },
 })
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
