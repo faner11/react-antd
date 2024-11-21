@@ -8,7 +8,7 @@ import { createElement, Suspense } from 'react'
 
 import { asideMenuConfig, icons } from '@/comm/menuConfig'
 
-export const Route = createLazyFileRoute('/_layout')({
+export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,
 })
 

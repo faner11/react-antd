@@ -9,7 +9,7 @@ import { openDefDialog, SchemaField } from '@/components/form'
 
 import { schema } from './__private/service'
 
-export const Route = createLazyFileRoute('/_layout/form/formily')({
+export const Route = createLazyFileRoute('/_need-auth/form/formily')({
   component: RouteComponent,
 })
 const openDialog = () => {

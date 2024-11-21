@@ -119,6 +119,6 @@ const Table: FC = () => {
     </PageContainer>
   )
 }
-export const Route = createLazyFileRoute('/_layout/table/')({
+export const Route = createLazyFileRoute('/_need-auth/table/')({
   component: Table,
 })

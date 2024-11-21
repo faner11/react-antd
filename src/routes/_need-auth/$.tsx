@@ -2,7 +2,7 @@ import { PageContainer } from '@ant-design/pro-components'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Button, Result } from 'antd'
 
-export const Route = createFileRoute('/_layout/$')({
+export const Route = createFileRoute('/_need-auth/$')({
   component: RouteComponent,
 })
 

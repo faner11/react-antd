@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/baseApi.config'
 
-export const Route = createLazyFileRoute('/_layout/state/react-query')({
+export const Route = createLazyFileRoute('/_need-auth/state/react-query')({
   component: RouteComponent,
 })
 const todoApi = new TodosApi(BaseApiConfig)

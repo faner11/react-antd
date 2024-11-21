@@ -1,7 +1,7 @@
 import { PageContainer } from '@ant-design/pro-components'
 import { createLazyFileRoute, Outlet } from '@tanstack/react-router'
 
-export const Route = createLazyFileRoute('/_layout/')({
+export const Route = createLazyFileRoute('/_need-auth/')({
   component: Home,
 })
 

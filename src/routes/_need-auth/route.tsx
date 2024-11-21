@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/_layout')({
+export const Route = createFileRoute('/_need-auth')({
   beforeLoad() {
     const login = localStorage.getItem('login')
     if (login == null) {

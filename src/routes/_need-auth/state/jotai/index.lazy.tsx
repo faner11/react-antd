@@ -7,7 +7,7 @@ import { countObjAtom, defaultStore } from './__private/atom'
 import { Demo1 } from './__private/Demo1'
 import { Demo2 } from './__private/Demo2'
 
-export const Route = createLazyFileRoute('/_layout/state/jotai/')({
+export const Route = createLazyFileRoute('/_need-auth/state/jotai/')({
   component: RouteComponent,
 })
 
