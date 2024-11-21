@@ -1,9 +1,12 @@
 import { PageContainer } from '@ant-design/pro-components'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Button, Result } from 'antd'
-import type { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-export const Component: FC = () => {
+export const Route = createFileRoute('/_layout/$')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
   const navigate = useNavigate()
   return (
     <PageContainer title={false}>
@@ -15,7 +18,9 @@ export const Component: FC = () => {
           <Button
             type="primary"
             onClick={() => {
-              navigate('/')
+              void navigate({
+                to: '/',
+              })
             }}
           >
             BACK HOME
