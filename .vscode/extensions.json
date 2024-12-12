@@ -3,11 +3,11 @@
   // for the documentation about the extensions.json format
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "EditorConfig.EditorConfig",
     "VisualStudioExptTeam.vscodeintellicode",
     "christian-kohler.path-intellisense",
     "bradlc.vscode-tailwindcss",
-    "styled-components.vscode-styled-components"
+    "styled-components.vscode-styled-components",
+    "biomejs.biome"
   ]
 }

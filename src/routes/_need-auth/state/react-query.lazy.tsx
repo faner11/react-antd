@@ -1,5 +1,5 @@
 import { PageContainer } from '@ant-design/pro-components'
-import { useQuery } from '@tanstack/react-query'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import { Button, Card, Typography } from 'antd'
 import { produce } from 'immer'
@@ -19,13 +19,12 @@ function RouteComponent() {
     current: 1,
   })
 
-  const dataQuery = useQuery({
+  const dataQuery = useSuspenseQuery({
     queryKey: ['HunBo4R11V16LmheHmTGZ', value],
     queryFn: async () => {
       const list = await todoApi.getTodos()
       return list
     },
-    initialData: [],
   })
 
   return (
