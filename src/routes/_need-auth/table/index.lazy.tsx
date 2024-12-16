@@ -9,10 +9,16 @@ import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/baseApi.config'
 import { MyAntdModal } from '@/components/MyAntdModal'
-import { sleep, transformTableData } from '@/utils'
+import { sleep } from '@/utils'
+import { tableQueryFun } from '@/utils'
 
 const homeApi = new TodosApi(BaseApiConfig)
 const columns: ProColumns<Todo>[] = [
+  {
+    title: 'date',
+    dataIndex: 'date',
+    valueType: 'dateWeek',
+  },
   {
     title: 'title',
     dataIndex: 'title',
@@ -108,11 +114,7 @@ const Table: FC = () => {
           </Button>,
           <Button key="but2">Button 2</Button>,
         ]}
-        request={async () => {
-          const res = await homeApi.getTodos()
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-          return transformTableData(res)
-        }}
+        request={tableQueryFun(homeApi.getTodos.bind(homeApi))}
         columns={columns}
         rowKey="id"
       />

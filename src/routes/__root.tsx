@@ -11,6 +11,7 @@ import dayjsLocal from 'dayjs/locale/zh-cn'
 
 import { queryClient } from '@/comm/queryClient'
 dayjs.locale(dayjsLocal)
+
 export const Route = createRootRoute({
   component: () => (
     <>
