@@ -27,7 +27,6 @@
     "@ant-design/icons": "^5.5.2",
     "@ant-design/pro-components": "^2.8.2",
     "@ebay/nice-modal-react": "^1.2.13",
-    "@emotion/styled": "^11.14.0",
     "@formily/antd-v5": "1.2.3",
     "@formily/core": "^2.3.2",
     "@formily/react": "^2.3.2",
@@ -41,6 +40,7 @@
     "jotai-immer": "^0.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "type-fest": "^4.30.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
