@@ -5,8 +5,10 @@ import { createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-
 import { Spin } from 'antd'
 import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 
 import { asideMenuConfig, icons } from '@/comm/menuConfig'
+import { ErrorComponent } from '@/components/ErrorComponent'
 
 export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,
@@ -44,6 +46,7 @@ function LayoutComponent() {
       menuItemRender={menuItemRender}
       fixSiderbar={true}
       fixedHeader={true}
+      ErrorBoundary={false}
     >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
@@ -53,7 +56,9 @@ function LayoutComponent() {
             </div>
           }
         >
-          <Outlet />
+          <ErrorBoundary resetKeys={[location.pathname]} FallbackComponent={ErrorComponent}>
+            <Outlet />
+          </ErrorBoundary>
         </Suspense>
         <FormDialog.Portal />
         <FormDrawer.Portal />
