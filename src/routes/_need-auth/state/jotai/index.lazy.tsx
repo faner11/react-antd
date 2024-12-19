@@ -3,9 +3,9 @@ import { createLazyFileRoute } from '@tanstack/react-router'
 import { App, Button, Col, Row } from 'antd'
 import { useSetAtom } from 'jotai'
 
-import { countObjAtom, defaultStore } from './__private/atom'
-import { Demo1 } from './__private/Demo1'
-import { Demo2 } from './__private/Demo2'
+import { countObjAtom, defaultStore } from './-private/atom'
+import { Demo1 } from './-private/Demo1'
+import { Demo2 } from './-private/Demo2'
 
 export const Route = createLazyFileRoute('/_need-auth/state/jotai/')({
   component: RouteComponent,

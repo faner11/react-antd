@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 
 import { openDefDialog, SchemaField } from '@/components/form'
 
-import { schema } from './__private/service'
+import { schema } from './-private/service'
 
 export const Route = createLazyFileRoute('/_need-auth/form/formily')({
   component: RouteComponent,

@@ -6,12 +6,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    TanStackRouterVite({
-      routeFileIgnorePattern: '__private',
-    }),
-    react(),
-  ],
+  plugins: [TanStackRouterVite(), react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
