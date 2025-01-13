@@ -24,9 +24,6 @@ const NeedAuthTableIndexLazyImport = createFileRoute('/_need-auth/table/')()
 const NeedAuthStateReactQueryLazyImport = createFileRoute(
   '/_need-auth/state/react-query',
 )()
-const NeedAuthFormFormilyLazyImport = createFileRoute(
-  '/_need-auth/form/formily',
-)()
 const NeedAuthStateJotaiIndexLazyImport = createFileRoute(
   '/_need-auth/state/jotai/',
 )()
@@ -77,14 +74,6 @@ const NeedAuthStateReactQueryLazyRoute =
     import('./routes/_need-auth/state/react-query.lazy').then((d) => d.Route),
   )
 
-const NeedAuthFormFormilyLazyRoute = NeedAuthFormFormilyLazyImport.update({
-  id: '/form/formily',
-  path: '/form/formily',
-  getParentRoute: () => NeedAuthRouteRoute,
-} as any).lazy(() =>
-  import('./routes/_need-auth/form/formily.lazy').then((d) => d.Route),
-)
-
 const NeedAuthStateJotaiIndexLazyRoute =
   NeedAuthStateJotaiIndexLazyImport.update({
     id: '/state/jotai/',
@@ -126,13 +115,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NeedAuthIndexLazyImport
       parentRoute: typeof NeedAuthRouteImport
     }
-    '/_need-auth/form/formily': {
-      id: '/_need-auth/form/formily'
-      path: '/form/formily'
-      fullPath: '/form/formily'
-      preLoaderRoute: typeof NeedAuthFormFormilyLazyImport
-      parentRoute: typeof NeedAuthRouteImport
-    }
     '/_need-auth/state/react-query': {
       id: '/_need-auth/state/react-query'
       path: '/state/react-query'
@@ -162,7 +144,6 @@ declare module '@tanstack/react-router' {
 interface NeedAuthRouteRouteChildren {
   NeedAuthSplatRoute: typeof NeedAuthSplatRoute
   NeedAuthIndexLazyRoute: typeof NeedAuthIndexLazyRoute
-  NeedAuthFormFormilyLazyRoute: typeof NeedAuthFormFormilyLazyRoute
   NeedAuthStateReactQueryLazyRoute: typeof NeedAuthStateReactQueryLazyRoute
   NeedAuthTableIndexLazyRoute: typeof NeedAuthTableIndexLazyRoute
   NeedAuthStateJotaiIndexLazyRoute: typeof NeedAuthStateJotaiIndexLazyRoute
@@ -171,7 +152,6 @@ interface NeedAuthRouteRouteChildren {
 const NeedAuthRouteRouteChildren: NeedAuthRouteRouteChildren = {
   NeedAuthSplatRoute: NeedAuthSplatRoute,
   NeedAuthIndexLazyRoute: NeedAuthIndexLazyRoute,
-  NeedAuthFormFormilyLazyRoute: NeedAuthFormFormilyLazyRoute,
   NeedAuthStateReactQueryLazyRoute: NeedAuthStateReactQueryLazyRoute,
   NeedAuthTableIndexLazyRoute: NeedAuthTableIndexLazyRoute,
   NeedAuthStateJotaiIndexLazyRoute: NeedAuthStateJotaiIndexLazyRoute,
@@ -186,7 +166,6 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/$': typeof NeedAuthSplatRoute
   '/': typeof NeedAuthIndexLazyRoute
-  '/form/formily': typeof NeedAuthFormFormilyLazyRoute
   '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/table': typeof NeedAuthTableIndexLazyRoute
   '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
@@ -196,7 +175,6 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/$': typeof NeedAuthSplatRoute
   '/': typeof NeedAuthIndexLazyRoute
-  '/form/formily': typeof NeedAuthFormFormilyLazyRoute
   '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/table': typeof NeedAuthTableIndexLazyRoute
   '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
@@ -208,7 +186,6 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_need-auth/$': typeof NeedAuthSplatRoute
   '/_need-auth/': typeof NeedAuthIndexLazyRoute
-  '/_need-auth/form/formily': typeof NeedAuthFormFormilyLazyRoute
   '/_need-auth/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/_need-auth/table/': typeof NeedAuthTableIndexLazyRoute
   '/_need-auth/state/jotai/': typeof NeedAuthStateJotaiIndexLazyRoute
@@ -221,26 +198,17 @@ export interface FileRouteTypes {
     | '/login'
     | '/$'
     | '/'
-    | '/form/formily'
     | '/state/react-query'
     | '/table'
     | '/state/jotai'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/login'
-    | '/$'
-    | '/'
-    | '/form/formily'
-    | '/state/react-query'
-    | '/table'
-    | '/state/jotai'
+  to: '/login' | '/$' | '/' | '/state/react-query' | '/table' | '/state/jotai'
   id:
     | '__root__'
     | '/_need-auth'
     | '/login'
     | '/_need-auth/$'
     | '/_need-auth/'
-    | '/_need-auth/form/formily'
     | '/_need-auth/state/react-query'
     | '/_need-auth/table/'
     | '/_need-auth/state/jotai/'
@@ -276,7 +244,6 @@ export const routeTree = rootRoute
       "children": [
         "/_need-auth/$",
         "/_need-auth/",
-        "/_need-auth/form/formily",
         "/_need-auth/state/react-query",
         "/_need-auth/table/",
         "/_need-auth/state/jotai/"
@@ -291,10 +258,6 @@ export const routeTree = rootRoute
     },
     "/_need-auth/": {
       "filePath": "_need-auth/index.lazy.tsx",
-      "parent": "/_need-auth"
-    },
-    "/_need-auth/form/formily": {
-      "filePath": "_need-auth/form/formily.lazy.tsx",
       "parent": "/_need-auth"
     },
     "/_need-auth/state/react-query": {
