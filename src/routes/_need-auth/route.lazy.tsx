@@ -1,6 +1,5 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
-import { FormDialog, FormDrawer } from '@formily/antd-v5'
 import { createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
 import type { ReactNode } from 'react'
@@ -60,8 +59,6 @@ function LayoutComponent() {
             <Outlet />
           </ErrorBoundary>
         </Suspense>
-        <FormDialog.Portal />
-        <FormDrawer.Portal />
       </div>
     </ProLayout>
   )

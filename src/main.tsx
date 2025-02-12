@@ -1,4 +1,5 @@
 import '@ant-design/v5-patch-for-react-19'
+import './index.css'
 
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
