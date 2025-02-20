@@ -32,16 +32,15 @@ English ｜[简体中文](./README.zh-cn.md)
 ## Other libraries
 
 - [antd](https://ant.design)
-- [react-router-dom](https://reactrouter.com/web/guides/quick-start) v6
-- **eslint** <font style="color:red" >Forced use, forbidden to close</font>
-- [classnames](https://github.com/JedWatson/classnames) css class name link combination
-- [lodash-es](https://lodash.com/docs/) ES modules version of lodash
+- [@tanstack/react-router](https://reactrouter.com/web/guides/quick-start) ts friendly routing library
+- **biomejs** <font style="color:red" >Forced use, forbidden to close</font>
+- [clsx](https://github.com/lukeed/clsx) css class name link combination
+- [es-toolkit](https://es-toolkit.slash.page/) State-of-the-art JavaScript utility library
 - [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.
 - [ahooks](https://ahooks.js.org/zh-CN/) The react hook is a tool library
 - [nice-modal-react](@ebay/nice-modal-react) Command-based pop-up library to increase code readability
 - [echarts](https://github.com/apache/echarts) An Open Source JavaScript Visualization Library
 - [echarts-for-react](https://github.com/hustcc/echarts-for-react) ECharts components for React wrapper
-- [nanoid](https://github.com/ai/nanoid) A tiny (130 bytes), secure, URL-friendly, unique string ID generator for JavaScript
 
 ## Catalog Structure
 

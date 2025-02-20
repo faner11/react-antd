@@ -1,3 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './HomeApi'
+export * from './AlbumsApi';
+export * from './CommentsApi';
+export * from './PhotosApi';
+export * from './PostsApi';
+export * from './TodosApi';
+export * from './UsersApi';

@@ -1,45 +1,31 @@
+import '@ant-design/v5-patch-for-react-19'
 import './index.css'
 
-import NiceModal from '@ebay/nice-modal-react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { App as AntdApp, ConfigProvider, message } from 'antd'
-import zhCN from 'antd/es/locale/zh_CN'
-import dayjs from 'dayjs'
-import dayjsLocal from 'dayjs/locale/zh-cn'
+import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
-import { AuthProvider } from 'react-auth-kit'
 import ReactDOM from 'react-dom/client'
 
-import App from './App'
-
-dayjs.locale(dayjsLocal)
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-    mutations: {
-      onError: (err) => {
-        message.error(err.message)
-      },
-    },
-  },
+// Import the generated route tree
+import { routeTree } from './routeTree.gen'
+// Create a new router instance
+const router = createRouter({
+  routeTree,
 })
-const root = ReactDOM.createRoot(document.getElementById('root')!)
 
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
+const rootElement = document.getElementById('root')
+if (!rootElement) {
+  throw new Error('Root element not found')
+}
+const root = ReactDOM.createRoot(rootElement)
 root.render(
   <StrictMode>
-    <AuthProvider authName="_auth" authType="localstorage">
-      <QueryClientProvider client={queryClient}>
-        <NiceModal.Provider>
-          <ConfigProvider locale={zhCN}>
-            <AntdApp>
-              <App />
-            </AntdApp>
-          </ConfigProvider>
-        </NiceModal.Provider>
-      </QueryClientProvider>
-    </AuthProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
