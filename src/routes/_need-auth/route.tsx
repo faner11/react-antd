@@ -4,7 +4,7 @@ export const Route = createFileRoute('/_need-auth')({
   beforeLoad() {
     const login = localStorage.getItem('login')
     if (login == null) {
-      throw redirect({
+      return redirect({
         to: '/login',
         search: {
           redirect: location.href,

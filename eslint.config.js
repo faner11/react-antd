@@ -1,5 +1,5 @@
 import eslint from '@eslint/js'
-import biome from 'eslint-config-sync-biome'
+import biome from 'eslint-config-biome'
 import importPluginX from 'eslint-plugin-import-x'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
@@ -32,7 +32,8 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist/', 'src/api/', 'src/api-go/', 'src/routeTree.gen.ts'],
+    ignores: ['dist/', 'src/api/', 'src/routeTree.gen.ts'],
   },
-  biome.configs['flat/recommended'],
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  biome,
 )

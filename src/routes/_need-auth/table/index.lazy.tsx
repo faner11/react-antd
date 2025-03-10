@@ -33,12 +33,14 @@ const columns: ProColumns<Todo>[] = [
       showSearch: true,
     },
     debounceTime: 500,
-    request: async () => [
-      { label: '全部', value: 'all' },
-      { label: '未解决', value: 'open' },
-      { label: '已解决', value: 'closed' },
-      { label: '解决中', value: 'processing' },
-    ],
+    request: async () => {
+      return Promise.resolve([
+        { label: '全部', value: 'all' },
+        { label: '未解决', value: 'open' },
+        { label: '已解决', value: 'closed' },
+        { label: '解决中', value: 'processing' },
+      ])
+    },
   },
   {
     title: 'status',
