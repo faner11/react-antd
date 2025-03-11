@@ -6,7 +6,7 @@ import { produce } from 'immer'
 import { useState } from 'react'
 
 import { TodosApi } from '@/api'
-import { BaseApiConfig } from '@/comm/baseApi.config'
+import { BaseApiConfig } from '@/comm/base-api.config'
 
 export const Route = createLazyFileRoute('/_need-auth/state/react-query')({
   component: RouteComponent,

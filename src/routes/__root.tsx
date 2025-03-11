@@ -9,7 +9,7 @@ import zhCn from 'antd/es/locale/zh_CN'
 import dayjs from 'dayjs'
 import dayjsLocal from 'dayjs/locale/zh-cn'
 
-import { queryClient } from '@/comm/queryClient'
+import { queryClient } from '@/comm/query-client'
 dayjs.locale(dayjsLocal)
 
 export const Route = createRootRoute({

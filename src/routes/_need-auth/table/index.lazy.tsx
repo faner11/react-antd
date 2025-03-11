@@ -7,7 +7,7 @@ import type { FC } from 'react'
 
 import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
-import { BaseApiConfig } from '@/comm/baseApi.config'
+import { BaseApiConfig } from '@/comm/base-api.config'
 import { MyAntdModal } from '@/components/MyAntdModal'
 import { sleep } from '@/utils'
 import { tableQueryFun } from '@/utils'

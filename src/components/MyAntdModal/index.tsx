@@ -1,6 +1,7 @@
 import NiceModal, { antdModalV5, useModal } from '@ebay/nice-modal-react'
 import type { ModalProps } from 'antd'
 import { Modal } from 'antd'
+import { isNil } from 'es-toolkit'
 import type { FC, MouseEvent } from 'react'
 import { useState } from 'react'
 interface MyAntdModalProps extends Omit<ModalProps, 'onOk'> {
@@ -18,7 +19,7 @@ const MyAntdModalComponent: FC<MyAntdModalProps> = (props) => {
         loading,
       }}
       onOk={(e) => {
-        if (props.onOk != null && onOk?.constructor.name === 'AsyncFunction') {
+        if (isNil(props.onOk) && onOk?.constructor.name === 'AsyncFunction') {
           setLoading(true)
           void onOk(e).finally(() => {
             setLoading(false)

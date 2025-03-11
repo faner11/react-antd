@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { SortOrder } from 'antd/es/table/interface'
-import { camelCase } from 'es-toolkit'
+import { camelCase, isNil } from 'es-toolkit'
 
 const transformTableParams = (
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -16,7 +16,7 @@ const transformTableParams = (
   for (const key in sort) {
     if (Object.prototype.hasOwnProperty.call(sort, key)) {
       const element = sort[key]
-      if (element == null) continue
+      if (isNil(element)) continue
       const keyStr = camelCase(`sort_${key}`)
       sortObj[keyStr] = element
     }
@@ -25,7 +25,7 @@ const transformTableParams = (
   for (const key in filter) {
     if (Object.prototype.hasOwnProperty.call(filter, key)) {
       const element = filter[key]
-      if (element == null) continue
+      if (isNil(element)) continue
       const keyStr = camelCase(`filter_${key}`)
       filterObj[keyStr] = element
     }

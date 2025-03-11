@@ -1,2 +1,2 @@
 export { tableQueryFun } from './table'
-export { sleep, takeOffDataFun } from './takeOffDataFun'
+export { sleep, takeOffDataFun } from './take-off-data-fun'

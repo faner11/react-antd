@@ -6,15 +6,16 @@ import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
-import { asideMenuConfig, icons } from '@/comm/menuConfig'
-import { ErrorComponent } from '@/components/ErrorComponent'
+import { asideMenuConfig, icons } from '@/comm/menu-config'
+import { ErrorComponent } from '@/components/error-component'
+import { isNil } from 'es-toolkit'
 
 export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,
 })
 
 const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
-  if (item.path == null || item.path === '') {
+  if (isNil(item.path) || item.path === '') {
     return defaultDom
   }
   return <Link to={item.path}>{defaultDom}</Link>

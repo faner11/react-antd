@@ -4,8 +4,8 @@ import { App, Button, Col, Row } from 'antd'
 import { useSetAtom } from 'jotai'
 
 import { countObjAtom, defaultStore } from './-private/atom'
-import { Demo1 } from './-private/Demo1'
-import { Demo2 } from './-private/Demo2'
+import { Demo1 } from './-private/demo-1'
+import { Demo2 } from './-private/demo-2'
 
 export const Route = createLazyFileRoute('/_need-auth/state/jotai/')({
   component: RouteComponent,
