@@ -2,13 +2,13 @@ import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
 import { createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
+import { isNil } from 'es-toolkit'
 import type { ReactNode } from 'react'
 import { createElement, Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import { asideMenuConfig, icons } from '@/comm/menu-config'
 import { ErrorComponent } from '@/components/error-component'
-import { isNil } from 'es-toolkit'
 
 export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,
