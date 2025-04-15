@@ -29,6 +29,7 @@ export default tseslint.config(
     rules: {
       'object-shorthand': 'warn',
       'import-x/consistent-type-specifier-style': 'error',
+      'import-x/no-empty-named-blocks': 'error',
       'unicorn/prevent-abbreviations': 'off',
       'unicorn/no-useless-promise-resolve-reject': 'off',
     },
