@@ -8,6 +8,12 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [TanStackRouterVite(), react(), tailwindcss()],
+  experimental: {
+    enableNativePlugin: false,
+  },
+  build: {
+    sourcemap: true,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('src', import.meta.url)),
