@@ -1,6 +1,5 @@
 import eslint from '@eslint/js'
-import biome from 'eslint-config-biome'
-import importPluginX from 'eslint-plugin-import-x'
+import oxlint from 'eslint-plugin-oxlint'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import tseslint from 'typescript-eslint'
@@ -12,6 +11,7 @@ export default tseslint.config(
   eslintPluginUnicorn.configs.recommended,
   {
     languageOptions: {
+      sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -24,25 +24,28 @@ export default tseslint.config(
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
-      'import-x': importPluginX,
     },
     rules: {
       'object-shorthand': 'warn',
-      'import-x/consistent-type-specifier-style': 'error',
-      'import-x/no-empty-named-blocks': 'error',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
       'unicorn/prevent-abbreviations': 'off',
-      'unicorn/no-useless-promise-resolve-reject': 'off',
+    },
+  },
+  {
+    // To generate oxlint
+    rules: {
+      'react/no-array-index-key': 'error',
+      'react/button-has-type': 'error',
+      'react/no-danger': 'error',
+      'react/jsx-no-comment-textnodes': 'error',
+      'react/jsx-no-useless-fragment': 'error',
+      'import/consistent-type-specifier-style': 'error',
+      'import/no-empty-named-blocks': 'error',
     },
   },
   {
     ignores: ['dist/', 'src/api/', 'src/routeTree.gen.ts'],
   },
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  biome,
-  {
-    rules: {
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
-    },
-  },
+  ...oxlint.buildFromOxlintConfigFile('./.oxlintrc.json'),
 )

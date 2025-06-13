@@ -9,8 +9,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "biome format --write .",
-    "lint": "biome check && eslint .",
-    "check": "biome check",
+    "lint": "oxlint . && eslint .",
+    "check": "pnpm run lint && pnpm exec biome format",
     "gcapi": "sh scripts/openapi-generate.sh && npm run format",
     "prepare": "husky"
   },
@@ -53,12 +53,12 @@
     "@vitejs/plugin-react-swc": "^3.10.0",
     "conventional-changelog-conventionalcommits": "^9.0.0",
     "eslint": "^9.27.0",
-    "eslint-config-biome": "^1.9.4",
-    "eslint-plugin-import-x": "^4.13.1",
+    "eslint-plugin-oxlint": "^1.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unicorn": "^59.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
+    "oxlint": "^1.1.0",
     "rollup-plugin-visualizer": "^6.0.0",
     "semantic-release": "^24.2.5",
     "tailwindcss": "^4.1.7",
@@ -67,6 +67,9 @@
     "vite": "^6.3.5"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@swc/core", "esbuild"]
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "esbuild"
+    ]
   }
 }

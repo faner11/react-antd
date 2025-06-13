@@ -34,6 +34,7 @@ const columns: ProColumns<Todo>[] = [
     },
     debounceTime: 500,
     request: async () => {
+      // oxlint-disable-next-line no-useless-promise-resolve-reject
       return Promise.resolve([
         { label: '全部', value: 'all' },
         { label: '未解决', value: 'open' },

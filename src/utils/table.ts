@@ -1,3 +1,4 @@
+// oxlint-disable no-explicit-any
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
@@ -6,7 +7,6 @@ import type { SortOrder } from 'antd/es/table/interface'
 import { camelCase, isNil } from 'es-toolkit'
 
 const transformTableParams = (
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   params: any,
   sort?: Record<string, SortOrder>,
   filter?: Record<string, (string | number)[] | null>,
@@ -39,7 +39,6 @@ const transformTableParams = (
     ...filterObj,
   }
 }
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const transformTableDataSource = (data: any[] | any) => {
   if (Array.isArray(data)) {
     return {
@@ -53,9 +52,7 @@ const transformTableDataSource = (data: any[] | any) => {
   }
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const tableQueryFun = (callback: any) => {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   return async (params: any, sort?: Record<string, SortOrder>, filter?: any) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const obj = transformTableParams(params, sort, filter)

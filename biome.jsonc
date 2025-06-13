@@ -4,10 +4,10 @@
     "enabled": false
   },
   "files": {
-    "ignore": ["dist", ".vscode", "src/api", "src/routeTree.gen.ts"]
+    "ignore": ["dist", ".vscode", "src/api", "src/routeTree.gen.ts", "package.json"]
   },
   "linter": {
-    "enabled": true,
+    "enabled": false,
     "rules": {
       "suspicious": {
         "noConsoleLog": "error"

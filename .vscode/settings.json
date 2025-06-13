@@ -1,7 +1,8 @@
 {
   "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit",
     "source.fixAll.eslint": "explicit",
-    "quickfix.biome": "explicit"
+    "source.organizeImports": "explicit"
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
@@ -40,5 +41,8 @@
   },
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
-  }
+  },
+  "cSpell.words": [
+    "oxlint"
+  ]
 }

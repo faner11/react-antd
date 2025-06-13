@@ -8,6 +8,7 @@
     "christian-kohler.path-intellisense",
     "bradlc.vscode-tailwindcss",
     "styled-components.vscode-styled-components",
-    "biomejs.biome"
+    "biomejs.biome",
+    "oxc.oxc-vscode"
   ]
 }
