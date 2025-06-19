@@ -9,8 +9,7 @@ import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/base-api.config'
 import { MyAntdModal } from '@/components/MyAntdModal'
-import { sleep } from '@/utils'
-import { tableQueryFun } from '@/utils'
+import { sleep, tableQueryFun } from '@/utils'
 
 const homeApi = new TodosApi(BaseApiConfig)
 const columns: ProColumns<Todo>[] = [
@@ -88,7 +87,7 @@ const Table: FC = () => {
 
   return (
     <PageContainer
-      fixedHeader={true}
+      fixedHeader
       extra={
         <Button
           type="primary"

@@ -44,8 +44,8 @@ function LayoutComponent() {
       theme="light"
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
       menuItemRender={menuItemRender}
-      fixSiderbar={true}
-      fixedHeader={true}
+      fixSiderbar
+      fixedHeader
       ErrorBoundary={false}
     >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>

@@ -217,6 +217,9 @@
     "react/no-danger": "error",
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-useless-fragment": "error",
+    "react/self-closing-comp": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-curly-brace-presence": "error",
     "import/consistent-type-specifier-style": "error",
     "import/no-empty-named-blocks": "error"
   },
