@@ -4,7 +4,8 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import tseslint from 'typescript-eslint'
 
-export default tseslint.config(
+/** @type {import('eslint').Linter.Config[]} */
+const config = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
@@ -49,3 +50,5 @@ export default tseslint.config(
   },
   ...oxlint.buildFromOxlintConfigFile('./.oxlintrc.json'),
 )
+
+export default config

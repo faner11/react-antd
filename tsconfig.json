@@ -1,12 +1,4 @@
 {
-  "extends": "@total-typescript/tsconfig/bundler/dom/app",
-  "exclude": ["dist", "build", "node_modules", "src/routeTree.gen.ts"],
-  "include": ["."],
-  "compilerOptions": {
-    "noImplicitOverride": false,
-    "jsx": "react-jsx",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

@@ -1,0 +1,9 @@
+{
+  "extends": "@total-typescript/tsconfig/bundler/no-dom/app",
+  "exclude": ["dist", "build", "src"],
+  "include": ["."],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "composite": true
+  }
+}
