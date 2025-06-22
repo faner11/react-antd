@@ -47,6 +47,7 @@ const config = tseslint.config(
       // 'react/jsx-fragments': 'error',
       'import/consistent-type-specifier-style': 'error',
       'import/no-empty-named-blocks': 'error',
+      'import/no-duplicates': 'error',
     },
   },
   {
