@@ -10,72 +10,61 @@
 
 import { createFileRoute } from '@tanstack/react-router'
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NeedAuthRouteRouteImport } from './routes/_need-auth/route'
+import { Route as NeedAuthSplatRouteImport } from './routes/_need-auth/$'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as LoginImport } from './routes/login'
-import { Route as NeedAuthRouteImport } from './routes/_need-auth/route'
-import { Route as NeedAuthSplatImport } from './routes/_need-auth/$'
-
-// Create Virtual Routes
-
-const NeedAuthIndexLazyImport = createFileRoute('/_need-auth/')()
-const NeedAuthTableIndexLazyImport = createFileRoute('/_need-auth/table/')()
-const NeedAuthStateReactQueryLazyImport = createFileRoute(
+const NeedAuthIndexLazyRouteImport = createFileRoute('/_need-auth/')()
+const NeedAuthTableIndexLazyRouteImport =
+  createFileRoute('/_need-auth/table/')()
+const NeedAuthStateReactQueryLazyRouteImport = createFileRoute(
   '/_need-auth/state/react-query',
 )()
-const NeedAuthStateJotaiIndexLazyImport = createFileRoute(
+const NeedAuthStateJotaiIndexLazyRouteImport = createFileRoute(
   '/_need-auth/state/jotai/',
 )()
 
-// Create/Update Routes
-
-const LoginRoute = LoginImport.update({
+const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
-
-const NeedAuthRouteRoute = NeedAuthRouteImport.update({
+const NeedAuthRouteRoute = NeedAuthRouteRouteImport.update({
   id: '/_need-auth',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
   import('./routes/_need-auth/route.lazy').then((d) => d.Route),
 )
-
-const NeedAuthIndexLazyRoute = NeedAuthIndexLazyImport.update({
+const NeedAuthIndexLazyRoute = NeedAuthIndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => NeedAuthRouteRoute,
 } as any).lazy(() =>
   import('./routes/_need-auth/index.lazy').then((d) => d.Route),
 )
-
-const NeedAuthSplatRoute = NeedAuthSplatImport.update({
+const NeedAuthSplatRoute = NeedAuthSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => NeedAuthRouteRoute,
 } as any)
-
-const NeedAuthTableIndexLazyRoute = NeedAuthTableIndexLazyImport.update({
+const NeedAuthTableIndexLazyRoute = NeedAuthTableIndexLazyRouteImport.update({
   id: '/table/',
   path: '/table/',
   getParentRoute: () => NeedAuthRouteRoute,
 } as any).lazy(() =>
   import('./routes/_need-auth/table/index.lazy').then((d) => d.Route),
 )
-
 const NeedAuthStateReactQueryLazyRoute =
-  NeedAuthStateReactQueryLazyImport.update({
+  NeedAuthStateReactQueryLazyRouteImport.update({
     id: '/state/react-query',
     path: '/state/react-query',
     getParentRoute: () => NeedAuthRouteRoute,
   } as any).lazy(() =>
     import('./routes/_need-auth/state/react-query.lazy').then((d) => d.Route),
   )
-
 const NeedAuthStateJotaiIndexLazyRoute =
-  NeedAuthStateJotaiIndexLazyImport.update({
+  NeedAuthStateJotaiIndexLazyRouteImport.update({
     id: '/state/jotai/',
     path: '/state/jotai/',
     getParentRoute: () => NeedAuthRouteRoute,
@@ -83,63 +72,112 @@ const NeedAuthStateJotaiIndexLazyRoute =
     import('./routes/_need-auth/state/jotai/index.lazy').then((d) => d.Route),
   )
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/login': typeof LoginRoute
+  '/$': typeof NeedAuthSplatRoute
+  '/': typeof NeedAuthIndexLazyRoute
+  '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
+  '/table': typeof NeedAuthTableIndexLazyRoute
+  '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
+}
+export interface FileRoutesByTo {
+  '/login': typeof LoginRoute
+  '/$': typeof NeedAuthSplatRoute
+  '/': typeof NeedAuthIndexLazyRoute
+  '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
+  '/table': typeof NeedAuthTableIndexLazyRoute
+  '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/_need-auth': typeof NeedAuthRouteRouteWithChildren
+  '/login': typeof LoginRoute
+  '/_need-auth/$': typeof NeedAuthSplatRoute
+  '/_need-auth/': typeof NeedAuthIndexLazyRoute
+  '/_need-auth/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
+  '/_need-auth/table/': typeof NeedAuthTableIndexLazyRoute
+  '/_need-auth/state/jotai/': typeof NeedAuthStateJotaiIndexLazyRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/login'
+    | '/$'
+    | '/'
+    | '/state/react-query'
+    | '/table'
+    | '/state/jotai'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/login' | '/$' | '/' | '/state/react-query' | '/table' | '/state/jotai'
+  id:
+    | '__root__'
+    | '/_need-auth'
+    | '/login'
+    | '/_need-auth/$'
+    | '/_need-auth/'
+    | '/_need-auth/state/react-query'
+    | '/_need-auth/table/'
+    | '/_need-auth/state/jotai/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  NeedAuthRouteRoute: typeof NeedAuthRouteRouteWithChildren
+  LoginRoute: typeof LoginRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_need-auth': {
-      id: '/_need-auth'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof NeedAuthRouteImport
-      parentRoute: typeof rootRoute
-    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_need-auth/$': {
-      id: '/_need-auth/$'
-      path: '/$'
-      fullPath: '/$'
-      preLoaderRoute: typeof NeedAuthSplatImport
-      parentRoute: typeof NeedAuthRouteImport
+    '/_need-auth': {
+      id: '/_need-auth'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof NeedAuthRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_need-auth/': {
       id: '/_need-auth/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof NeedAuthIndexLazyImport
-      parentRoute: typeof NeedAuthRouteImport
+      preLoaderRoute: typeof NeedAuthIndexLazyRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
     }
-    '/_need-auth/state/react-query': {
-      id: '/_need-auth/state/react-query'
-      path: '/state/react-query'
-      fullPath: '/state/react-query'
-      preLoaderRoute: typeof NeedAuthStateReactQueryLazyImport
-      parentRoute: typeof NeedAuthRouteImport
+    '/_need-auth/$': {
+      id: '/_need-auth/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof NeedAuthSplatRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
     }
     '/_need-auth/table/': {
       id: '/_need-auth/table/'
       path: '/table'
       fullPath: '/table'
-      preLoaderRoute: typeof NeedAuthTableIndexLazyImport
-      parentRoute: typeof NeedAuthRouteImport
+      preLoaderRoute: typeof NeedAuthTableIndexLazyRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
+    }
+    '/_need-auth/state/react-query': {
+      id: '/_need-auth/state/react-query'
+      path: '/state/react-query'
+      fullPath: '/state/react-query'
+      preLoaderRoute: typeof NeedAuthStateReactQueryLazyRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
     }
     '/_need-auth/state/jotai/': {
       id: '/_need-auth/state/jotai/'
       path: '/state/jotai'
       fullPath: '/state/jotai'
-      preLoaderRoute: typeof NeedAuthStateJotaiIndexLazyImport
-      parentRoute: typeof NeedAuthRouteImport
+      preLoaderRoute: typeof NeedAuthStateJotaiIndexLazyRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
     }
   }
 }
-
-// Create and export the route tree
 
 interface NeedAuthRouteRouteChildren {
   NeedAuthSplatRoute: typeof NeedAuthSplatRoute
@@ -161,117 +199,10 @@ const NeedAuthRouteRouteWithChildren = NeedAuthRouteRoute._addFileChildren(
   NeedAuthRouteRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '': typeof NeedAuthRouteRouteWithChildren
-  '/login': typeof LoginRoute
-  '/$': typeof NeedAuthSplatRoute
-  '/': typeof NeedAuthIndexLazyRoute
-  '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
-  '/table': typeof NeedAuthTableIndexLazyRoute
-  '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
-}
-
-export interface FileRoutesByTo {
-  '/login': typeof LoginRoute
-  '/$': typeof NeedAuthSplatRoute
-  '/': typeof NeedAuthIndexLazyRoute
-  '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
-  '/table': typeof NeedAuthTableIndexLazyRoute
-  '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/_need-auth': typeof NeedAuthRouteRouteWithChildren
-  '/login': typeof LoginRoute
-  '/_need-auth/$': typeof NeedAuthSplatRoute
-  '/_need-auth/': typeof NeedAuthIndexLazyRoute
-  '/_need-auth/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
-  '/_need-auth/table/': typeof NeedAuthTableIndexLazyRoute
-  '/_need-auth/state/jotai/': typeof NeedAuthStateJotaiIndexLazyRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | ''
-    | '/login'
-    | '/$'
-    | '/'
-    | '/state/react-query'
-    | '/table'
-    | '/state/jotai'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/$' | '/' | '/state/react-query' | '/table' | '/state/jotai'
-  id:
-    | '__root__'
-    | '/_need-auth'
-    | '/login'
-    | '/_need-auth/$'
-    | '/_need-auth/'
-    | '/_need-auth/state/react-query'
-    | '/_need-auth/table/'
-    | '/_need-auth/state/jotai/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  NeedAuthRouteRoute: typeof NeedAuthRouteRouteWithChildren
-  LoginRoute: typeof LoginRoute
-}
-
 const rootRouteChildren: RootRouteChildren = {
   NeedAuthRouteRoute: NeedAuthRouteRouteWithChildren,
   LoginRoute: LoginRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/_need-auth",
-        "/login"
-      ]
-    },
-    "/_need-auth": {
-      "filePath": "_need-auth/route.tsx",
-      "children": [
-        "/_need-auth/$",
-        "/_need-auth/",
-        "/_need-auth/state/react-query",
-        "/_need-auth/table/",
-        "/_need-auth/state/jotai/"
-      ]
-    },
-    "/login": {
-      "filePath": "login.tsx"
-    },
-    "/_need-auth/$": {
-      "filePath": "_need-auth/$.tsx",
-      "parent": "/_need-auth"
-    },
-    "/_need-auth/": {
-      "filePath": "_need-auth/index.lazy.tsx",
-      "parent": "/_need-auth"
-    },
-    "/_need-auth/state/react-query": {
-      "filePath": "_need-auth/state/react-query.lazy.tsx",
-      "parent": "/_need-auth"
-    },
-    "/_need-auth/table/": {
-      "filePath": "_need-auth/table/index.lazy.tsx",
-      "parent": "/_need-auth"
-    },
-    "/_need-auth/state/jotai/": {
-      "filePath": "_need-auth/state/jotai/index.lazy.tsx",
-      "parent": "/_need-auth"
-    }
-  }
-}
-ROUTE_MANIFEST_END */
