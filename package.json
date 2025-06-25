@@ -21,9 +21,9 @@
     "@ebay/nice-modal-react": "^1.2.13",
     "@tanstack/react-query": "^5.81.2",
     "@tanstack/react-router": "^1.121.34",
-    "antd": "^5.26.1",
+    "antd": "^5.26.2",
     "dayjs": "^1.11.13",
-    "es-toolkit": "^1.39.4",
+    "es-toolkit": "^1.39.5",
     "immer": "^10.1.1",
     "jotai": "^2.12.5",
     "jotai-immer": "^0.4.1",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
-    "@biomejs/biome": "^2.0.4",
+    "@biomejs/biome": "^2.0.5",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.29.0",
@@ -47,7 +47,7 @@
     "@tanstack/router-devtools": "^1.121.34",
     "@tanstack/router-plugin": "^1.121.34",
     "@total-typescript/tsconfig": "^1.0.4",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.4",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react-swc": "^3.10.2",
@@ -59,12 +59,12 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "oxlint": "^1.3.0",
-    "rollup-plugin-visualizer": "^6.0.0",
+    "rollup-plugin-visualizer": "^6.0.3",
     "semantic-release": "^24.2.5",
     "tailwindcss": "^4.1.10",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.34.1",
-    "vite": "^6.3.5"
+    "typescript-eslint": "^8.35.0",
+    "vite": "^7.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

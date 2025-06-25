@@ -27,6 +27,7 @@ const config = tseslint.config(
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      'prefer-template': 'warn',
       'object-shorthand': 'warn',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
