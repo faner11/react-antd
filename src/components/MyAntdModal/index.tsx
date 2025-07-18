@@ -2,12 +2,12 @@ import NiceModal, { antdModalV5, useModal } from '@ebay/nice-modal-react'
 import type { ModalProps } from 'antd'
 import { Modal } from 'antd'
 import { isNil } from 'es-toolkit'
-import type { FC, MouseEvent } from 'react'
+import type { MouseEvent } from 'react'
 import { useState } from 'react'
 interface MyAntdModalProps extends Omit<ModalProps, 'onOk'> {
   onOk?: (e: MouseEvent<HTMLButtonElement>) => Promise<unknown>
 }
-const MyAntdModalComponent: FC<MyAntdModalProps> = (props) => {
+const MyAntdModalComponent = (props: MyAntdModalProps) => {
   const modal = useModal()
   const [loading, setLoading] = useState(false)
   const { onOk } = props

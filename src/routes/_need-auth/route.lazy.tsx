@@ -1,13 +1,12 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
 import { ProLayout } from '@ant-design/pro-components'
-import { createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
+import { CatchBoundary, createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
 import { isNil } from 'es-toolkit'
 import type { ReactNode } from 'react'
-import { createElement, Suspense } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import { Suspense } from 'react'
 
-import { asideMenuConfig, icons } from '@/comm/menu-config'
+import { asideMenuConfig } from '@/comm/menu-config'
 import { ErrorComponent } from '@/components/error-component'
 
 export const Route = createLazyFileRoute('/_need-auth')({
@@ -22,10 +21,8 @@ const menuItemRender = (item: MenuDataItem, defaultDom: ReactNode) => {
 }
 const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] => {
   return menus.map((item) => {
-    const icon = icons[item.icon as string]
     return {
       ...item,
-      icon: icon && (createElement(icon) as ReactNode),
       children: item.children && loopMenuItem(item.children),
     }
   })
@@ -56,9 +53,14 @@ function LayoutComponent() {
             </div>
           }
         >
-          <ErrorBoundary resetKeys={[location.pathname]} FallbackComponent={ErrorComponent}>
+          <CatchBoundary
+            getResetKey={() => {
+              return location.pathname
+            }}
+            errorComponent={ErrorComponent}
+          >
             <Outlet />
-          </ErrorBoundary>
+          </CatchBoundary>
         </Suspense>
       </div>
     </ProLayout>

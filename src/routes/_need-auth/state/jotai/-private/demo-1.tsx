@@ -1,10 +1,9 @@
 import { Typography } from 'antd'
 import { useAtomValue } from 'jotai'
-import type { FC } from 'react'
 
 import { countObjAtom } from './atom'
 
-export const Demo1: FC = () => {
+export const Demo1 = () => {
   const countObj = useAtomValue(countObjAtom)
   return (
     <>

@@ -3,7 +3,6 @@ import { PageContainer, ProTable } from '@ant-design/pro-components'
 import { useModal } from '@ebay/nice-modal-react'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import { Button, Popconfirm, Typography } from 'antd'
-import type { FC } from 'react'
 
 import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
@@ -82,7 +81,7 @@ const columns: ProColumns<Todo>[] = [
     ],
   },
 ]
-const Table: FC = () => {
+const Table = () => {
   const modal = useModal(MyAntdModal)
 
   return (
