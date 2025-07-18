@@ -7,7 +7,7 @@ import { Button, Popconfirm, Typography } from 'antd'
 import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/base-api.config'
-import { MyAntdModal } from '@/components/MyAntdModal'
+import { MyAntdModal } from '@/components/my-antd-modal'
 import { sleep, tableQueryFun } from '@/utils'
 
 const homeApi = new TodosApi(BaseApiConfig)
