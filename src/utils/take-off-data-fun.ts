@@ -5,10 +5,3 @@ export function takeOffDataFun<T, K extends keyof T>(obj: T) {
   }
   throw new Error('数据格式错误')
 }
-export function sleep(time: number) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true)
-    }, time)
-  })
-}

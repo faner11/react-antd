@@ -4,8 +4,6 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "VisualStudioExptTeam.vscodeintellicode",
-    "christian-kohler.path-intellisense",
     "bradlc.vscode-tailwindcss",
     "styled-components.vscode-styled-components",
     "biomejs.biome",

@@ -1,14 +1,13 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
-import { useModal } from '@ebay/nice-modal-react'
 import { createLazyFileRoute } from '@tanstack/react-router'
-import { Button, Popconfirm, Typography } from 'antd'
+import { Button, Modal, Popconfirm, Typography } from 'antd'
+import { overlay } from 'overlay-kit'
 
 import type { Todo } from '@/api'
 import { TodosApi } from '@/api'
 import { BaseApiConfig } from '@/comm/base-api.config'
-import { MyAntdModal } from '@/components/my-antd-modal'
-import { sleep, tableQueryFun } from '@/utils'
+import { tableQueryFun } from '@/utils'
 
 const homeApi = new TodosApi(BaseApiConfig)
 const columns: ProColumns<Todo>[] = [
@@ -82,8 +81,6 @@ const columns: ProColumns<Todo>[] = [
   },
 ]
 const Table = () => {
-  const modal = useModal(MyAntdModal)
-
   return (
     <PageContainer
       fixedHeader
@@ -91,10 +88,24 @@ const Table = () => {
         <Button
           type="primary"
           onClick={() => {
-            void modal.show({
-              title: 'Command Modal',
-              children: <div>test</div>,
-              onOk: async () => sleep(2000),
+            overlay.open((props) => {
+              return (
+                <Modal
+                  title="Command Modal"
+                  open={props.isOpen}
+                  onCancel={() => {
+                    overlay.close(props.overlayId)
+                  }}
+                  afterClose={() => {
+                    overlay.unmount(props.overlayId)
+                  }}
+                  onOk={() => {
+                    overlay.close(props.overlayId)
+                  }}
+                >
+                  <div>test</div>
+                </Modal>
+              )
             })
           }}
         >

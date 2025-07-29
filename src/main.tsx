@@ -1,13 +1,13 @@
 import '@ant-design/v5-patch-for-react-19'
 import './index.css'
 
-import NiceModal from '@ebay/nice-modal-react'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { App, ConfigProvider } from 'antd'
 import zhCn from 'antd/es/locale/zh_CN'
 import dayjs from 'dayjs'
 import dayjsLocal from 'dayjs/locale/zh-cn'
+import { OverlayProvider } from 'overlay-kit'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
@@ -38,9 +38,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ConfigProvider locale={zhCn} theme={{ cssVar: true, hashed: false }}>
         <App>
-          <NiceModal.Provider>
+          <OverlayProvider>
             <RouterProvider router={router} />
-          </NiceModal.Provider>
+          </OverlayProvider>
         </App>
       </ConfigProvider>
     </QueryClientProvider>
