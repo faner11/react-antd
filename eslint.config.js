@@ -52,7 +52,7 @@ const config = tseslint.config(
     },
   },
   {
-    ignores: ['dist/', 'src/api/', 'src/routeTree.gen.ts'],
+    ignores: ['dist/', 'src/api/', 'src/routeTree.gen.ts', 'schema.d.ts'],
   },
   ...oxlint.buildFromOxlintConfigFile('./.oxlintrc.json'),
 )

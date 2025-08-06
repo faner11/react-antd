@@ -22,6 +22,11 @@ const asideMenuConfig: MenuDataItem[] = [
       },
     ],
   },
+  {
+    name: 'Command Modal',
+    path: '/command-modal',
+    icon: <HeartOutlined />,
+  },
 ]
 
 export { asideMenuConfig }

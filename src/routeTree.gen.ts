@@ -16,6 +16,9 @@ import { Route as NeedAuthRouteRouteImport } from './routes/_need-auth/route'
 import { Route as NeedAuthSplatRouteImport } from './routes/_need-auth/$'
 
 const NeedAuthIndexLazyRouteImport = createFileRoute('/_need-auth/')()
+const NeedAuthCommandModalLazyRouteImport = createFileRoute(
+  '/_need-auth/command-modal',
+)()
 const NeedAuthTableIndexLazyRouteImport =
   createFileRoute('/_need-auth/table/')()
 const NeedAuthStateReactQueryLazyRouteImport = createFileRoute(
@@ -43,6 +46,14 @@ const NeedAuthIndexLazyRoute = NeedAuthIndexLazyRouteImport.update({
 } as any).lazy(() =>
   import('./routes/_need-auth/index.lazy').then((d) => d.Route),
 )
+const NeedAuthCommandModalLazyRoute =
+  NeedAuthCommandModalLazyRouteImport.update({
+    id: '/command-modal',
+    path: '/command-modal',
+    getParentRoute: () => NeedAuthRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_need-auth/command-modal.lazy').then((d) => d.Route),
+  )
 const NeedAuthSplatRoute = NeedAuthSplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -75,6 +86,7 @@ const NeedAuthStateJotaiIndexLazyRoute =
 export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/$': typeof NeedAuthSplatRoute
+  '/command-modal': typeof NeedAuthCommandModalLazyRoute
   '/': typeof NeedAuthIndexLazyRoute
   '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/table': typeof NeedAuthTableIndexLazyRoute
@@ -83,6 +95,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/$': typeof NeedAuthSplatRoute
+  '/command-modal': typeof NeedAuthCommandModalLazyRoute
   '/': typeof NeedAuthIndexLazyRoute
   '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/table': typeof NeedAuthTableIndexLazyRoute
@@ -93,6 +106,7 @@ export interface FileRoutesById {
   '/_need-auth': typeof NeedAuthRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/_need-auth/$': typeof NeedAuthSplatRoute
+  '/_need-auth/command-modal': typeof NeedAuthCommandModalLazyRoute
   '/_need-auth/': typeof NeedAuthIndexLazyRoute
   '/_need-auth/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
   '/_need-auth/table/': typeof NeedAuthTableIndexLazyRoute
@@ -103,17 +117,26 @@ export interface FileRouteTypes {
   fullPaths:
     | '/login'
     | '/$'
+    | '/command-modal'
     | '/'
     | '/state/react-query'
     | '/table'
     | '/state/jotai'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/$' | '/' | '/state/react-query' | '/table' | '/state/jotai'
+  to:
+    | '/login'
+    | '/$'
+    | '/command-modal'
+    | '/'
+    | '/state/react-query'
+    | '/table'
+    | '/state/jotai'
   id:
     | '__root__'
     | '/_need-auth'
     | '/login'
     | '/_need-auth/$'
+    | '/_need-auth/command-modal'
     | '/_need-auth/'
     | '/_need-auth/state/react-query'
     | '/_need-auth/table/'
@@ -146,6 +169,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof NeedAuthIndexLazyRouteImport
+      parentRoute: typeof NeedAuthRouteRoute
+    }
+    '/_need-auth/command-modal': {
+      id: '/_need-auth/command-modal'
+      path: '/command-modal'
+      fullPath: '/command-modal'
+      preLoaderRoute: typeof NeedAuthCommandModalLazyRouteImport
       parentRoute: typeof NeedAuthRouteRoute
     }
     '/_need-auth/$': {
@@ -181,6 +211,7 @@ declare module '@tanstack/react-router' {
 
 interface NeedAuthRouteRouteChildren {
   NeedAuthSplatRoute: typeof NeedAuthSplatRoute
+  NeedAuthCommandModalLazyRoute: typeof NeedAuthCommandModalLazyRoute
   NeedAuthIndexLazyRoute: typeof NeedAuthIndexLazyRoute
   NeedAuthStateReactQueryLazyRoute: typeof NeedAuthStateReactQueryLazyRoute
   NeedAuthTableIndexLazyRoute: typeof NeedAuthTableIndexLazyRoute
@@ -189,6 +220,7 @@ interface NeedAuthRouteRouteChildren {
 
 const NeedAuthRouteRouteChildren: NeedAuthRouteRouteChildren = {
   NeedAuthSplatRoute: NeedAuthSplatRoute,
+  NeedAuthCommandModalLazyRoute: NeedAuthCommandModalLazyRoute,
   NeedAuthIndexLazyRoute: NeedAuthIndexLazyRoute,
   NeedAuthStateReactQueryLazyRoute: NeedAuthStateReactQueryLazyRoute,
   NeedAuthTableIndexLazyRoute: NeedAuthTableIndexLazyRoute,

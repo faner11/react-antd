@@ -1,8 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.3/schema.json",
   "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "files": {
-    "includes": ["**", "!**/dist", "!**/.vscode", "!**/src/api", "!**/src/routeTree.gen.ts", "!**/package.json"]
+    "includes": [
+      "**",
+      "!**/dist",
+      "!**/.vscode",
+      "!**/src/api",
+      "!**/src/routeTree.gen.ts",
+      "!**/package.json",
+      "!**/schema.d.ts"
+    ]
   },
   "linter": {
     "enabled": false

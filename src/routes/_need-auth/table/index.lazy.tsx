@@ -1,16 +1,16 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
 import { createLazyFileRoute } from '@tanstack/react-router'
-import { Button, Modal, Popconfirm, Typography } from 'antd'
-import { overlay } from 'overlay-kit'
+import { Popconfirm, Typography } from 'antd'
 
-import type { Todo } from '@/api'
-import { TodosApi } from '@/api'
-import { BaseApiConfig } from '@/comm/base-api.config'
-import { tableQueryFun } from '@/utils'
+import type { components } from '@/comm'
+import { fetchClient } from '@/comm'
 
-const homeApi = new TodosApi(BaseApiConfig)
-const columns: ProColumns<Todo>[] = [
+export const Route = createLazyFileRoute('/_need-auth/table/')({
+  component: RouteComponent,
+})
+
+const columns: ProColumns<components['schemas']['post']>[] = [
   {
     title: 'date',
     dataIndex: 'date',
@@ -80,59 +80,20 @@ const columns: ProColumns<Todo>[] = [
     ],
   },
 ]
-const Table = () => {
+function RouteComponent() {
   return (
-    <PageContainer
-      fixedHeader
-      extra={
-        <Button
-          type="primary"
-          onClick={() => {
-            overlay.open((props) => {
-              return (
-                <Modal
-                  title="Command Modal"
-                  open={props.isOpen}
-                  onCancel={() => {
-                    overlay.close(props.overlayId)
-                  }}
-                  afterClose={() => {
-                    overlay.unmount(props.overlayId)
-                  }}
-                  onOk={() => {
-                    overlay.close(props.overlayId)
-                  }}
-                >
-                  <div>test</div>
-                </Modal>
-              )
-            })
-          }}
-        >
-          Command Modal
-        </Button>
-      }
-    >
+    <PageContainer fixedHeader>
       <ProTable
-        toolBarRender={(action) => [
-          <Button
-            key="but1"
-            type="primary"
-            onClick={() => {
-              void action?.reload()
-            }}
-          >
-            Button 1
-          </Button>,
-          <Button key="but2">Button 2</Button>,
-        ]}
-        request={tableQueryFun(homeApi.getTodos.bind(homeApi))}
+        request={async () => {
+          const data = await fetchClient('get', '/posts', {})
+          return {
+            data,
+            total: data.length,
+          }
+        }}
         columns={columns}
         rowKey="id"
       />
     </PageContainer>
   )
 }
-export const Route = createLazyFileRoute('/_need-auth/table/')({
-  component: Table,
-})

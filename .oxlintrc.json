@@ -224,5 +224,5 @@
     "import/no-empty-named-blocks": "error",
     "import/no-duplicates": "error"
   },
-  "ignorePatterns": ["dist/", "src/api/", "src/routeTree.gen.ts"]
+  "ignorePatterns": ["dist/", "src/api/", "src/routeTree.gen.ts", "schema.d.ts"]
 }
