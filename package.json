@@ -49,8 +49,7 @@
     "@types/node": "^24.2.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react-swc": "^3.11.0",
-    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "@vitejs/plugin-react": "^5.0.1",
     "eslint": "^9.32.0",
     "eslint-plugin-oxlint": "^1.9.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -68,7 +67,6 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@swc/core",
       "esbuild"
     ]
   }
