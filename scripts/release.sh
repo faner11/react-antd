@@ -6,7 +6,7 @@ if [ "$current_branch" != "main" ]; then
     exit 0
 fi
 # Get the bumped version
-version=$(pnpm exec git-cliff --bumped-version )
+version=$(pnpm exec git-cliff --bumped-version)
 echo "Bumped version: $version"
 
 # Generate a new CHANGELOG
