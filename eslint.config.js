@@ -1,11 +1,11 @@
 import eslint from '@eslint/js'
+import { defineConfig } from 'eslint/config'
 import oxlint from 'eslint-plugin-oxlint'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import tseslint from 'typescript-eslint'
 
-/** @type {import('eslint').Linter.Config[]} */
-const config = tseslint.config(
+const config = defineConfig(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
