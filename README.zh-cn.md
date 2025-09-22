@@ -1,6 +1,6 @@
 [English](https://github.com/faner11/react-antd)｜简体中文
 
-这是一个开发体验友好 React SPA 模版，组合了当前最先进最酷的技术方案，帮你解决了业务逻辑之外的所有问题。
+这是一个开发体验友好的 React SPA 脚手架，组合了当前最先进最酷的技术方案，帮你解决了业务逻辑之外的所有问题。
 
 # 开发须知
 
@@ -25,7 +25,7 @@
 
 ## fetch 接口&类型定义
 
-- [openapi-fetch](https://github.com/openapi-ts/openapi-typescript) 根据 OpenAPI/Swagger 生成API接口与类型声明. 生成时，运行 `pnpm run gc-open-api` 并修改 OpenAPI URL。
+- [openapi-fetch](https://github.com/openapi-ts/openapi-typescript) 根据 OpenAPI/Swagger 生成API接口与类型声明. 请先将 `package.json` 中的 `gc-open-api`  URL 改为自己的的OpenAPI URL，然后运行 `pnpm run gc-open-api`即可。
 
 ## Form
 
@@ -44,7 +44,6 @@
 ## 其他库
 
 - [antd](https://ant.design/index-cn) 已预设相关配置
-- **biomejs** <font style="color:red" >强制使用，禁止关闭</font>
 - [@ant-design/pro-components](https://procomponents.ant.design/components) 基于`antd`的重型组件,包含`ProLayout`,`ProTable`等
 - [es-toolkit](https://es-toolkit.slash.page/) 先进的 JavaScript 实用程序库
 - [ahooks](https://ahooks.js.org/zh-CN/) react hook 是工具库

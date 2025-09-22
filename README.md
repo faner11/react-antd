@@ -15,7 +15,7 @@ This is a development experience-friendly React SPA template that combines the m
 - [tailwindcss](https://tailwindcss.com/) Atomic css tool library，Recommended use`tailwindcss` + `css in js` programs，<font style="color:red" >Abandon preprocessing tools like less, sass, etc.</font>。
 - [clsx](https://github.com/lukeed/clsx) css class name link combination
 
-## Generative routing
+## Generative router
 - [@tanstack/react-router](https://github.com/TanStack/router) Fully typesafe Router for React (and friends) w/ built-in caching, 1st class search-param APIs, client-side cache integration and isomorphic rendering.
 
 ## Status Management
@@ -25,7 +25,7 @@ This is a development experience-friendly React SPA template that combines the m
 
 ## fetch Interface & Type Definition
 
-- [openapi-fetch](https://github.com/openapi-ts/openapi-typescript) Generate interface definitions and type declarations based on OpenAPI/Swagger. When generating, run `pnpm run gc-open-api` and modify the OpenAPI URL.
+- [openapi-fetch](https://github.com/openapi-ts/openapi-typescript) Generate API interfaces and type declarations based on OpenAPI/Swagger. Please first change the OpenAPI URL of `gc-open-api` in `package.json` to your own, then run `pnpm run gc-open-api` to proceed.
 
 ## Form
 
