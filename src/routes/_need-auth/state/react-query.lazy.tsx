@@ -5,7 +5,7 @@ import { Button, Card, Typography } from 'antd'
 import { produce } from 'immer'
 import { useState } from 'react'
 
-import { fetchClient } from '@/comm'
+import { fetchClient } from '#comm'
 
 export const Route = createLazyFileRoute('/_need-auth/state/react-query')({
   component: RouteComponent,

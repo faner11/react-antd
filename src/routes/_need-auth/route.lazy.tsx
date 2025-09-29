@@ -6,8 +6,8 @@ import { isNil } from 'es-toolkit'
 import type { ReactNode } from 'react'
 import { Suspense } from 'react'
 
-import { asideMenuConfig } from '@/comm/menu-config'
-import { ErrorComponent } from '@/components/error-component'
+import { asideMenuConfig } from '#comm'
+import { ErrorComponent } from '#components'
 
 export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,

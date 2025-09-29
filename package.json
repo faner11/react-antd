@@ -1,5 +1,5 @@
 {
-  "name": "vite-tm-v2",
+  "name": "react-antd",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -66,5 +66,10 @@
     "onlyBuiltDependencies": [
       "esbuild"
     ]
+  },
+  "imports": {
+    "#util": "./src/util/index.ts",
+    "#comm": "./src/comm/index.ts",
+    "#components": "./src/components/index.ts"
   }
 }

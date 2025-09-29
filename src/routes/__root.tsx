@@ -3,7 +3,7 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { message } from 'antd'
 import { useEffect } from 'react'
 
-import { queryClient } from '@/comm/query-client'
+import { queryClient } from '#comm'
 
 export const Route = createRootRoute({
   component: RootComponent,
