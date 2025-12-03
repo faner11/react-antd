@@ -46,7 +46,7 @@ const config = defineConfig(
       'react/jsx-boolean-value': 'error',
       'react/jsx-curly-brace-presence': 'error',
       // 'react/jsx-fragments': 'error',
-      'import/consistent-type-specifier-style': 'error',
+      // "@typescript-eslint/consistent-type-imports": "error",
       'import/no-empty-named-blocks': 'error',
       'import/no-duplicates': 'error',
     },

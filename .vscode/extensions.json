@@ -6,7 +6,6 @@
     "EditorConfig.EditorConfig",
     "bradlc.vscode-tailwindcss",
     "styled-components.vscode-styled-components",
-    "biomejs.biome",
     "oxc.oxc-vscode"
   ]
 }

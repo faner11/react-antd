@@ -36,7 +36,7 @@
 ## Lint/Format
 - [eslint](https://eslint.org/) 仅用来检查oxlint 不支持的规则
 - [oxlint](https://github.com/oxc-project/oxc) rust 版本的 eslint
-- [biomejs](https://biomejs.dev/) 当前仅用来format
+- [oxfmt](https://github.com/oxc-project/oxc) 当前仅用来format
 
 ## 命令式弹窗
 - [overlay-kit](https://github.com/toss/overlay-kit) 命令式弹窗库，增加代码可读性

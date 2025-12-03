@@ -36,7 +36,7 @@ This is a development experience-friendly React SPA template that combines the m
 ## Lint/Format
 - [eslint](https://eslint.org/) Only used to check rules that oxlint does not support
 - [oxlint](https://github.com/oxc-project/oxc) Rust version of eslint
-- [biomejs](https://biomejs.dev/)  Currently only used for format
+- [oxfmt](https://github.com/oxc-project/oxc) Currently only used for format
 
 ## Command pop-up 
 - [overlay-kit](https://github.com/toss/overlay-kit) Command-based pop-up library to increase code readability
