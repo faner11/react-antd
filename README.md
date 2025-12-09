@@ -16,6 +16,7 @@ This is a development experience-friendly React SPA template that combines the m
 - [clsx](https://github.com/lukeed/clsx) css class name link combination
 
 ## Generative router
+
 - [@tanstack/react-router](https://github.com/TanStack/router) Fully typesafe Router for React (and friends) w/ built-in caching, 1st class search-param APIs, client-side cache integration and isomorphic rendering.
 
 ## Status Management
@@ -34,14 +35,17 @@ This is a development experience-friendly React SPA template that combines the m
 - [Zod](https://github.com/colinhacks/zod) TypeScript-first schema validation with static type inference
 
 ## Lint/Format
+
 - [eslint](https://eslint.org/) Only used to check rules that oxlint does not support
 - [oxlint](https://github.com/oxc-project/oxc) Rust version of eslint
 - [oxfmt](https://github.com/oxc-project/oxc) Currently only used for format
 
-## Command pop-up 
+## Command pop-up
+
 - [overlay-kit](https://github.com/toss/overlay-kit) Command-based pop-up library to increase code readability
 
 ## Other libraries
+
 - [antd](https://ant.design)
 - [@ant-design/pro-components](https://procomponents.ant.design/components) Heavy components based on `antd`, including `ProLayout`, `ProTable`, etc.
 - [es-toolkit](https://es-toolkit.slash.page/) State-of-the-art JavaScript utility library
