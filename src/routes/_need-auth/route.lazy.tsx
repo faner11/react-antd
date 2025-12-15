@@ -1,13 +1,13 @@
 import type { MenuDataItem } from '@ant-design/pro-components'
+import type { ReactNode } from 'react'
+
+import { asideMenuConfig } from '#comm'
+import { ErrorComponent } from '#components'
 import { ProLayout } from '@ant-design/pro-components'
 import { CatchBoundary, createLazyFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
 import { Spin } from 'antd'
 import { isNil } from 'es-toolkit'
-import type { ReactNode } from 'react'
 import { Suspense } from 'react'
-
-import { asideMenuConfig } from '#comm'
-import { ErrorComponent } from '#components'
 
 export const Route = createLazyFileRoute('/_need-auth')({
   component: LayoutComponent,
@@ -31,19 +31,19 @@ function LayoutComponent() {
   const location = useLocation()
   return (
     <ProLayout
-      logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-      title="React—Antd"
+      ErrorBoundary={false}
+      fixedHeader
+      fixSiderbar
+      layout="mix"
       location={{
         pathname: location.pathname,
       }}
-      layout="mix"
-      navTheme="light"
-      theme="light"
+      logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       menuDataRender={() => loopMenuItem(asideMenuConfig)}
       menuItemRender={menuItemRender}
-      fixSiderbar
-      fixedHeader
-      ErrorBoundary={false}
+      navTheme="light"
+      theme="light"
+      title="React—Antd"
     >
       <div style={{ minHeight: 'calc(100vh - 56px)' }}>
         <Suspense
@@ -54,10 +54,10 @@ function LayoutComponent() {
           }
         >
           <CatchBoundary
+            errorComponent={ErrorComponent}
             getResetKey={() => {
               return location.pathname
             }}
-            errorComponent={ErrorComponent}
           >
             <Outlet />
           </CatchBoundary>

@@ -6,10 +6,10 @@ export const Route = createFileRoute('/_need-auth')({
     const login = localStorage.getItem('login')
     if (isNil(login)) {
       return redirect({
-        to: '/login',
         search: {
           redirect: location.href,
         },
+        to: '/login',
       })
     }
   },

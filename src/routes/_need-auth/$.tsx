@@ -11,21 +11,21 @@ function RouteComponent() {
   return (
     <PageContainer title={false}>
       <Result
-        status="404"
-        title="404"
-        subTitle="Page does not exist."
         extra={
           <Button
-            type="primary"
             onClick={() => {
               void navigate({
                 to: '/',
               })
             }}
+            type="primary"
           >
             BACK HOME
           </Button>
         }
+        status="404"
+        subTitle="Page does not exist."
+        title="404"
       />
     </PageContainer>
   )

@@ -11,28 +11,28 @@ function RouteComponent() {
   return (
     <PageContainer>
       <Button
-        type="primary"
         onClick={() => {
           overlay.open((props) => {
             return (
               <Modal
-                title="Command Modal"
-                open={props.isOpen}
-                onCancel={() => {
-                  overlay.close(props.overlayId)
-                }}
                 afterClose={() => {
                   overlay.unmount(props.overlayId)
+                }}
+                onCancel={() => {
+                  overlay.close(props.overlayId)
                 }}
                 onOk={() => {
                   overlay.close(props.overlayId)
                 }}
+                open={props.isOpen}
+                title="Command Modal"
               >
                 <div>test</div>
               </Modal>
             )
           })
         }}
+        type="primary"
       >
         Command Modal
       </Button>

@@ -1,3 +1,4 @@
+import { fetchClient } from '#comm'
 import { PageContainer } from '@ant-design/pro-components'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { createLazyFileRoute } from '@tanstack/react-router'
@@ -5,24 +6,22 @@ import { Button, Card, Typography } from 'antd'
 import { produce } from 'immer'
 import { useState } from 'react'
 
-import { fetchClient } from '#comm'
-
 export const Route = createLazyFileRoute('/_need-auth/state/react-query')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
   const [value, setValue] = useState({
-    name: 'hello',
     current: 1,
+    name: 'hello',
   })
 
   const dataQuery = useSuspenseQuery({
-    queryKey: ['HunBo4R11V16LmheHmTGZ', value],
     queryFn: async () => {
       const list = await fetchClient('get', '/posts')
       return list
     },
+    queryKey: ['HunBo4R11V16LmheHmTGZ', value],
   })
 
   return (

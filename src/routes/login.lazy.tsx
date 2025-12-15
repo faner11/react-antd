@@ -14,15 +14,13 @@ function RouteComponent() {
     <div className="flex h-screen w-full flex-col bg-slate-200">
       <LoginFormPage
         backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
-        logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
-        title="React-Antd"
         initialValues={{
-          username: 'admin',
           password: '123456',
+          username: 'admin',
         }}
-        subTitle="测试账号: admin/123456"
+        logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         onFinish={(values) => {
-          const { username, password } = values
+          const { password, username } = values
           if (username === 'admin' && password === '123456') {
             localStorage.setItem('login', 'true')
             location.href = search.redirect ?? '/'
@@ -31,32 +29,34 @@ function RouteComponent() {
           void message.error('账户名密码错误')
           return Promise.resolve(false)
         }}
+        subTitle="测试账号: admin/123456"
+        title="React-Antd"
       >
         <ProFormText
-          name="username"
           fieldProps={{
-            size: 'large',
             prefix: <UserOutlined className="prefixIcon" />,
+            size: 'large',
           }}
+          name="username"
           placeholder="请输入用户名"
           rules={[
             {
-              required: true,
               message: '请输入用户名!',
+              required: true,
             },
           ]}
         />
         <ProFormText.Password
-          name="password"
           fieldProps={{
-            size: 'large',
             prefix: <LockOutlined className="prefixIcon" />,
+            size: 'large',
           }}
+          name="password"
           placeholder="请输入密码"
           rules={[
             {
-              required: true,
               message: '请输入密码！',
+              required: true,
             },
           ]}
         />

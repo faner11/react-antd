@@ -4,15 +4,15 @@ import createFetchClient from 'openapi-fetch'
 import type { paths } from './schema'
 
 interface PayError {
-  statusCode: number
   error: string
   message: string
+  statusCode: number
 }
 
 export class ResponseError extends Error {
-  override name = 'ResponseError'
   override cause?: PayError
   httpStatus: number
+  override name = 'ResponseError'
   constructor(
     message: string,
     options: {
