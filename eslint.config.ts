@@ -26,6 +26,15 @@ const config = defineConfig(
   {
     rules: {
       'object-shorthand': 'warn',
+      'perfectionist/sort-objects': [
+        'error',
+        {
+          type: 'unsorted',
+          useConfigurationIf: {
+            callingFunctionNamePattern: ['createRootRouteWithContext', 'createFileRoute'],
+          },
+        },
+      ],
       'prefer-template': 'warn',
       'unicorn/prevent-abbreviations': 'off',
     },
