@@ -1,5 +1,3 @@
-import '@ant-design/v5-patch-for-react-19'
-
 import './index.css'
 
 import { QueryClientProvider } from '@tanstack/react-query'
@@ -37,7 +35,7 @@ const root = ReactDOM.createRoot(rootElement)
 root.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ConfigProvider locale={zhCn} theme={{ cssVar: true, hashed: false }}>
+      <ConfigProvider locale={zhCn}>
         <AntdApp>
           <OverlayProvider>
             <RouterProvider router={router} />
