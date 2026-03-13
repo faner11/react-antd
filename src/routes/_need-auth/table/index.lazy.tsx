@@ -1,10 +1,10 @@
-import type { components } from '#comm'
 import type { ProColumns } from '@ant-design/pro-components'
-
-import { fetchClient } from '#comm'
 import { PageContainer, ProTable } from '@ant-design/pro-components'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import { Popconfirm, Typography } from 'antd'
+
+import type { components } from '#comm'
+import { fetchClient } from '#comm'
 
 export const Route = createLazyFileRoute('/_need-auth/table/')({
   component: RouteComponent,

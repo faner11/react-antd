@@ -84,13 +84,13 @@ const NeedAuthStateJotaiIndexLazyRoute =
   )
 
 export interface FileRoutesByFullPath {
+  '/': typeof NeedAuthIndexLazyRoute
   '/login': typeof LoginRoute
   '/$': typeof NeedAuthSplatRoute
   '/command-modal': typeof NeedAuthCommandModalLazyRoute
-  '/': typeof NeedAuthIndexLazyRoute
   '/state/react-query': typeof NeedAuthStateReactQueryLazyRoute
-  '/table': typeof NeedAuthTableIndexLazyRoute
-  '/state/jotai': typeof NeedAuthStateJotaiIndexLazyRoute
+  '/table/': typeof NeedAuthTableIndexLazyRoute
+  '/state/jotai/': typeof NeedAuthStateJotaiIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
@@ -115,13 +115,13 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/login'
     | '/$'
     | '/command-modal'
-    | '/'
     | '/state/react-query'
-    | '/table'
-    | '/state/jotai'
+    | '/table/'
+    | '/state/jotai/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
@@ -160,7 +160,7 @@ declare module '@tanstack/react-router' {
     '/_need-auth': {
       id: '/_need-auth'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof NeedAuthRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -188,7 +188,7 @@ declare module '@tanstack/react-router' {
     '/_need-auth/table/': {
       id: '/_need-auth/table/'
       path: '/table'
-      fullPath: '/table'
+      fullPath: '/table/'
       preLoaderRoute: typeof NeedAuthTableIndexLazyRouteImport
       parentRoute: typeof NeedAuthRouteRoute
     }
@@ -202,7 +202,7 @@ declare module '@tanstack/react-router' {
     '/_need-auth/state/jotai/': {
       id: '/_need-auth/state/jotai/'
       path: '/state/jotai'
-      fullPath: '/state/jotai'
+      fullPath: '/state/jotai/'
       preLoaderRoute: typeof NeedAuthStateJotaiIndexLazyRouteImport
       parentRoute: typeof NeedAuthRouteRoute
     }

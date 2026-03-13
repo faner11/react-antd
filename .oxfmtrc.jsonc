@@ -4,4 +4,6 @@
   "singleQuote": true,
   "semi": false,
   "ignorePatterns": ["**/dist/**", "**/src/api/**", "**/src/routeTree.gen.ts", "**/schema.d.ts", "pnpm-lock.yaml"],
+  "experimentalSortImports": {},
+  "experimentalTailwindcss": {},
 }

@@ -1,6 +1,5 @@
-import type { MenuDataItem } from '@ant-design/pro-components'
-
 import { HeartOutlined, SmileOutlined } from '@ant-design/icons'
+import type { MenuDataItem } from '@ant-design/pro-components'
 
 const asideMenuConfig: MenuDataItem[] = [
   {

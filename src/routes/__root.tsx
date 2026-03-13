@@ -1,8 +1,9 @@
-import { queryClient } from '#comm'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { message } from 'antd'
 import { useEffect } from 'react'
+
+import { queryClient } from '#comm'
 
 export const Route = createRootRoute({
   component: RootComponent,

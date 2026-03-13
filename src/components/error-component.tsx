@@ -1,5 +1,4 @@
 import type { ErrorComponentProps } from '@tanstack/react-router'
-
 import { Result } from 'antd'
 
 export const ErrorComponent = (props: ErrorComponentProps) => {
