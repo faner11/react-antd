@@ -33,8 +33,7 @@ function RouteComponent() {
             defaultStore.set(countObjAtom, {
               count: defaultStore.get(countObjAtom).count + 1,
             })
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            void message.info(`${defaultStore.get(countObjAtom).count}`)
+            message.info(defaultStore.get(countObjAtom).count)
           }}
         >
           Store Add
