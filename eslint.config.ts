@@ -24,26 +24,7 @@ const config = defineConfig(
   },
   {
     rules: {
-      'object-shorthand': 'warn',
-      'prefer-template': 'warn',
       'unicorn/prevent-abbreviations': 'off',
-    },
-  },
-  {
-    // To generate oxlint
-    rules: {
-      'import/no-duplicates': 'error',
-      // 'react/jsx-fragments': 'error',
-      // "@typescript-eslint/consistent-type-imports": "error",
-      'import/no-empty-named-blocks': 'error',
-      'react/button-has-type': 'error',
-      'react/jsx-boolean-value': 'error',
-      'react/jsx-curly-brace-presence': 'error',
-      'react/jsx-no-comment-textnodes': 'error',
-      'react/jsx-no-useless-fragment': 'error',
-      'react/no-array-index-key': 'error',
-      'react/no-danger': 'error',
-      'react/self-closing-comp': 'error',
     },
   },
   {
