@@ -67,6 +67,7 @@ export default defineConfig({
     'no-regex-spaces': 'error',
     'no-unexpected-multiline': 'error',
     'object-shorthand': 'error',
+    'no-nested-ternary': 'off',
     'prefer-template': 'error',
     'react/button-has-type': 'error',
     'react/jsx-boolean-value': 'error',
@@ -76,6 +77,7 @@ export default defineConfig({
     'react/no-array-index-key': 'error',
     'react/no-danger': 'error',
     'react/self-closing-comp': 'error',
+    'typescript/consistent-type-imports': 'error',
     ...result,
   },
 })
