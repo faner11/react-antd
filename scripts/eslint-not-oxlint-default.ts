@@ -20,14 +20,16 @@ const rulesSources = [
   ...[...tseslint.configs.strictTypeChecked, ...tseslint.configs.stylisticTypeChecked].map((c) => c.rules),
   eslintPluginUnicorn.configs.recommended.rules,
 ]
-const eslintRecommendedRules = Object.assign({}, ...rulesSources.filter(Boolean))
+const eslintRecommendedRules = Object.fromEntries(
+  rulesSources.filter(Boolean).flatMap((r) => Object.entries(r as never)),
+)
 
 // 3. 过滤：OxLint 支持但默认未启用的规则（排除 unicorn 和 off）
 export const notDefaultInOxlint = Object.fromEntries(
   Object.entries(eslintRecommendedRules)
     .filter(([name, severity]) => {
       const oxc = oxcRulesMap[name]
-      return oxc?.default === false && severity !== 'off' && !name.startsWith('unicorn')
+      return oxc?.default === false && severity
     })
     .map(([name, severity]) => [name.replace('@typescript-eslint/', 'typescript/'), severity]),
 )

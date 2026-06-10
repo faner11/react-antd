@@ -14,7 +14,7 @@ export default defineConfig({
     typeAware: true,
     typeCheck: true,
   },
-  plugins: ['react', 'import', 'react-perf', 'oxc', 'promise'],
+  plugins: ['react', 'import', 'react-perf', 'oxc', 'promise', 'typescript', 'unicorn', 'node'],
   rules: {
     'import/consistent-type-specifier-style': 'error',
     'import/no-duplicates': 'error',
@@ -30,6 +30,18 @@ export default defineConfig({
     'react/no-array-index-key': 'error',
     'react/no-danger': 'error',
     'react/self-closing-comp': 'error',
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'zod',
+            importNames: ['default'],
+            message: 'Please use { z } instead of importing from zod directly.',
+          },
+        ],
+      },
+    ],
     ...notDefaultInOxlint,
   },
 })
