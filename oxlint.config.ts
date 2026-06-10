@@ -1,75 +1,6 @@
-import { omit } from 'es-toolkit'
-import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import { defineConfig } from 'oxlint'
-import tseslint from 'typescript-eslint'
-const tsRulesArray = [...tseslint.configs.strictTypeChecked, ...tseslint.configs.stylisticTypeChecked].map(
-  (item) => item.rules ?? {},
-)
-const myRules = {}
-for (const rulesObj of [...tsRulesArray, eslintPluginUnicorn.configs.recommended.rules]) {
-  Object.assign(myRules, rulesObj)
-}
 
-const result = omit(myRules, [
-  'no-dupe-args',
-  'no-new-symbol',
-  'typescript/no-array-constructor',
-  'typescript/no-unused-expressions',
-  'typescript/no-unused-vars',
-  'typescript/no-useless-constructor',
-  'no-return-await',
-  'dot-notation',
-  'typescript/no-empty-function',
-  'unicorn/better-dom-traversing',
-  'unicorn/consistent-compound-words',
-  'unicorn/consistent-destructuring',
-  'unicorn/consistent-json-file-read',
-  'unicorn/dom-node-dataset',
-  'unicorn/expiring-todo-comments',
-  'unicorn/isolated-functions',
-  'unicorn/no-array-fill-with-reference-type',
-  'unicorn/no-array-from-fill',
-  'unicorn/no-blob-to-file',
-  'unicorn/no-canvas-to-image',
-  'unicorn/no-confusing-array-splice',
-  'unicorn/no-duplicate-set-values',
-  'unicorn/no-exports-in-scripts',
-  'unicorn/no-for-loop',
-  'unicorn/no-incorrect-query-selector',
-  'unicorn/no-invalid-file-input-accept',
-  'unicorn/no-keyword-prefix',
-  'unicorn/no-late-current-target-access',
-  'unicorn/no-manually-wrapped-comments',
-  'unicorn/no-named-default',
-  'unicorn/no-this-outside-of-class',
-  'unicorn/no-unnecessary-nested-ternary',
-  'unicorn/no-unnecessary-polyfills',
-  'unicorn/no-unused-array-method-return',
-  'unicorn/no-unused-properties',
-  'unicorn/prefer-array-last-methods',
-  'unicorn/prefer-export-from',
-  'unicorn/prefer-get-or-insert-computed',
-  'unicorn/prefer-https',
-  'unicorn/prefer-includes-over-repeated-comparisons',
-  'unicorn/prefer-iterator-concat',
-  'unicorn/prefer-iterator-to-array-at-end',
-  'unicorn/prefer-math-abs',
-  'unicorn/prefer-queue-microtask',
-  'unicorn/prefer-simple-condition-first',
-  'unicorn/prefer-single-call',
-  'unicorn/prefer-split-limit',
-  'unicorn/prefer-string-match-all',
-  'unicorn/prefer-string-pad-start-end',
-  'unicorn/prefer-string-repeat',
-  'unicorn/prefer-switch',
-  'unicorn/prevent-abbreviations',
-  'unicorn/require-css-escape',
-  'unicorn/require-passive-events',
-  'unicorn/string-content',
-  'unicorn/template-indent',
-  'unicorn/try-complexity',
-] as never)
-
+import { notDefaultInOxlint } from './scripts/eslint-not-oxlint-default.ts'
 export default defineConfig({
   categories: {
     correctness: 'error',
@@ -88,12 +19,6 @@ export default defineConfig({
     'import/consistent-type-specifier-style': 'error',
     'import/no-duplicates': 'error',
     'import/no-empty-named-blocks': 'error',
-    'no-case-declarations': 'error',
-    'no-empty': 'error',
-    'no-fallthrough': 'error',
-    'no-prototype-builtins': 'error',
-    'no-regex-spaces': 'error',
-    'no-unexpected-multiline': 'error',
     'object-shorthand': 'error',
     'no-nested-ternary': 'off',
     'prefer-template': 'error',
@@ -105,7 +30,6 @@ export default defineConfig({
     'react/no-array-index-key': 'error',
     'react/no-danger': 'error',
     'react/self-closing-comp': 'error',
-    'typescript/consistent-type-imports': 'error',
-    ...result,
+    ...notDefaultInOxlint,
   },
 })
