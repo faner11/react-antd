@@ -12,5 +12,6 @@ export const Route = createFileRoute('/_need-auth')({
         to: '/login',
       })
     }
+    return
   },
 })

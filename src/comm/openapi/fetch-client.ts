@@ -10,7 +10,7 @@ interface PayError {
 }
 
 export class ResponseError extends Error {
-  override cause?: PayError
+  override cause: PayError | undefined
   httpStatus: number
   override name = 'ResponseError'
   constructor(

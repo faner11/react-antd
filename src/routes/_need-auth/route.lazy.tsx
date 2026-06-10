@@ -23,7 +23,7 @@ const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] => {
   return menus.map((item) => {
     return {
       ...item,
-      children: item.children && loopMenuItem(item.children),
+      children: (item.children && loopMenuItem(item.children)) ?? [],
     }
   })
 }
