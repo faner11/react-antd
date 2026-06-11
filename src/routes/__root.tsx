@@ -1,5 +1,4 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { message } from 'antd'
 import { useEffect } from 'react'
 
@@ -27,7 +26,6 @@ function RootComponent() {
     <>
       <Outlet />
       {contextHolder}
-      <TanStackRouterDevtools position="bottom-right" />
     </>
   )
 }

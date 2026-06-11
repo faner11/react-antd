@@ -1,1 +1,5 @@
-pnpm dlx commitlint --edit $1
+commit_regex="^(feat|fix|docs|style|refactor|perf|test|chore|revert|ci)(\([a-z0-9\-]+\))?: .+"
+if ! grep -qE "$commit_regex" "$1"; then
+  echo "❌ Commit message Format is not standardized, please check.!"
+  exit 1
+fi

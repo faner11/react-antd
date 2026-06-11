@@ -43,5 +43,6 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "cSpell.words": ["oxlint"]
+  "cSpell.words": ["oxlint"],
+  "js/ts.experimental.useTsgo": true
 }
