@@ -12,5 +12,5 @@ export default defineConfig({
     typeAware: true,
     typeCheck: true,
   },
-  plugins: ['react', 'import', 'react-perf', 'oxc', 'promise'],
+  plugins: ['react', 'import', 'react-perf', 'oxc', 'promise', 'eslint', 'typescript', 'react-perf'],
 })
