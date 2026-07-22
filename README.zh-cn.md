@@ -35,7 +35,6 @@
 
 ## Lint/Format
 
-- [eslint](https://eslint.org/) 仅用来检查oxlint 不支持的规则
 - [oxlint](https://github.com/oxc-project/oxc) rust 版本的 eslint
 - [oxfmt](https://github.com/oxc-project/oxc) 当前仅用来format
 

@@ -1,6 +1,7 @@
 import { defineConfig } from 'oxlint'
 
-import { notDefaultInOxlint } from './scripts/eslint-not-oxlint-default.ts'
+import { deferOxlintConfig } from './scripts/oxlint.rules.ts'
+
 export default defineConfig({
   categories: {
     correctness: 'error',
@@ -15,6 +16,7 @@ export default defineConfig({
     typeCheck: true,
   },
   plugins: ['react', 'import', 'react-perf', 'oxc', 'promise', 'typescript', 'unicorn', 'node'],
+  jsPlugins: deferOxlintConfig.jsPlugins,
   rules: {
     'import/consistent-type-specifier-style': 'error',
     'import/no-duplicates': 'error',
@@ -42,6 +44,7 @@ export default defineConfig({
         ],
       },
     ],
-    ...notDefaultInOxlint,
+    ...deferOxlintConfig.rules,
+    'unicorn-js/name-replacements': 'off',
   },
 })

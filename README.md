@@ -36,7 +36,6 @@ This is a development experience-friendly React SPA template that combines the m
 
 ## Lint/Format
 
-- [eslint](https://eslint.org/) Only used to check rules that oxlint does not support
 - [oxlint](https://github.com/oxc-project/oxc) Rust version of eslint
 - [oxfmt](https://github.com/oxc-project/oxc) Currently only used for format
 

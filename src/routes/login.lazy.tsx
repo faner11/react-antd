@@ -23,7 +23,7 @@ function RouteComponent() {
           const { password, username } = values
           if (username === 'admin' && password === '123456') {
             localStorage.setItem('login', 'true')
-            location.href = search.redirect ?? '/'
+            location.assign(search.redirect ?? '/')
             return Promise.resolve(true)
           }
           void message.error('账户名密码错误')
